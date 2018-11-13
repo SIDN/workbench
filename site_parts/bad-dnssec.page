@@ -1,0 +1,146 @@
+<p class="bodytext">
+Sections:
+<a href="index.html">Main</a> |
+<a href="types.html">RRTypes</a> | 
+<b><a href="bad-dnssec.html">DNSSEC validator testing</a></b> |
+<a href="delegations.html">Delegations</a> |
+<a href="transfers.html">Transfers and TSIG</a>
+</p>
+
+<p class="bodytext">
+The DNSSEC Bad Tree is a recursively generated tree of DNSSEC-signed zones, which contains specific deliberate signing errors, such as RRSIG records that have expired, RRSIG records that are bogus, etc.
+</p>
+<p class="bodytext">
+Based on the first label, a specific error condition is created by the signer (i.e. you'll usually run into the error upon encountering the DS record for the zone that starts with the error label):
+</p>
+<p class="bodytext">
+<table>
+	<tr>
+		<th>First label</th>
+		<th>Error</th>
+	</tr>
+	<tr>
+		<td>ok</td>
+		<td>No error</td>
+	</tr>
+	<tr>
+		<td>bogussig</td>
+		<td>The RRSIG record contains bogus signature data</td>
+	</tr>
+	<tr>
+		<td>nods</td>
+		<td>The DS record is missing</td>
+	</tr>
+	<tr>
+		<td>sigexpired</td>
+		<td>The RRSIG record has an expiration date in the past</td>
+	</tr>
+	<tr>
+		<td>signotincepted</td>
+		<td>The RRSIG record has an inception date in the future</td>
+	</tr>
+	<tr>
+		<td>unknownalgorithm</td>
+		<td>the RRSIG is signed correctly (with a known algorithm), but has the algorithm field set to another value.</td>
+	</tr>
+</table>
+</p>
+<p class="bodytext">
+Some example links:
+</p>
+<p class="bodytext">
+<ul>
+	<li><a href="//ok.ok.ok.bad-dnssec.wb.sidnlabs.nl/bad-dnssec.html">ok.ok.ok.bad-dnssec.wb.sidnlabs.nl</a></li>
+	<li><a href="//ok.bogussig.ok.bad-dnssec.wb.sidnlabs.nl/bad-dnssec.html">ok.bogussig.ok.bad-dnssec.wb.sidnlabs.nl</a></li>
+	<li><a href="//signotincepted.bad-dnssec.wb.sidnlabs.nl/bad-dnssec.html">signotincepted.bad-dnssec.wb.sidnlabs.nl</a></li>
+	<li><a href="//ok.ok.sigexpired.bad-dnssec.wb.sidnlabs.nl/bad-dnssec.html">ok.ok.sigexpired.bad-dnssec.wb.sidnlabs.nl</a></li>
+	<li><a href="//unknownalgorithm.ok.ok.bad-dnssec.wb.sidnlabs.nl/bad-dnssec.html">unknownalgorithm.ok.ok.bad-dnssec.wb.sidnlabs.nl</a></li>
+</ul>
+</p>
+<p class="bodytext">
+All the addresses point back to this webserver, so if you are using a validating resolver, the ones containing only 'ok' should work, while any of the others should not.
+</p>
+
+<h3>Examples</h3>
+
+<pre>
+> dig +short +cd A bogussig.bad-dnssec.wb.sidnlabs.nl
+94.198.159.25
+jelte@zen:~/repos/workbench (master)
+> dig +short A bogussig.bad-dnssec.wb.sidnlabs.nl
+jelte@zen:~/repos/workbench (master)
+> 
+
+> drill -k ~/root.key -S ok.ok.ok.bad-dnssec.wb.sidnlabs.nl
+;; Number of trusted keys: 1
+;; Chasing: ok.ok.ok.bad-dnssec.wb.sidnlabs.nl. A
+
+
+DNSSEC Trust tree:
+ok.ok.ok.bad-dnssec.wb.sidnlabs.nl. (A)
+|---ok.ok.ok.bad-dnssec.wb.sidnlabs.nl. (DNSKEY keytag: 37785 alg: 8 flags: 256)
+    |---ok.ok.ok.bad-dnssec.wb.sidnlabs.nl. (DS keytag: 37785 digest type: 2)
+        |---ok.ok.bad-dnssec.wb.sidnlabs.nl. (DNSKEY keytag: 4893 alg: 8 flags: 256)
+            |---ok.ok.bad-dnssec.wb.sidnlabs.nl. (DS keytag: 4893 digest type: 2)
+                |---ok.bad-dnssec.wb.sidnlabs.nl. (DNSKEY keytag: 31383 alg: 8 flags: 256)
+                    |---ok.bad-dnssec.wb.sidnlabs.nl. (DS keytag: 31383 digest type: 2)
+                        |---bad-dnssec.wb.sidnlabs.nl. (DNSKEY keytag: 39273 alg: 8 flags: 256)
+                            |---bad-dnssec.wb.sidnlabs.nl. (DS keytag: 39273 digest type: 2)
+                                |---wb.sidnlabs.nl. (DNSKEY keytag: 48378 alg: 8 flags: 256)
+                                    |---wb.sidnlabs.nl. (DNSKEY keytag: 44704 alg: 8 flags: 257)
+                                    |---wb.sidnlabs.nl. (DS keytag: 44704 digest type: 2)
+                                        |---sidnlabs.nl. (DNSKEY keytag: 20853 alg: 8 flags: 256)
+                                            |---sidnlabs.nl. (DNSKEY keytag: 52720 alg: 8 flags: 257)
+                                            |---sidnlabs.nl. (DS keytag: 52720 digest type: 2)
+                                                |---nl. (DNSKEY keytag: 11604 alg: 8 flags: 256)
+                                                    |---nl. (DNSKEY keytag: 21362 alg: 8 flags: 257)
+                                                    |---nl. (DS keytag: 21362 digest type: 2)
+                                                        |---. (DNSKEY keytag: 49656 alg: 8 flags: 256)
+                                                            |---. (DNSKEY keytag: 19036 alg: 8 flags: 257)
+;; Chase successful
+
+
+
+> drill -k ~/root.key -S ok.bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl
+;; Number of trusted keys: 1
+;; Chasing: ok.bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl. A
+
+
+DNSSEC Trust tree:
+ok.bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl. (A)
+|---ok.bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl. (DNSKEY keytag: 14865 alg: 8 flags: 256)
+    |---ok.bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl. (DS keytag: 14865 digest type: 2)
+        |---bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl. (DNSKEY keytag: 30186 alg: 8 flags: 256)
+            |---bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl. (DS keytag: 30186 digest type: 2)
+                |---Bogus DNSSEC signature:
+bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl.	3600	IN	RRSIG	DS 8 6 3600 20140101000000 20130904113008 44445 sigexpired.bad-dnssec.wb.sidnlabs.nl. njI+ODDX+8Hm7h/FTzkXjBWCQ0HK04n3HWQvk0n6K38FYkMwvhPK93NRJZ00idPFSZhBNEpQs7ucpIHYSGnoHiqz7ahF4Tyu1StSKVhLy62o7uzczJhrzZoJbY2ICWrLXx94f2DKMXRnMR2AS/UQHHcVoaLi3JakDy5bz1IwhB8=
+For RRset:
+bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl.	3600	IN	DS	30186 8 2 805af2a3bd9632c6cda11a15ff8281f28209b8433ce149697e9e63ad0498649e
+With key:
+sigexpired.bad-dnssec.wb.sidnlabs.nl.	59	IN	DNSKEY	256 3 8 AwEAAc23CAXK7DBpVKKIkZ0zGY8MLa2rpo/Y3HCgW8Er0T9QeNpAR/Vss+I5RqqYIOrTQwU8vNnO+x9wTQfZTIWkPphH9/7TZ03uckOO+wox3jEbHRO1XEf8O6/JxMVfi4ILkiEySh2Peqz8jtJN0iNqlfTO6EmLGXDWnC5qwlg0eNU3 ;{id = 44445 (zsk), size = 1024b}
+                |---sigexpired.bad-dnssec.wb.sidnlabs.nl. (DNSKEY keytag: 44445 alg: 8 flags: 256)
+                    |---sigexpired.bad-dnssec.wb.sidnlabs.nl. (DS keytag: 44445 digest type: 2)
+                        |---DNSSEC signature has expired:
+sigexpired.bad-dnssec.wb.sidnlabs.nl.	3600	IN	RRSIG	DS 8 5 3600 20120904113006 20110905113006 39273 bad-dnssec.wb.sidnlabs.nl. Tr/Mvew7AujzCENNk/0M6jf3Pehwg8dNxh52zC64wmLwr9F0dRMMBz7KtEOJQoPy8mv6J4MRyW8RKdV7XDEP3VQZHXbpo7usI15uK0o6NhvFg/A2ahhH10COnoNu0Uz5nHprT3cQUlW3kNVG455o6eRUfWNQusIYJB8AeB1amGk=
+For RRset:
+sigexpired.bad-dnssec.wb.sidnlabs.nl.	3600	IN	DS	44445 8 2 10c2880f5cb29c4c5b5bd730dffa72866f133921f2b3a5753cb73fd70e928f9d
+With key:
+bad-dnssec.wb.sidnlabs.nl.	20	IN	DNSKEY	256 3 8 AwEAAc124bCaj8nrkm6Q36tskZxAYu29KuTG426A2eNx34f6hBNGNJI+E2EAf6IXLd22/TE5QUfi7wR0Wi0bXvdwjWtq85YR3/wMnwq4BmbvSoVUViGOyB7MXUhdl3T6AolOrNiqGZ4O1AMHukmL0E7apV058NXMu0JBLWaa3PlCXKfh ;{id = 39273 (zsk), size = 1024b}
+                        |---bad-dnssec.wb.sidnlabs.nl. (DNSKEY keytag: 39273 alg: 8 flags: 256)
+                            |---bad-dnssec.wb.sidnlabs.nl. (DS keytag: 39273 digest type: 2)
+                                |---wb.sidnlabs.nl. (DNSKEY keytag: 48378 alg: 8 flags: 256)
+                                    |---wb.sidnlabs.nl. (DNSKEY keytag: 44704 alg: 8 flags: 257)
+                                    |---wb.sidnlabs.nl. (DS keytag: 44704 digest type: 2)
+                                        |---sidnlabs.nl. (DNSKEY keytag: 20853 alg: 8 flags: 256)
+                                            |---sidnlabs.nl. (DNSKEY keytag: 52720 alg: 8 flags: 257)
+                                            |---sidnlabs.nl. (DS keytag: 52720 digest type: 2)
+                                                |---nl. (DNSKEY keytag: 11604 alg: 8 flags: 256)
+                                                    |---nl. (DNSKEY keytag: 21362 alg: 8 flags: 257)
+                                                    |---nl. (DS keytag: 21362 digest type: 2)
+                                                        |---. (DNSKEY keytag: 49656 alg: 8 flags: 256)
+                                                            |---. (DNSKEY keytag: 19036 alg: 8 flags: 257)
+No trusted keys found in tree: first error was: Bogus DNSSEC signature
+;; Chase failed.
+
+
+</pre>

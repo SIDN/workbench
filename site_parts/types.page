@@ -1,0 +1,97 @@
+<p class="bodytext">
+Sections:
+<a href="index.html">Main</a> |
+<b><a href="types.html">RRTypes</a></b> | 
+<a href="bad-dnssec.html">DNSSEC validator testing</a> |
+<a href="delegations.html">Delegations</a> |
+<a href="transfers.html">Transfers and TSIG</a>
+</p>
+
+<p class="bodytext">
+This set of zones is intended to help with testing the handling of the different kind of RRTypes. We have a zone that contains (nearly) every RRType, including experimental and obsolete types. Note that the *contents* of the RRsets in this zone is generally meaningless; the data is intended to test the RRType handling itself, and therefore the Rdata contents tend to be either on the borders of sane data, or simply meaningless (think empty strings, example.org domain names, zero values, etc.).
+</p>
+<p class="bodytext">
+In principle, each type is available at the domain name derived from the type mnemonic, some examples:
+</p>
+<p class="bodytext">
+<table>
+	<tr>
+		<th>type</th>
+		<th>name</th>
+	</tr>
+	<tr>
+		<td>AAAA</td>
+		<td>aaaa.types.wb.sidnlabs.nl</td>
+	</tr>
+	<tr>
+		<td>GPOS</td>
+		<td>gpos.types.wb.sidnlabs.nl</td>
+	</tr>
+</table>
+</p>
+<p class="bodytext">
+And they are all available at the domain name based on their type number as well:
+</p>
+<p class="bodytext">
+<table>
+	<tr>
+		<th>type</th>
+		<th>name</th>
+	</tr>
+	<tr>
+		<td>TXT</td>
+		<td>type16.types.wb.sidnlabs.nl</td>
+	</tr>
+	<tr>
+		<td>NINFO</td>
+		<td>type56.types.wb.sidnlabs.nl</td>
+	</tr>
+</table>
+</p>
+<p class="bodytext">
+If a type is not in this zone, it is probably not supported well enough by all the different servers.
+</p>
+<p class="bodytext">
+The default zone is unsigned, but we provide a signed version as well: signed-types.wb.sidnlabs.nl. The zone is signed with ldns-signzone.
+</p>
+<p class="bodytext">
+A zone file of the unsigned zone can be found <a href="//workbench.sidnlabs.nl/types.wb.sidnlabs.nl.txt">here</a>.
+A zone file of the signed zone can be found <a href="//workbench.sidnlabs.nl/types-signed.wb.sidnlabs.nl.txt">here</a>.
+</p>
+<p class="bodytext">
+Zone overview:
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>types.wb.sidnlabs.nl</td>
+		<td>Unsigned version of the zone-with-many-rrtypes</td>
+	</tr>
+	<tr>
+		<td>types-signed.wb.sidnlabs.nl</td>
+		<td>DNSSEC-signed version of the zone-with-many-rrtypes</td>
+	</tr>
+</table>
+</p>
+<p class="bodytext">
+As with the other zones, both can be transfered directly through XFR as well, from all workbench servers. See the <TRANSFERS> page for details.
+</p>
+<h3>Examples</h3>
+<pre>
+> dig +short -t GPOS gpos.types.wb.sidnlabs.nl @nsd.sidnlabs.nl
+"23.67" "23.67" "23.67"
+
+> dig +short -t GPOS type27.types.wb.sidnlabs.nl @knot.sidnlabs.nl
+"23.67" "23.67" "23.67"
+
+> drill -t TLSA tlsa.types-signed.wb.sidnlabs.nl @bind10.sidnlabs.nl | grep TLSA
+;; tlsa.types-signed.wb.sidnlabs.nl.	IN	TLSA
+tlsa.types-signed.wb.sidnlabs.nl.	60	IN	TLSA	1 1 2 92003ba34942dc74152e2f2c408d29eca5a520e7f2e06bb944f4dca346baf63c1b177615d466f6c4b71c216a50292bd58c9ebdd2f74e38fe51ffd48c43326cbc
+
+> drill -t TYPE52 type52.types-signed.wb.sidnlabs.nl @powerdns.sidnlabs.nl | grep TLSA
+;; type52.types-signed.wb.sidnlabs.nl.	IN	TLSA
+type52.types-signed.wb.sidnlabs.nl.	60	IN	TLSA	1 1 2 92003ba34942dc74152e2f2c408d29eca5a520e7f2e06bb944f4dca346baf63c1b177615d466f6c4b71c216a50292bd58c9ebdd2f74e38fe51ffd48c43326cbc
+
+</pre>

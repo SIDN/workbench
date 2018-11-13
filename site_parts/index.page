@@ -1,0 +1,104 @@
+<p class="bodytext">
+Sections:
+<b><a href="index.html">Main</a></b> |
+<a href="types.html">RRTypes</a> | 
+<a href="bad-dnssec.html">DNSSEC validator testing</a> |
+<a href="delegations.html">Delegations</a> |
+<a href="transfers.html">Transfers and TSIG</a>
+</p>
+
+<p class="bodytext">
+The SIDN Labs DNS workbench is a set of different nameservers that
+run a known set of configurations and zones; In general the goal is
+to be able to send a specific query to different implementations and
+see the difference in their responses, if any.
+</p>
+<p class="bodytext">
+The idea behind the workbench is that, without having to set up an
+entire infrastructure yourself, you can quickly find answers to
+questions such as 'How does NSD4 respond to an ANY query for a wildcard
+name in an NSEC3 opt-out zone?' (Note: this specific scenario is on the
+roadmap but not implemented just yet).
+</p>
+<p class="bodytext">
+<b>This is a work in progress. Server names, zone names and contents may change in the near future. If you see something you don't expect, always check these pages first.</b>
+</p>
+<p class="bodytext">
+At this moment, there are 6 name servers in the work bench,
+a number of different zones (currently, all servers are serving all zones).
+</p>
+<p class="bodytext">
+Note that the zone names may change in the near future, as the naming conventions might be modified while we are adding scenarios.
+</p>
+<p class="bodytext">
+If you see any problems with the bench, or have any suggestions,
+please contact Jelte (mailto:jelte.jansen@sidn.nl).
+</p>
+<h4>Servers</h4>
+<p class="bodytext">
+The following servers are currently running:
+</p>
+<ul>
+<li>nsd.sidnlabs.nl (NSD 3.2)</li>
+<li>nsd4.sidnlabs.nl (NSD 4.0 (trunk))</li>
+<li>bind9.sidnlabs.nl (bind 9.9.3)</li>
+<li>bind10.sidnlabs.nl (bind10 1.1.0)</li>
+<li>knot.sidnlabs.nl (Knot 1.4rc1)</li>
+<li>powerdns.sidnlabs.nl (PowerDNS 3.2)</li>
+<li>yadifa.sidnlabs.nl (Yadifa 2.0.5)</li>
+</ul>
+
+<p class="bodytext">
+At this time, there are three 'classes' of setups:
+</p>
+<p class="bodytext">
+<table>
+	<tr>
+		<td><a href="types.html">RRTypes</a></td>
+		<td>Different RRTypes, including obsolete and exotic ones.</td>
+	</tr>
+	<tr>
+		<td><a href="bad-dnssec.html">DNSSEC validator testing</a></td>
+		<td>A tree with deliberate errors in the DNSSEC chain(s), to test validators</td>
+	</tr>
+	<tr>
+		<td><a href="transfers.html">Transfers and TSIG</a></td>
+		<td>Transfering and using/testing TSIG support</td>
+	</tr>
+</table>
+</p>
+
+<h4>Roadmap</h4>
+<p class="bodytext">
+We intend to continually expand the work bench with different scenarios
+as we come up with them. A few short-term goals
+</p>
+<ul>
+<li>Add delegations between the different servers</li>
+<li>Add zones (or names) with other 'things' than rr types (wildcards,
+empty non-terminals, etc.)</li>
+<li>Add more scenarios to the deliberately broken DNSSEC zones</li>
+<li>Add zones with different signing parameters</li>
+<li>Add zones signed with different signers</li>
+</ul>
+
+<p class="bodytext">
+The biggest challenge here is not to set them up, but to make them
+consistent, predictable, and easily maintainable, currently we are
+looking into that.
+</p>
+
+<h2>Disclaimer</h2>
+<p class="bodytext">
+This is a beta service! This service is <em>explicitely</em> not 
+supported by SIDN, but by SIDN Labs. Its setup can change at any 
+moment, without any warning, so it is not advisable to depend on this
+service for any other (automated) service or system.
+</p>
+<p class="bodytext">
+If there are any problems with the software or service, please 
+contact <a href="mailto:jelte.jansen@sidn.nl">Jelte</a>, or SIDN Labs, through
+<a href="//www.sidnlabs.nl/over-sidn-labs/contact/">our contact page</a>.
+We would also be very much interested if you have used the workbench, or if you are still missing something that would make it useful for you. So please let us know!
+</p>
+
