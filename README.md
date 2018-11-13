@@ -15,23 +15,25 @@ can be left alone.
 
 The directory layout is as follows:
 
-/ext        External tools, scripts, paths, freeform layout.
-/libs       Internal libs for shared code between scripts
-/generators Scripts that generate the data, each subdirectory is one
-            'type' of generator.
-/input      Static input data
-/output     Generated and copied data is placed below this directory
+- /ext        External tools, scripts, paths, freeform layout.
+- /libs       Internal libs for shared code between scripts
+- /generators Scripts that generate the data, each subdirectory is one 'type' of generator.
+- /input      Static input data
+- /output     Generated and copied data is placed below this directory
 
 Prerequisites:
+
 - ldns and ldns-dev
 
 Steps to get it running:
+
     (cd ext/ldns-3597; make)
     (cd ext/ldns-sign-special; make)
     ./create_configs.sh
     ./create_zones.sh
 
 Steps to create additional content:
+
 - Write a generator (to get entries into the db), or add to an existing one
 - Run the generator
     * only adds/updates entries in the db
