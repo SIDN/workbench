@@ -11,7 +11,6 @@ $TTL 60
 @			NS	bind9.sidnlabs.nl.
 @			NS	knot.sidnlabs.nl.
 @			NS	powerdns.sidnlabs.nl.
-@			NS	yadifa.sidnlabs.nl.
 
 ; type 1
 a01			A	0.0.0.0

@@ -83,7 +83,7 @@ def add_standard_sign_options(zd):
     zd.add("signer_params", "-o")
     zd.add("signer_params", dname)
     zd.add("signer_params", "-e")
-    zd.add("signer_params", "20160101000000")
+    zd.add("signer_params", "20200101000000")
     zd.add("signer_params", "-f")
     zd.add("signer_params", "signed/" + dname_u)
     # Make this stdin too?

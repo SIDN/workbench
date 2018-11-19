@@ -17,8 +17,8 @@ Currently, all the zones are signed with RSA-SHA1, and NSEC. We could make these
 <p class="bodytext">
 <ul>
 	<li><a href="//knot.delegations.wb.sidnlabs.nl/delegations.html">knot.delegations.wb.sidnlabs.nl</a> Served with Knot</li>
-	<li><a href="//nsd.yadifa.knot.delegations.wb.sidnlabs.nl/delegations.html">nsd.yadifa.knot.delegations.wb.sidnlabs.nl</a> Served with Knot</li>
-	<li><a href="//bind10.nsd4.powerdns.delegations.wb.sidnlabs.nl/delegations.html">bind10.nsd4.powerdns.delegations.wb.sidnlabs.nl</a> Served with BIND10 (delegated from NSD4, delegated from PowerDNS)</li>
+	<li><a href="//nsd.knot.delegations.wb.sidnlabs.nl/delegations.html">nsd.knot.delegations.wb.sidnlabs.nl</a> Served with NSD (delegated from nsd4) </li>
+	<li><a href="//knot.nsd4.powerdns.delegations.wb.sidnlabs.nl/delegations.html">knot.nsd4.powerdns.delegations.wb.sidnlabs.nl</a> Served with Knot (delegated from NSD4, delegated from PowerDNS)</li>
 	<li><a href="//nsd.nsd.nsd.delegations.wb.sidnlabs.nl/delegations.html">nsd.nsd.nsd.delegations.wb.sidnlabs.nl</a> Served with NSD 3 (which also serves both delegations)</li>
 </ul>
 </p>

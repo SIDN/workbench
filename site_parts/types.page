@@ -86,7 +86,7 @@ As with the other zones, both can be transfered directly through XFR as well, fr
 > dig +short -t GPOS type27.types.wb.sidnlabs.nl @knot.sidnlabs.nl
 "23.67" "23.67" "23.67"
 
-> drill -t TLSA tlsa.types-signed.wb.sidnlabs.nl @bind10.sidnlabs.nl | grep TLSA
+> drill -t TLSA tlsa.types-signed.wb.sidnlabs.nl @nsd4.sidnlabs.nl | grep TLSA
 ;; tlsa.types-signed.wb.sidnlabs.nl.	IN	TLSA
 tlsa.types-signed.wb.sidnlabs.nl.	60	IN	TLSA	1 1 2 92003ba34942dc74152e2f2c408d29eca5a520e7f2e06bb944f4dca346baf63c1b177615d466f6c4b71c216a50292bd58c9ebdd2f74e38fe51ffd48c43326cbc
 

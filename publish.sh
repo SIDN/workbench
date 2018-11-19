@@ -38,8 +38,8 @@ backup_file nsd /var/workbench/nsd.conf /var/workbench/nsd.conf.${DATE}
 backup_file nsd4 /var/workbench/nsd.conf /var/workbench/nsd.conf.${DATE}
 backup_file knot /var/workbench/knot.conf /var/workbench/knot.conf.${DATE}
 backup_file bind9 /var/workbench/named.conf.workbench /var/workbench/named.conf.workbench.${DATE}
-backup_file bind10 /var/workbench/bind10_commands.txt /var/workbench/bind10_commands.txt.${DATE}
-backup_file yadifa /var/workbench/yadifad.conf /var/workbench/yadifad.conf.${DATE}
+#backup_file bind10 /var/workbench/bind10_commands.txt /var/workbench/bind10_commands.txt.${DATE}
+#backup_file yadifa /var/workbench/yadifad.conf /var/workbench/yadifad.conf.${DATE}
 #backup_file bind10 /home/jelte/bind10_transfers.txt /home/jelte/bind10_transfers.txt.${DATE}
 #backup_file bind10 /var/workbench/pdns_commands.txt /var/workbench/pdns_commands.txt.${DATE}
 
@@ -65,12 +65,12 @@ update_file knot output/servers/knot/knot.conf /var/workbench/knot.conf
 update_file knot output/servers/knot/update.sh /var/workbench/update.sh
 update_file bind9 output/servers/bind9/bind9.conf /etc/bind/named.conf.workbench
 update_file bind9 output/servers/bind9/update.sh /var/workbench/update.sh
-update_file bind10 output/servers/bind10/bind10.conf /var/workbench/bind10_commands.txt
-update_file bind10 output/servers/bind10/update.sh /var/workbench/update.sh
+#update_file bind10 output/servers/bind10/bind10.conf /var/workbench/bind10_commands.txt
+#update_file bind10 output/servers/bind10/update.sh /var/workbench/update.sh
 update_file powerdns output/servers/powerdns/update.sh /var/workbench/update.sh
-update_file yadifa output/servers/yadifa/yadifa.conf /var/workbench/yadifad.conf
+#update_file yadifa output/servers/yadifa/yadifa.conf /var/workbench/yadifad.conf
 update_file powerdns output/servers/powerdns/update.sh /var/workbench/update.sh
-update_file yadifa output/servers/yadifa/update.sh /var/workbench/update.sh
+#update_file yadifa output/servers/yadifa/update.sh /var/workbench/update.sh
 
 #update_file bind10 configs/bind10_transfers.txt /home/jelte/bind10_transfers.txt
 # Powerdns updates itself (has nsd as supermaster)
@@ -86,9 +86,9 @@ rsync -rz output/final/ nsd:/var/workbench/zones/
 rsync -rz output/final/ nsd4:/var/workbench/zones/
 rsync -rz output/final/ knot:/var/workbench/zones/
 rsync -rz output/final/ bind9:/etc/bind/zones/
-rsync -rz output/final/ bind10:/var/workbench/zones
+#rsync -rz output/final/ bind10:/var/workbench/zones
 rsync -rz output/final/ powerdns:/var/workbench/zones/
-rsync -rz output/final/ yadifa:/var/workbench/zones/
+#rsync -rz output/final/ yadifa:/var/workbench/zones/
 
 #
 #
@@ -111,8 +111,8 @@ apply_update nsd
 apply_update nsd4
 apply_update knot
 apply_update bind9
-apply_update yadifa
-apply_update bind10
+#apply_update yadifa
+#apply_update bind10
 apply_update powerdns
 # bind10 and powerdns done by hand for now (those take too long
 # with the current setup)

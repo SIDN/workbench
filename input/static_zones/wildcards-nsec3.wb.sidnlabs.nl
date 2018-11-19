@@ -6,7 +6,6 @@ wildcards-nsec3.wb.sidnlabs.nl.	60	IN	NS	bind9.sidnlabs.nl.
 wildcards-nsec3.wb.sidnlabs.nl.	60	IN	NS	nsd4.sidnlabs.nl.
 wildcards-nsec3.wb.sidnlabs.nl.	60	IN	NS	knot.sidnlabs.nl.
 wildcards-nsec3.wb.sidnlabs.nl.	60	IN	NS	nsd.sidnlabs.nl.
-wildcards-nsec3.wb.sidnlabs.nl.	60	IN	NS	yadifa.sidnlabs.nl.
 wildcards-nsec3.wb.sidnlabs.nl.	60	IN	A	94.198.159.25
 *.wildcards-nsec3.wb.sidnlabs.nl.  60  IN  A   94.198.159.25
 www.wildcards-nsec3.wb.sidnlabs.nl.	60	IN	A	94.198.159.25

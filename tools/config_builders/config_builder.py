@@ -396,37 +396,65 @@ class KnotConfigGenerator(ConfigGenerator):
         return "knot"
     
     def get_start(self):
-        return [ "system {",
-                 "  identity \"knot\";",
-                 "  storage \"/var/lib/knot\";",
-                 "}",
+        return [ "server:",
+                 "  identity: knot",
+                 "  listen: 127.0.0.1",
+                 "  listen: 94.198.159.27",
+                 "  listen: ::1",
+                 "  listen: 2a00:d78:4:503:94:198:159:27",
                  "",
-                 "interfaces {",
-                 "  localv4 { address 127.0.0.1; }",
-                 "  localv6 { address ::1; }",
-                 "  pubv4 { address 94.198.159.27; }",
-                 "  pubv6 { address 2a00:d78:4:503:94:198:159.27; }",
-                 "}",
+                 "remote:",
+                 "  - id: m94.198.159.24",
+                 "    address: 94.198.159.24",
+                 "  - id: m94.198.159.25",
+                 "    address: 94.198.159.25",
+                 "  - id: m94.198.159.26",
+                 "    address: 94.198.159.26",
+                 "  - id: m94.198.159.27",
+                 "    address: 94.198.159.27",
+                 "  - id: m94.198.159.33",
+                 "    address: 94.198.159.33",
+                 "  - id: m94.198.159.39",
+                 "    address: 94.198.159.39",
                  "",
-                 "remotes {",
-                 "  m94.198.159.24 { address 94.198.159.24@53; }",
-                 "  m94.198.159.25 { address 94.198.159.25@53; }",
-                 "  m94.198.159.26 { address 94.198.159.26@53; }",
-                 "  m94.198.159.27 { address 94.198.159.27@53; }",
-                 "  m94.198.159.33 { address 94.198.159.33@53; }",
-                 "  m94.198.159.39 { address 94.198.159.39@53; }",
-                 "  any { address 0.0.0.0/0; }",
-                 "  anyv6 { address ::/0; }",
-                 "}",
+                 "log:",
+                 "  - target: syslog",
+                 "    server: notice",
+                 "    zone: notice",
+                 "    any: notice",
+                 "key:",
+                 "  - id: wb_md5",
+                 "    algorithm: hmac-md5",
+                 "    secret: Wu/utSasZUkoeCNku152Zw==",
+                 "  - id: wb_sha1",
+                 "    algorithm: hmac-sha1",
+                 "    secret: Vn37JPSCmaCHKJhghcpRg8m6PlQ=",
+                 "  - id: wb_sha1_longkey",
+                 "    algorithm: hmac-sha1",
+                 "    secret: uhMpEhPq/RAD9Bt4mqhfmi+7ZdKmjLQb/lcrqYPXR4s/nnbsqw==",
+                 "  - id: wb_sha256",
+                 "    algorithm: hmac-sha256",
+                 "    secret: npfrIJjt/MJOjGJoBNZtsjftKMhkSpIYMv2RzRZt1f8=",
+                 "acl:",
+                 "  - id: any",
+                 "    action: transfer",
+                 "  - id: awb_md5",
+                 "    key: wb_md5",
+                 "    action: transfer",
+                 "  - id: awb_sha1",
+                 "    key: wb_sha1",
+                 "    action: transfer",
+                 "  - id: awb_sha1_longkey",
+                 "    key: wb_sha1_longkey",
+                 "    action: transfer",
+                 "  - id: awb_sha256",
+                 "    key: wb_sha256",
+                 "    action: transfer",
                  "",
-                 "log {",
-                 "  syslog { any warning, error; }",
-                 "}",
-                 "",
-                 "zones {" ]
+                 "zone:" ]
 
     def get_end(self):
-        return [ "}",
+        return [ "",
                  "" ]
     
     def get_tsig_key_chunk(self, key):
@@ -439,23 +467,26 @@ class KnotConfigGenerator(ConfigGenerator):
         zname_u = dnsutil.ufqdn(zname)
 
         lines = [
-            "  %s {" % zname,
+            "  - domain: %s" % zname,
             # TODO: tsig
-            "    xfr-out any;",
-            "    xfr-out anyv6;"
+            "    acl: any",
+            "    acl: awb_md5",
+            "    acl: awb_sha1",
+            "    acl: awb_sha1_longkey",
+            "    acl: awb_sha256",
         ]
         
         if self.is_primary_for(zd):
-            lines.append("    file \"zones/%s\";" % zname_u)
+            lines.append("    file: \"/var/lib/knot/zones/%s\"" % zname_u)
             for secondary in zd.get("secondary_names"):
                 raise Exception("NotImplYet " + self.get_name() + " " + zd.get("name"))
         elif self.is_secondary_for(zd):
             primary_addr = get_primary_addr(zd)
-            lines.append("    xfr-in m%s;" % primary_addr)
-            lines.append("    notify-in m%s;" % primary_addr)
+            lines.append("    master: m%s" % primary_addr)
+            #lines.append("    notify-in m%s;" % primary_addr)
         
         lines.extend([
-            "  }"
+            ""
         ])
 
         return lines
@@ -649,10 +680,10 @@ def create_config_files_and_scripts():
         NSDConfigGenerator(zds),
         NSD4ConfigGenerator(zds),
         Bind9ConfigGenerator(zds),
-        Bind10ConfigGenerator(zds),
+        #Bind10ConfigGenerator(zds),
         KnotConfigGenerator(zds),
         PowerDNSConfigGenerator(zds),
-        YadifaConfigGenerator(zds),
+        #YadifaConfigGenerator(zds),
     ]
     for generator in generators:
         generator.create_config_file()

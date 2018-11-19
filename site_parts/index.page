@@ -42,10 +42,9 @@ The following servers are currently running:
 <li>nsd.sidnlabs.nl (NSD 3.2)</li>
 <li>nsd4.sidnlabs.nl (NSD 4.0 (trunk))</li>
 <li>bind9.sidnlabs.nl (bind 9.9.3)</li>
-<li>bind10.sidnlabs.nl (bind10 1.1.0)</li>
 <li>knot.sidnlabs.nl (Knot 1.4rc1)</li>
 <li>powerdns.sidnlabs.nl (PowerDNS 3.2)</li>
-<li>yadifa.sidnlabs.nl (Yadifa 2.0.5)</li>
+<!--<li>yadifa.sidnlabs.nl (Yadifa 2.0.5)</li>-->
 </ul>
 
 <p class="bodytext">

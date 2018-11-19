@@ -6,6 +6,5 @@ nsec3-opt-out.wb.sidnlabs.nl.	60	IN	NS	bind9.sidnlabs.nl.
 nsec3-opt-out.wb.sidnlabs.nl.	60	IN	NS	nsd4.sidnlabs.nl.
 nsec3-opt-out.wb.sidnlabs.nl.	60	IN	NS	knot.sidnlabs.nl.
 nsec3-opt-out.wb.sidnlabs.nl.	60	IN	NS	nsd.sidnlabs.nl.
-nsec3-opt-out.wb.sidnlabs.nl.	60	IN	NS	yadifa.sidnlabs.nl.
 nsec3-opt-out.wb.sidnlabs.nl.	60	IN	A	94.198.159.25
 

@@ -40,12 +40,11 @@ SERVER_ZONE = "sidnlabs.nl."
 
 delegation_servers = [
     "bind9",
-    "bind10",
     "nsd",
     "nsd4",
     "powerdns",
-    "knot",
-    "yadifa"
+    "knot"
+    #"yadifa"
 ]
 
 def create_delegations_zonelist(name, depth):

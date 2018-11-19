@@ -38,7 +38,7 @@ OUTPUT_FILE = "static_zones.db"
 INPUT_DIR = env.INPUT_BASE_PATH + "/static_zones"
 
 #T3597 = "A6 CDS GPOS NINFO NSAP-PTR TLSA TALINK NID L32 L64 LP RKEY"
-T3597 = "A6 GPOS NSAP-PTR TLSA TALINK NID L32 L64 LP"
+T3597 = "A6 CDS GPOS NSAP-PTR TLSA TALINK NID L32 L64 LP"
 SIGNER = env.EXT_TOOLS_PATH + "/ldns-sign-special/ldns-sign-special"
 
 def list_files(recursive=False, filter=None):
@@ -58,7 +58,7 @@ def add_nsec3_sign_options(zd):
     zd.add("signer_params", "-o")
     zd.add("signer_params", dname)
     zd.add("signer_params", "-e")
-    zd.add("signer_params", "20160101000000")
+    zd.add("signer_params", "20200101000000")
     zd.add("signer_params", "-f")
     zd.add("signer_params", "signed/" + dname_u)
     # Make this stdin too?
@@ -92,9 +92,8 @@ def set_servers(zd):
     zd.add("primary_names", "nsd")
     zd.add("secondary_names", "nsd4")
     zd.add("secondary_names", "bind9")
-    zd.add("secondary_names", "bind10")
     zd.add("secondary_names", "knot")
-    zd.add("secondary_names", "yadifa")
+    #zd.add("secondary_names", "yadifa")
 
 def generate_static_zone_entries():
     zds = []
