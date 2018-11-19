@@ -71,6 +71,10 @@ def add_nsec3_sign_options(zd):
     zd.add("signer_keys", dname_u)
     zd.add("signer_keys", dname_u + ".ksk")
 
+def add_nsec3_opt_out_sign_options(zd):
+    zd.add("signer_params", "-p")
+    return add_nsec3_sign_options(zd)
+
 def add_3597(zd):
     zd.set("finalizer_script", "../ext/ldns-3597/ldns-3597")
     zd.add("finalizer_params", "-i")
@@ -125,7 +129,18 @@ def generate_static_zone_entries():
     add_nsec3_sign_options(zd)
     set_servers(zd)
     zds.append(zd)
-    
+
+    zd = zonedata.ZoneData()
+    dname = "nsec3-opt-out." + env.DOMAIN
+    zd.set("name", dname)
+    add_nsec3_opt_out_sign_options(zd)
+    zd.set("finalizer_script", "../ext/concat.sh")
+    zd.add("finalizer_params", "final/" + dnsutil.ufqdn(zd.get("name")))
+    zd.add("finalizer_params", "signed/" + dnsutil.ufqdn(zd.get("name")))
+    zd.add("finalizer_params", "../input/static_zones/" + dnsutil.ufqdn(zd.get("name")) + ".opt-out")
+    set_servers(zd)
+    zds.append(zd)
+ 
     # Create an entry for each file in auto
     for af in list_files():
         autofiles = list_files()
@@ -169,6 +184,10 @@ def create_zone_files(regen = False):
     if regen or filestamps.file_updated([source_file], target_file):
         shutil.copyfile(source_file, target_file)
 
+    source_file = INPUT_DIR + "/nsec3-opt-out.wb.sidnlabs.nl"
+    target_file = env.OUTPUT_BASE_PATH + "/uncompleted/nsec3-opt-out.wb.sidnlabs.nl"
+    if regen or filestamps.file_updated([source_file], target_file):
+        shutil.copyfile(source_file, target_file)
 
     # Copy all files in auto
     for (target_name, source) in list_files():

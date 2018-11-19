@@ -1,0 +1,5 @@
+*.nsec3-opt-out.wb.sidnlabs.nl.  60  IN  A   94.198.159.25
+www.nsec3-opt-out.wb.sidnlabs.nl.	60	IN	A	94.198.159.25
+txt.nsec3-opt-out.wb.sidnlabs.nl. 60 IN TXT "Non-wildcard value"
+*.ent.nsec3-opt-out.wb.sidnlabs.nl 60	IN	A 94.198.159.25
+txt.ent.nsec3-opt-out.wb.sidnlabs.nl. 60 IN TXT "Non-wildcard value"
