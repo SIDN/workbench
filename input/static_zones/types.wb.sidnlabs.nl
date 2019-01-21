@@ -1,16 +1,17 @@
 $TTL 60
 
-@		86400	IN SOA	nsd.sidnlabs.nl. hostmaster.sidnlabs.nl. (
+@		86400	IN SOA	bind9.sidnlabs.nl. hostmaster.sidnlabs.nl. (
 					0
 					3600
 					600
 					1814400
 					3600 )
-@			NS	nsd.sidnlabs.nl.
+;@			NS	nsd.sidnlabs.nl.
 @			NS	nsd4.sidnlabs.nl.
 @			NS	bind9.sidnlabs.nl.
 @			NS	knot.sidnlabs.nl.
 @			NS	powerdns.sidnlabs.nl.
+@			NS	yadifa.sidnlabs.nl.
 
 ; type 1
 a01			A	0.0.0.0

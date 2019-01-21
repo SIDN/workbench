@@ -37,6 +37,7 @@ print(env.ZONE_DB_PATH)
 OUTPUT_FILE = "static_zones.db"
 INPUT_DIR = env.INPUT_BASE_PATH + "/static_zones"
 
+# TODO: is this still the intention? Why was it done in the first place?
 #T3597 = "A6 CDS GPOS NINFO NSAP-PTR TLSA TALINK NID L32 L64 LP RKEY"
 T3597 = "A6 CDS GPOS NSAP-PTR TLSA TALINK NID L32 L64 LP"
 SIGNER = env.EXT_TOOLS_PATH + "/ldns-sign-special/ldns-sign-special"
@@ -87,13 +88,13 @@ def add_3597(zd):
 def set_servers(zd):
     # Most servers don't like to read/parse/load a number of rrtypes,
     # but they will accept it when they are secondary
-    # So we'll make NSD the master, and all the others the secondary
+    # So we'll make BIND9 (was NSD) the master, and all the others the secondary
     # For the types zones
-    zd.add("primary_names", "nsd")
+    #zd.add("primary_names", "nsd")
+    zd.add("primary_names", "bind9")    
     zd.add("secondary_names", "nsd4")
-    zd.add("secondary_names", "bind9")
     zd.add("secondary_names", "knot")
-    #zd.add("secondary_names", "yadifa")
+    zd.add("secondary_names", "yadifa")
 
 def generate_static_zone_entries():
     zds = []
@@ -114,7 +115,7 @@ def generate_static_zone_entries():
     set_servers(zd)
     zds.append(zd)
 
-	# Apex cname works with powerdns only
+    # Apex cname works with powerdns only
     zd = zonedata.ZoneData()
     dname = "apexcname." + env.DOMAIN
     zd.set("name", dname)
@@ -148,14 +149,15 @@ def generate_static_zone_entries():
         dnsutil.add_standard_sign_options(zd)
         zds.append(zd)
 
-    # Secondary for example.nl on nsd.sidnlabs.nl
-    zd = zonedata.ZoneData()
-    zd.set("name", "example.nl")
-    # explicitely set primary_names to none, not empty list
-    zd.set("nofile", True)
-    zd.add("primary_names", "94.198.159.3")
-    zd.add("secondary_names", "nsd")
-    zds.append(zd)
+    # TODO: remove ?
+    ## Secondary for example.nl on nsd.sidnlabs.nl
+    #zd = zonedata.ZoneData()
+    #zd.set("name", "example.nl")
+    ## explicitely set primary_names to none, not empty list
+    #zd.set("nofile", True)
+    #zd.add("primary_names", "94.198.159.3")
+    #zd.add("secondary_names", "nsd")
+    #zds.append(zd)
 
     zonedata.write_zone_data(env.ZONE_DB_PATH + "/static_zones.db", zds)
     #print([str(zd) for zd in zds])
