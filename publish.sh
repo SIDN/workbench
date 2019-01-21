@@ -1,47 +1,57 @@
-#!/bin/sh
+#!/bin/bash
+
+if [[ $EUID -ne 0 ]]; then
+  echo "You must be a root user. Quitting." 2>&1
+exit 1
+else
+  echo "Let's do this!"
+fi
 
 DATE=`date -I`
 
 check_rcode() {
     RCODE=$?
     if [ $RCODE -eq 0 ]; then
-        echo -n "";
+        echo "Succes!";
     else
-        echo "Failed";
+        echo "Failed - aborting now";
         exit $RCODE
     fi
 }
 
 # Generate config
-
-#./scripts/generator.py configs/
-#check_rcode
-
 #
+echo "Generating zones"
+#./create_zones.sh
+echo "(skipped as per design)"
+check_rcode
+
+# Generate config
+#
+echo "Generating config"
+#./create_configs.sh
+echo "(skipped as per design)"
+check_rcode
+
 #
 # Backups
 #
-#
-
 
 # $1 = host, $2 = file, $3 = target file
 backup_file() {
-    echo "Backup on $1: $2 to $3"
+    echo "Backup $1 files: $2 to $3"
     # Note: -n, only backup if we haven't called this script
     # today yet (usually when it fails we do not want to keep
     # the failing attempts)
-    ssh -4 $1 cp -n $2 $3
-    check_rcode
+    cp -n $2 $3
+    #check_rcode
 }
 
-backup_file nsd /var/workbench/nsd.conf /var/workbench/nsd.conf.${DATE}
-backup_file nsd4 /var/workbench/nsd.conf /var/workbench/nsd.conf.${DATE}
-backup_file knot /var/workbench/knot.conf /var/workbench/knot.conf.${DATE}
-backup_file bind9 /var/workbench/named.conf.workbench /var/workbench/named.conf.workbench.${DATE}
-#backup_file bind10 /var/workbench/bind10_commands.txt /var/workbench/bind10_commands.txt.${DATE}
+#backup_file nsd /var/workbench/nsd.conf /var/workbench/nsd.conf.${DATE}
+backup_file nsd4 /etc/nsd/nsd.conf.d/nsd4.conf /etc/nsd/nsd.conf.d/nsd4.conf.${DATE}
+#backup_file knot /var/workbench/knot.conf /var/workbench/knot.conf.${DATE}
+#backup_file bind9 /var/workbench/named.conf.workbench /var/workbench/named.conf.workbench.${DATE}
 #backup_file yadifa /var/workbench/yadifad.conf /var/workbench/yadifad.conf.${DATE}
-#backup_file bind10 /home/jelte/bind10_transfers.txt /home/jelte/bind10_transfers.txt.${DATE}
-#backup_file bind10 /var/workbench/pdns_commands.txt /var/workbench/pdns_commands.txt.${DATE}
 
 #
 #
@@ -52,29 +62,31 @@ backup_file bind9 /var/workbench/named.conf.workbench /var/workbench/named.conf.
 # Config files
 # $1 = host, $2 = file, $3 = target file
 update_file() {
-    echo "Update config file on $1 source $2 target $3"
-    scp -4 $2 $1:$3
+    echo "Update config file for $1 from source $2 to target $3"
+    # TODO do we want the -n, or maybe not?
+    cp $2 $3
     check_rcode
 }
 
-update_file nsd output/servers/nsd/nsd.conf /var/workbench/nsd.conf
-update_file nsd output/servers/nsd/update.sh /var/workbench/update.sh
-update_file nsd4 output/servers/nsd4/nsd4.conf /var/workbench/nsd.conf
-update_file nsd4 output/servers/nsd4/update.sh /var/workbench/update.sh
-update_file knot output/servers/knot/knot.conf /var/workbench/knot.conf
-update_file knot output/servers/knot/update.sh /var/workbench/update.sh
-update_file bind9 output/servers/bind9/bind9.conf /etc/bind/named.conf.workbench
-update_file bind9 output/servers/bind9/update.sh /var/workbench/update.sh
-#update_file bind10 output/servers/bind10/bind10.conf /var/workbench/bind10_commands.txt
-#update_file bind10 output/servers/bind10/update.sh /var/workbench/update.sh
-update_file powerdns output/servers/powerdns/update.sh /var/workbench/update.sh
+#update_file nsd output/servers/nsd/nsd.conf /var/workbench/nsd.conf
+#update_file nsd output/servers/nsd/update.sh /var/workbench/update.sh
+update_file nsd4 output/servers/nsd4/nsd4.conf /etc/nsd/nsd.conf.d/nsd4.conf
+update_file nsd4 output/servers/nsd4/update.sh /etc/nsd
+#update_file knot output/servers/knot/knot.conf /var/workbench/knot.conf
+#update_file knot output/servers/knot/update.sh /var/workbench/update.sh
+#update_file bind9 output/servers/bind9/bind9.conf /etc/bind/named.conf.workbench
+#update_file bind9 output/servers/bind9/update.sh /var/workbench/update.sh
+#update_file powerdns output/servers/powerdns/update.sh /var/workbench/update.sh
+#update_file powerdns output/servers/powerdns/update.sh /var/workbench/update.sh
 #update_file yadifa output/servers/yadifa/yadifa.conf /var/workbench/yadifad.conf
-update_file powerdns output/servers/powerdns/update.sh /var/workbench/update.sh
 #update_file yadifa output/servers/yadifa/update.sh /var/workbench/update.sh
 
 #update_file bind10 configs/bind10_transfers.txt /home/jelte/bind10_transfers.txt
 # Powerdns updates itself (has nsd as supermaster)
 
+
+# TODO: fix description
+#       add check_rcode
 
 # Zones
 # Currently the only master is nsd, when we add more we need to
@@ -82,12 +94,13 @@ update_file powerdns output/servers/powerdns/update.sh /var/workbench/update.sh
 # By convention, all zones are placed in /var/workbench/zones
 # and the update script in /var/workbench
 #rsync -avz 
-rsync -rz output/final/ nsd:/var/workbench/zones/
-rsync -rz output/final/ nsd4:/var/workbench/zones/
-rsync -rz output/final/ knot:/var/workbench/zones/
-rsync -rz output/final/ bind9:/etc/bind/zones/
-#rsync -rz output/final/ bind10:/var/workbench/zones
-rsync -rz output/final/ powerdns:/var/workbench/zones/
+#rsync -rz output/final/ nsd:/var/workbench/zones/
+echo "NSD zones"
+cp -a output/final/* /var/dns-workbench/zones
+check_rcode
+#rsync -rz output/final/ knot:/var/workbench/zones/
+#rsync -rz output/final/ bind9:/etc/bind/zones/
+#rsync -rz output/final/ powerdns:/var/workbench/zones/
 #rsync -rz output/final/ yadifa:/var/workbench/zones/
 
 #
@@ -98,35 +111,14 @@ rsync -rz output/final/ powerdns:/var/workbench/zones/
 
 apply_update() {
     echo "Apply the new configuration on $1"
-    # On a couple of systems, it can be important to
-    # have cwd set correctly
-    ssh -4 $1 "cd /var/workbench; ./update.sh"
+    cd $1; bash ./update.sh
     # If things fail here, we continue anyway, in general
 }
 
-#apply_update nsd nsdc rebuild
-#check_rcode
-
-apply_update nsd
-apply_update nsd4
-apply_update knot
-apply_update bind9
-#apply_update yadifa
-#apply_update bind10
-apply_update powerdns
-# bind10 and powerdns done by hand for now (those take too long
-# with the current setup)
-
-#apply_update nsd4 /var/workbench/nsd4/sbin/nsd-control reload
-#apply_update knot sudo /etc/knot/knotc_update
-#apply_update bind9 rndc reload
-#apply_update bind10 /home/jelte/run_bindctl_commands.sh /home/jelte/bind10_commands.txt
-#apply_update bind10 /home/jelte/run_bindctl_commands.sh /home/jelte/bind10_transfers.txt
-
-#echo "Sleeping for a minute to let things settle"
-#sleep 60;
-#apply_update nsd nsdc notify
+apply_update /etc/nsd
+#apply_update /etc/knot
+#apply_update /etc/bind9
+#apply_update /etc/yadifa
+#apply_update /etc/powerdns
 
 echo "All done"
-
-
