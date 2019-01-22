@@ -47,11 +47,11 @@ backup_file() {
     #check_rcode
 }
 
-#backup_file nsd /var/workbench/nsd.conf /var/workbench/nsd.conf.${DATE}
-backup_file nsd4 /etc/nsd/nsd.conf.d/nsd4.conf /etc/nsd/nsd.conf.d/nsd4.conf.${DATE}
+backup_file nsd4 /etc/nsd/workbench/nsd4.conf /etc/nsd/workbench/nsd4.conf.${DATE}
 #backup_file knot /var/workbench/knot.conf /var/workbench/knot.conf.${DATE}
-#backup_file bind9 /var/workbench/named.conf.workbench /var/workbench/named.conf.workbench.${DATE}
+backup_file bind9 /etc/bind/workbench/bind9.conf /etc/bind/workbench/bind9.conf.${DATE}
 #backup_file yadifa /var/workbench/yadifad.conf /var/workbench/yadifad.conf.${DATE}
+# TODO: where is powerdns?!
 
 #
 #
@@ -70,12 +70,12 @@ update_file() {
 
 #update_file nsd output/servers/nsd/nsd.conf /var/workbench/nsd.conf
 #update_file nsd output/servers/nsd/update.sh /var/workbench/update.sh
-update_file nsd4 output/servers/nsd4/nsd4.conf /etc/nsd/nsd.conf.d/nsd4.conf
-update_file nsd4 output/servers/nsd4/update.sh /etc/nsd
+update_file nsd4 output/servers/nsd4/nsd4.conf /etc/nsd/workbench
+update_file nsd4 output/servers/nsd4/update.sh /etc/nsd/workbench
 #update_file knot output/servers/knot/knot.conf /var/workbench/knot.conf
 #update_file knot output/servers/knot/update.sh /var/workbench/update.sh
-#update_file bind9 output/servers/bind9/bind9.conf /etc/bind/named.conf.workbench
-#update_file bind9 output/servers/bind9/update.sh /var/workbench/update.sh
+update_file bind9 output/servers/bind9/bind9.conf /etc/bind/workbench
+update_file bind9 output/servers/bind9/update.sh /etc/bind/workbench
 #update_file powerdns output/servers/powerdns/update.sh /var/workbench/update.sh
 #update_file powerdns output/servers/powerdns/update.sh /var/workbench/update.sh
 #update_file yadifa output/servers/yadifa/yadifa.conf /var/workbench/yadifad.conf
@@ -93,9 +93,6 @@ update_file nsd4 output/servers/nsd4/update.sh /etc/nsd
 # change this. Probably port all to the generator tool
 # By convention, all zones are placed in /var/workbench/zones
 # and the update script in /var/workbench
-#rsync -avz 
-#rsync -rz output/final/ nsd:/var/workbench/zones/
-echo "NSD zones"
 cp -a output/final/* /var/dns-workbench/zones
 check_rcode
 #rsync -rz output/final/ knot:/var/workbench/zones/
@@ -111,14 +108,14 @@ check_rcode
 
 apply_update() {
     echo "Apply the new configuration on $1"
-    cd $1; bash ./update.sh
+    bash $1/update.sh
     # If things fail here, we continue anyway, in general
 }
 
-apply_update /etc/nsd
-#apply_update /etc/knot
-#apply_update /etc/bind9
-#apply_update /etc/yadifa
-#apply_update /etc/powerdns
+apply_update /etc/nsd/workbench
+#apply_update /etc/knot/workbench
+apply_update /etc/bind/workbench
+#apply_update /etc/yadifa/workbench
+#apply_update /etc/powerdns/workbench
 
 echo "All done"

@@ -298,14 +298,14 @@ class Bind9ConfigGenerator(ConfigGenerator):
 
         lines = [
             "zone \"%s\" {" % zname,
-            "        file \"/etc/bind/zones/%s\";" % zname_u
+            "        file \"/var/dns-workbench/zones/%s\";" % zname_u
         ]
         
         if self.is_primary_for(zd):
             lines.append("        type master;")
             secondary_addrs = [env.SERVERS[n] for n in zd.get("secondary_names")]
             if len(secondary_addrs) > 0:
-                lines.append("        also-notify: { %s };" % ";".join(secondary_addrs))
+                lines.append("        also-notify { %s };" % ";".join(secondary_addrs))
         elif self.is_secondary_for(zd):
             lines.append("        type slave;")
             lines.append("        masters { %s; };" % get_primary_addr(zd))
