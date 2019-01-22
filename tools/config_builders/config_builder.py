@@ -610,12 +610,14 @@ class YadifaConfigGenerator(ConfigGenerator):
         ]
         
         if self.is_primary_for(zd):
-            lines.append("        file masters/%s" % zname_u)
+            lines.append("        file masters/workbench/%s" % zname_u)
             lines.append("        type master")
             for secondary in zd.get("secondary_names"):
                 raise Exception("NotImplYet")
+            lines.append("        maintain-dnssec false")
+            lines.append("        notify-auto     false")
         elif self.is_secondary_for(zd):
-            lines.append("        file slaves/%s" % zname_u)
+            lines.append("        file slaves/workbench/%s" % zname_u)
             lines.append("        type slave")
             primary_addr = get_primary_addr(zd)
             lines.append("        master %s port 53" % primary_addr)

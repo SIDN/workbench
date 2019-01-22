@@ -43,7 +43,7 @@ delegation_servers = [
     #"nsd",
     "nsd4",
     "powerdns",
-    "knot"
+    "knot",
     "yadifa"
 ]
 

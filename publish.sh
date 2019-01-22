@@ -43,14 +43,14 @@ backup_file() {
     # Note: -n, only backup if we haven't called this script
     # today yet (usually when it fails we do not want to keep
     # the failing attempts)
-    cp -n $2 $3
+    mv -n $2 $3
     #check_rcode
 }
 
 backup_file nsd4 /etc/nsd/workbench/nsd4.conf /etc/nsd/workbench/nsd4.conf.${DATE}
 #backup_file knot /var/workbench/knot.conf /var/workbench/knot.conf.${DATE}
 backup_file bind9 /etc/bind/workbench/bind9.conf /etc/bind/workbench/bind9.conf.${DATE}
-#backup_file yadifa /var/workbench/yadifad.conf /var/workbench/yadifad.conf.${DATE}
+backup_file yadifa /etc/yadifa/workbench/yadifad.conf /etc/yadifa/workbench/yadifad.conf.${DATE}
 # TODO: where is powerdns?!
 
 #
@@ -78,8 +78,8 @@ update_file bind9 output/servers/bind9/bind9.conf /etc/bind/workbench
 update_file bind9 output/servers/bind9/update.sh /etc/bind/workbench
 #update_file powerdns output/servers/powerdns/update.sh /var/workbench/update.sh
 #update_file powerdns output/servers/powerdns/update.sh /var/workbench/update.sh
-#update_file yadifa output/servers/yadifa/yadifa.conf /var/workbench/yadifad.conf
-#update_file yadifa output/servers/yadifa/update.sh /var/workbench/update.sh
+update_file yadifa output/servers/yadifa/yadifa.conf /etc/yadifa/workbench
+update_file yadifa output/servers/yadifa/update.sh /etc/yadifa/workbench
 
 #update_file bind10 configs/bind10_transfers.txt /home/jelte/bind10_transfers.txt
 # Powerdns updates itself (has nsd as supermaster)
@@ -89,17 +89,17 @@ update_file bind9 output/servers/bind9/update.sh /etc/bind/workbench
 #       add check_rcode
 
 # Zones
-# Currently the only master is nsd, when we add more we need to
+# Currently the only master is bind9, when we add more we need to
 # change this. Probably port all to the generator tool
 # By convention, all zones are placed in /var/workbench/zones
 # and the update script in /var/workbench
+rm /var/dns-workbench/zones/*
 cp -a output/final/* /var/dns-workbench/zones
 check_rcode
-#rsync -rz output/final/ knot:/var/workbench/zones/
-#rsync -rz output/final/ bind9:/etc/bind/zones/
-#rsync -rz output/final/ powerdns:/var/workbench/zones/
-#rsync -rz output/final/ yadifa:/var/workbench/zones/
-
+# TODO: figure this out, with regard to Yadifa errors
+#rm /var/dns-workbench/keys/*
+#cp -a output/keys/* /var/dns-workbench/keys
+#check_rcode
 #
 #
 # Apply the updates
@@ -115,7 +115,7 @@ apply_update() {
 apply_update /etc/nsd/workbench
 #apply_update /etc/knot/workbench
 apply_update /etc/bind/workbench
-#apply_update /etc/yadifa/workbench
+apply_update /etc/yadifa/workbench
 #apply_update /etc/powerdns/workbench
 
 echo "- All done!"

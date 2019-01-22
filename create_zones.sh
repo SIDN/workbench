@@ -14,3 +14,6 @@ echo "Running zone signer" &&\
 ./tools/signer/signer.py &&\
 echo "Running finalizer" &&\
 ./tools/finalizer/finalizer.py
+
+echo "Prettify..."
+./prettify_zones.sh
