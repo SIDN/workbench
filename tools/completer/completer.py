@@ -84,6 +84,10 @@ def update_serial_and_copy(zname, z_infile, z_outfile):
     cmd = [ "ldns-read-zone",
             "-s", "-S", "unixtime"
           ]
+# MD let's do this instead
+#    cmd = [ "ldns-read-zone",
+#            "-s", "-S", "YYYYMMDDxx"
+#          ]          
     with open(z_infile, 'rb') as inf:
         with open(z_outfile, 'wb') as out:
             p = subprocess.Popen(cmd, stdin=subprocess.PIPE,
