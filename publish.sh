@@ -1,10 +1,10 @@
 #!/bin/bash
 
 if [[ $EUID -ne 0 ]]; then
-  echo "You must be a root user. Quitting." 2>&1
+  echo "ERROR: You must be a root user. Quitting." 2>&1
 exit 1
 else
-  echo "Let's do this!"
+  echo "Publish sequence started:"
 fi
 
 DATE=`date -I`
@@ -12,25 +12,25 @@ DATE=`date -I`
 check_rcode() {
     RCODE=$?
     if [ $RCODE -eq 0 ]; then
-        echo "Succes!";
+        echo "	Succes!";
     else
-        echo "Failed - aborting now";
+        echo "	Failed - aborting now";
         exit $RCODE
     fi
 }
 
 # Generate config
 #
-echo "Generating zones"
+echo "- Generating zones"
 #./create_zones.sh
-echo "(skipped as per design)"
+echo "	(skipped as per design)"
 check_rcode
 
 # Generate config
 #
-echo "Generating config"
+echo "- Generating config"
 #./create_configs.sh
-echo "(skipped as per design)"
+echo "	(skipped as per design)"
 check_rcode
 
 #
@@ -39,7 +39,7 @@ check_rcode
 
 # $1 = host, $2 = file, $3 = target file
 backup_file() {
-    echo "Backup $1 files: $2 to $3"
+    echo "- Backup $1 files: $2 to $3"
     # Note: -n, only backup if we haven't called this script
     # today yet (usually when it fails we do not want to keep
     # the failing attempts)
@@ -62,7 +62,7 @@ backup_file bind9 /etc/bind/workbench/bind9.conf /etc/bind/workbench/bind9.conf.
 # Config files
 # $1 = host, $2 = file, $3 = target file
 update_file() {
-    echo "Update config file for $1 from source $2 to target $3"
+    echo "- Update config file for $1 from source $2 to target $3"
     # TODO do we want the -n, or maybe not?
     cp $2 $3
     check_rcode
@@ -107,7 +107,7 @@ check_rcode
 #
 
 apply_update() {
-    echo "Apply the new configuration on $1"
+    echo "- Apply the new configuration on $1"
     bash $1/update.sh
     # If things fail here, we continue anyway, in general
 }
@@ -118,4 +118,4 @@ apply_update /etc/bind/workbench
 #apply_update /etc/yadifa/workbench
 #apply_update /etc/powerdns/workbench
 
-echo "All done"
+echo "- All done!"

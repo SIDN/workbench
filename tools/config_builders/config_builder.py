@@ -305,7 +305,7 @@ class Bind9ConfigGenerator(ConfigGenerator):
             lines.append("        type master;")
             secondary_addrs = [env.SERVERS[n] for n in zd.get("secondary_names")]
             if len(secondary_addrs) > 0:
-                lines.append("        also-notify { %s };" % ";".join(secondary_addrs))
+                lines.append("        also-notify { %s; };" % "; ".join(secondary_addrs))
         elif self.is_secondary_for(zd):
             lines.append("        type slave;")
             lines.append("        masters { %s; };" % get_primary_addr(zd))
