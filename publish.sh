@@ -47,10 +47,11 @@ backup_file() {
     #check_rcode
 }
 
-backup_file nsd4 /etc/nsd/workbench/nsd4.conf /etc/nsd/workbench/nsd4.conf.${DATE}
-#backup_file knot /var/workbench/knot.conf /var/workbench/knot.conf.${DATE}
-backup_file bind9 /etc/bind/workbench/bind9.conf /etc/bind/workbench/bind9.conf.${DATE}
-backup_file yadifa /etc/yadifa/workbench/yadifad.conf /etc/yadifa/workbench/yadifad.conf.${DATE}
+# We don't do backups ;-)
+#backup_file nsd4 /etc/nsd/workbench/nsd4.conf /etc/nsd/workbench/nsd4.conf.${DATE}
+#backup_file knot /etc/knot/workbench/knot.conf /etc/knot/workbench/knot.conf.${DATE}
+#backup_file bind9 /etc/bind/workbench/bind9.conf /etc/bind/workbench/bind9.conf.${DATE}
+#backup_file yadifa /etc/yadifa/workbench/yadifad.conf /etc/yadifa/workbench/yadifad.conf.${DATE}
 # TODO: where is powerdns?!
 
 #
@@ -72,8 +73,8 @@ update_file() {
 #update_file nsd output/servers/nsd/update.sh /var/workbench/update.sh
 update_file nsd4 output/servers/nsd4/nsd4.conf /etc/nsd/workbench
 update_file nsd4 output/servers/nsd4/update.sh /etc/nsd/workbench
-#update_file knot output/servers/knot/knot.conf /var/workbench/knot.conf
-#update_file knot output/servers/knot/update.sh /var/workbench/update.sh
+update_file knot output/servers/knot/knot.conf /etc/knot/workbench
+update_file knot output/servers/knot/update.sh /etc/knot/workbench
 update_file bind9 output/servers/bind9/bind9.conf /etc/bind/workbench
 update_file bind9 output/servers/bind9/update.sh /etc/bind/workbench
 #update_file powerdns output/servers/powerdns/update.sh /var/workbench/update.sh
@@ -113,7 +114,7 @@ apply_update() {
 }
 
 apply_update /etc/nsd/workbench
-#apply_update /etc/knot/workbench
+apply_update /etc/knot/workbench
 apply_update /etc/bind/workbench
 apply_update /etc/yadifa/workbench
 #apply_update /etc/powerdns/workbench

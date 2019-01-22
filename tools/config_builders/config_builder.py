@@ -399,10 +399,13 @@ class KnotConfigGenerator(ConfigGenerator):
     def get_start(self):
         return [ "server:",
                  "  identity: knot",
-                 "  listen: 127.0.0.1",
-                 "  listen: 94.198.159.27",
-                 "  listen: ::1",
-                 "  listen: 2a00:d78:4:503:94:198:159:27",
+                 "  #listen: 127.0.0.1",
+                 "  #listen: 94.198.159.27",
+                 "  listen: 127.0.0.1@5327",
+                 "  #listen: ::1",
+                 "  listen: 2a00:d78:0:712:94:198:159:27f",
+                 "  # User for running the server.",
+                 "  user: knot:knot",
                  "",
                  "remote:",
                  "  #- id: m94.198.159.24",
@@ -485,7 +488,7 @@ class KnotConfigGenerator(ConfigGenerator):
         ]
         
         if self.is_primary_for(zd):
-            lines.append("    file: \"/var/lib/knot/zones/%s\"" % zname_u)
+            lines.append("    file: \"/var/dns-workbench/zones/%s\"" % zname_u)
             for secondary in zd.get("secondary_names"):
                 raise Exception("NotImplYet " + self.get_name() + " " + zd.get("name"))
         elif self.is_secondary_for(zd):
@@ -502,7 +505,8 @@ class KnotConfigGenerator(ConfigGenerator):
     def get_update_lines(self):
         # Note: this calls a custom script which was created manually
         return [
-            "sudo /etc/knot/knotc_update"
+            # "sudo /etc/knot/knotc_update"
+            " sudo /usr/sbin/knotc -s /var/run/knot/knot.sock reload"
         ]
 
 class PowerDNSConfigGenerator(ConfigGenerator):
