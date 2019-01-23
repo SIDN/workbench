@@ -68,7 +68,7 @@ All the addresses point back to this webserver, so if you are using a validating
 
 <pre>
 > dig +short +cd A bogussig.bad-dnssec.wb.sidnlabs.nl
-94.198.159.25
+94.198.159.39
 jelte@zen:~/repos/workbench (master)
 > dig +short A bogussig.bad-dnssec.wb.sidnlabs.nl
 jelte@zen:~/repos/workbench (master)

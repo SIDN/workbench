@@ -46,7 +46,7 @@ Aside from plain transfers, there are also TSIG keys configured:
 <h3>Examples</h3>
 
 <pre>
-> drill -y "wb_md5:Wu/utSasZUkoeCNku152Zw==" axfr ok.bad-dnssec.wb.sidnlabs.nl @nsd.sidnlabs.nl   | wc -l
+> drill -y "wb_md5:Wu/utSasZUkoeCNku152Zw==" axfr ok.bad-dnssec.wb.sidnlabs.nl @bind9.sidnlabs.nl   | wc -l
 54
 > drill axfr ok.bad-dnssec.wb.sidnlabs.nl @knot.sidnlabs.nl   | wc -l
 54
@@ -55,7 +55,7 @@ Aside from plain transfers, there are also TSIG keys configured:
 Knot config snippet:
 
 remotes {
-  master { address 94.198.159.25@53; }
+  master { address 94.198.159.39@53; }
 }
 zones {
   sigexpired.bogussig.ok.bad-dnssec.wb.sidnlabs.nl {
@@ -69,7 +69,7 @@ BIND10 config snippet:
 > config show Xfrin/zones[10]
 Xfrin/zones[10]/name	"nods.nods.nods.bad-dnssec.wb.sidnlabs.nl"	string	
 Xfrin/zones[10]/class	"IN"	string	
-Xfrin/zones[10]/master_addr	"94.198.159.25" 	string	
+Xfrin/zones[10]/master_addr	"94.198.159.39" 	string	
 Xfrin/zones[10]/master_port	53	integer	
 Xfrin/zones[10]/tsig_key	null	string	
 Xfrin/zones[10]/use_ixfr	false	boolean	(default)
