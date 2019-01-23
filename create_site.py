@@ -22,12 +22,28 @@ import os
 
 INPUT_EXTENSION = ".page"
 OUTPUT_EXTENSION = ".html"
+INPUT_DIR = "site_parts"
+OUTPUT_DIR = "site"
+ASSETS_DIR = "%s/assets" % INPUT_DIR
+
+if not os.path.exists(OUTPUT_DIR):
+    os.makedirs(OUTPUT_DIR)
 
 files = []
-for (dirpath, dirnames, filenames) in os.walk("site_parts"):
+for (dirpath, dirnames, filenames) in os.walk(INPUT_DIR):
     files.extend([filename[:-len(INPUT_EXTENSION)] for filename in filenames if filename.endswith(".page")])
 
-for file in files:
-    print(file)
-    cmd = "cat site_parts/header.inc site_parts/%s.page site_parts/footer.inc > site/%s.html" % (file, file)
+os.system("cp -r %s %s" % (ASSETS_DIR, OUTPUT_DIR))
+
+for sfile in files:
+    print(sfile)
+    cmd = "cat %(i)s/header.inc %(i)s/%(f)s.page %(i)s/footer.inc > %(o)s/%(f)s.html" %\
+          {
+            'f': sfile,
+            'i': INPUT_DIR,
+            'o': OUTPUT_DIR
+          }
+
+    #(file, INPUT_DIR, file)
     os.system(cmd)
+

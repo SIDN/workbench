@@ -1,65 +1,242 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-		"//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="//www.w3.org/1999/xhtml" xml:lang="nl" lang="nl">
+<!DOCTYPE html>
+<html class="no-js" lang="en">
 <head>
+                           
+<title>SIDN Labs Workbench</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="og:image"       content="https://www.sidn.nl/assets/img/og-image.png" />
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="og:title"       content="SIDN Labs Workbench" />
+<meta name="og:description" content="" />
+<meta name="description"    content="" />
+<meta name="og:site_name"   content="SIDN - Het bedrijf achter .nl" />
+<meta name="og:url"         content="https://www.sidn.nl/sidn-labs/projecten" />
+<meta name="og:type"        content="website" />
+<meta name="og:locale"      content="nl_NL" />
 
+<meta name="twitter:card"           content="summary" />
+<meta name="twitter:description"    content="Lees meer op sidn.nl" />
+<meta name="twitter:image"          content="http://www.sidn.nl/assets/img/og-image.jpg" />
+<meta name="twitter:site"           content="@sidn" />
+<meta name="twitter:title"          content="SIDN : 404" />
+<meta name="twitter:url"            content="https://www.sidn.nl/sidn-labs/projecten" />
 
-<!--<base href="//workbench.sidnlabs.nl/" />-->
-<link rel="shortcut icon" href="//www.sidnlabs.nl/fileadmin/templates/sidnlabs/images/favicon.ico" type="image/x-ico; charset=binary" />
-<link rel="icon" href="//www.sidnlabs.nl/fileadmin/templates/sidnlabs/images/favicon.ico" type="image/x-ico; charset=binary" />
+    <meta name="keywords" content="">
 
+      
+      
+  
+          <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
+        <link type="text/css" rel="stylesheet" href="/assets/css/layout.css?v2" />
 
-<link rel="stylesheet" type="text/css" href="//www.sidnlabs.nl/typo3temp/stylesheet_0d5e927798.css?1360595768" media="all" />
-<link rel="stylesheet" type="text/css" href="//www.sidnlabs.nl/fileadmin/templates/sidnlabs/css/all.css?1367841063" media="all" />
-<link rel="stylesheet" type="text/css" href="//www.sidnlabs.nl/fileadmin/templates/sidnlabs/css/cookiecontrol.css?1359482022" media="all" />
+        <meta name="msapplication-square70x70logo"   content="/assets/img/favicons/windows-tile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="/assets/img/favicons/windows-tile-150x150.png" />
+    <meta name="msapplication-square310x310logo" content="/assets/img/favicons/windows-tile-310x310.png" />
+    <meta name="msapplication-TileImage"         content="/assets/img/favicons/windows-tile-144x144.png" />
+    <meta name="msapplication-TileColor"         content="#CEE7F3" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/img/favicons/apple-touch-icon-152x152-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/img/favicons/apple-touch-icon-120x120-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76"   href="/assets/img/favicons/apple-touch-icon-76x76-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60"   href="/assets/img/favicons/apple-touch-icon-60x60-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/img/favicons/apple-touch-icon-144x144-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/img/favicons/apple-touch-icon-114x114-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"   href="/assets/img/favicons/apple-touch-icon-72x72-precomposed.png" />
+    <link rel="apple-touch-icon"             sizes="57x57"   href="/assets/img/favicons/apple-touch-icon.png" />
+    <link rel="icon"                         sizes="228x228" href="/assets/img/favicons/coast-icon-228x228.png" />
+    <link rel="shortcut icon"                                href="/assets/img/favicons/favicon.ico" />
+    <link rel="icon" type="image/png"        sizes="64x64"   href="/assets/img/favicons/favicon.png" />
 
+    </head>
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
-<script src="//www.sidnlabs.nl/fileadmin/templates/sidnlabs/js/drawing.js?1359482023" type="text/javascript"></script>
-<script src="//www.sidnlabs.nl/fileadmin/templates/sidnlabs/js/behaviors.js?1359482023" type="text/javascript"></script>
-<script src="//www.sidnlabs.nl/fileadmin/templates/sidnlabs/js/jquery.tablesorter.min.js?1359482023" type="text/javascript"></script>
-<script src="//www.sidnlabs.nl/typo3temp/javascript_93077bb238.js?1247222274" type="text/javascript"></script>
-
-
-<title>SIDN Labs DNS Workbench</title>
-	<meta name="title" content="SIDN Labs DNS Workbench" />
-	<meta name="date" content="2013-05-24" />
-	<link rel="canonical" href="//www.sidnlabs.nl/over-sidn-labs/over-sidn/" />
-	<!--[if IE]><script src="/fileadmin/templates/sidnlabs/js/excanvas.js"></script><![endif]--><script type="text/javascript" src="https://apis.google.com/js/plusone.js">{lang: 'nl'}</script><link rel="stylesheet" href="//www.sidnlabs.nl/typo3conf/ext/perfectlightbox/res/css/slightbox.css" type="text/css" media="screen,projection" /><script type="text/javascript" src="//www.sidnlabs.nl/typo3conf/ext/perfectlightbox/res/js/slimbox.2.0.4.yui.js"></script><script type="text/javascript">
-	SlimboxOptions.resizeSpeed = 400;
-	SlimboxOptions.overlayOpacity = 0.8;
-	SlimboxOptions.loop = true;
-	SlimboxOptions.allowSave = false;
-	SlimboxOptions.slideshowAutoplay = false;
-	SlimboxOptions.slideshowInterval = 5000;
-	SlimboxOptions.slideshowAutoclose = true;
-	SlimboxOptions.counterText = 'Beeld ###x### van ###y###';</script>
-
-
-</head>
 <body>
+    <div class="media--linkedin"><img src="/assets/img/og-image--linkedin.png" alt="" title="" /></div>
+    <nav class="pushy pushy-right"></nav>
+    <div class="site__overlay"></div>
+    <div class="site theme--undefined">
+        <div class="site__header">
+                              
+  
+      
+              
+        
+          <div class="container">
+      
+  
+      
+    
+        
+            
+  
+              	    	    		  		  	  	  		  		  		  	      
+    
+        
+          
+      
+      
+  
+    
+  
+              	    	    		  		  	  	  		  		  		  	      
+    
+        
+          
+      
+      
+  
+                                                                  
+<div class="site__navigation">
+
+    <div class="logo logo--sidnlabs">
+        <a class="logo__link logo__link--sidnlabs" href="/">
+            <svg class="icon logo__icon logo__icon--sidnlabs">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/icons.svg#icon--sidnlabs-logo--fc">
+                </use>
+            </svg>
+        </a>
+    </div>
+
+    <div class="site__navigation-container">
+
+        <div class="nav nav--primary">
+            <nav role="nav">
+                <ul class="nav__list nav__list--primary">
+                                            <li class="nav__list-item nav__list-item--primary " >
+                                                            <a class="nav__link nav__link--primary" href="//sidn.nl/t/nl-domeinnaam">.nl-domeinnaam</a>
+                                                    </li>
+                                            <li class="nav__list-item nav__list-item--primary " >
+                                                            <a class="nav__link nav__link--primary" href="//sidn.nl/t/diensten">Diensten</a>
+                                                    </li>
+                                            <li class="nav__list-item nav__list-item--primary " >
+                                                            <a class="nav__link nav__link--primary" href="//sidn.nl/t/veilig-internet">Veilig internet</a>
+                                                    </li>
+                                            <li class="nav__list-item nav__list-item--primary " >
+                                                            <a class="nav__link nav__link--primary" href="//sidn.nl/t/kennis-en-ontwikkeling">Kennis en ontwikkeling</a>
+                                                    </li>
+                                            <li class="nav__list-item nav__list-item--primary " >
+                                                            <a class="nav__link nav__link--primary" href="https://www.sidnlabs.nl">SIDN Labs</a>
+                                                    </li>
+                                            <li class="nav__list-item nav__list-item--primary " >
+                                                            <a class="nav__link nav__link--primary" href="//sidn.nl/t/over-sidn">Over SIDN</a>
+                                                    </li>
+                                    </ul>
+            </nav>
+        </div>
+
+        <div class="nav nav--secondary">
+            <nav role="nav">
+                <ul class="nav__list nav__list--secondary">
+                    <li class="nav__list-item nav__list-item--secondary"></li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+
+    <div class="nav nav--trigger">
+        <nav>
+            <ul class="nav__list nav__list--trigger">
+                <li class="nav__list-item nav__list-item--trigger">
+                    <a class="nav__link nav__link--trigger" href="//sidn.nl/whois" data-search-toggle="domains" data-target="domains">
+                         <svg class="icon">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/icons.svg#icon--whois"></use>
+</svg>
+                        <span class="nav__title nav__title--trigger">form.label.whois</span>
+                    </a>
+                </li>
+                <li class="nav__list-item nav__list-item--trigger">
+                    <a class="nav__link nav__link--trigger" href="//sidn.nl/zoeken/" data-search-toggle="site" data-target="site">
+                         <svg class="icon">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/icons.svg#icon--search"></use>
+</svg>
+                        <span class="nav__title nav__title--trigger">Zoeken</span>
+                    </a>
+                </li>
+                <li class="nav__list-item nav__list-item--trigger">
+                    <a class="nav__link nav__link--trigger" href="#" id="nav__trigger">
+                         <svg class="icon">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/icons.svg#icon--menu"></use>
+</svg>
+                        <span class="nav__title nav__title--trigger">Mobiele navigatie</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
 
 
-	<div id="header"><!--###header### begin -->
-		<div class="holder"><!--###holder### begin -->
-			<div class="logolink"><h1 class="logo"><a href="//www.sidnlabs.nl/" title="Ga terug naar de homepage">SIDN Labs een kijkje achter de schermen</a></h1></div>
-			<div class="navigation"><ul id="nav"><li><a href="//www.sidnlabs.nl/laatste-berichten/">Home</a></li><li><a href="//www.sidnlabs.nl/over-sidn-labs/">Over SIDN Labs</a><ul class="subnav"><li class="active"><a href="//www.sidnlabs.nl/over-sidn-labs/over-sidn/">Over SIDN</a></li><li><a href="//www.sidnlabs.nl/over-sidn-labs/contact/">Contact</a></li><li><a href="//www.sidnlabs.nl/over-sidn-labs/werken-bij-sidn/">Werken bij SIDN</a></li></ul></li><li><a href="//www.sidnlabs.nl/publicaties/">Publicaties</a></li><li><a href="//www.sidnlabs.nl/software-en-tools/">Software en Tools</a></li></ul></div>
-		<!--###holder### end --></div>
-	<!--###header### end --></div>
-	<div id="wrapper"><!--###wrapper### begin -->
-		<div style="position:absolute;" id="canvasDiv"><!--###canvasDiv### begin --><!-- --><!--###canvasDiv### end --></div>
-			<div class="w1"><!--###w1### begin -->
-			<div class="w2"><!--###w2### begin -->
-				<div id="main"><!--###main### begin -->
-					<div id="content"><!--###content### begin -->
-						<div class="posts"><!--###posts### begin -->
-							<div class="pagetitle"><h2 class="text-laatste">DNS workbench</h2></div>
-							<div class="box"><!--###box### begin -->
-								<div class="t"><!--###t### begin --><!-- --><!--###t### end --></div>
-									<div class="c"><!--###c### begin -->
-										<div class="container"><div id="c19121" class="csc-default">
-<!-- START OF OUR DATA -->
+      
+      
+  
+  </div>
+
+      
+      
+  
+                          <div class="search-bar">
+                <div class="container">
+                      
+  
+      
+    
+        
+          <div class="search search--site" id="search--site">
+    <form class="search__form search__form--site" action="/search" method="get">
+        <fieldset>
+            <legend class="search__legend">Zoek in sidn.nl</legend>
+             <svg class="icon search__icon search__icon--search">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/icons.svg#icon--search--simple"></use>
+</svg>
+            <input class="search__input search__input--site" type="search" placeholder="Zoek in sidn.nl" value="" name="q" />
+            <button class="search__button search__button--site">
+                 <svg class="icon search__icon search__icon--submit">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/icons.svg#icon--ok"></use>
+</svg>
+                <span class="button__label">Zoek</span>
+            </button>
+        </fieldset>
+    </form>
+</div>
+
+      
+      
+  
+                        
+  
+      
+    
+        
+          <div class="search search--domains" id="search--domains">
+    <form class="search__form search__form--domains" method="get" action="/whois" id="search__form--domains">
+        <fieldset>
+            <legend class="search__legend">whois.label.legend</legend>
+             <svg class="icon search__icon search__icon--domains">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/icons.svg#icon--whois"></use>
+</svg>
+            <input class="search__input search__input--domains" autocomplete="off" type="search" placeholder="Check hier je .nl-domeinnaam" value="" name="q" required/>
+            <button class="search__button search__button--domains">
+                 <svg class="icon search__icon search__icon--submit">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/icons.svg#icon--ok"></use>
+</svg>
+                <span class="button__label">ok</span>
+            </button>
+        </fieldset>
+    </form>
+</div>
+
+      
+      
+  
+                  </div>
+            </div>
+        </div>
+
+        <div id="hook"></div>
+
+    <div class="site__content">
+      <div class="container container--content">
+        <div class="columns">
+          <div class="column column--main">                                                                                                                   		     	
+		   

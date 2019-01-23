@@ -1,7 +1,7 @@
 <p class="bodytext">
 Sections:
 <b><a href="index.html">Main</a></b> |
-<a href="types.html">RRTypes</a> | 
+<a href="types.html">RRTypes</a> |
 <a href="bad-dnssec.html">DNSSEC validator testing</a> |
 <a href="delegations.html">Delegations</a> |
 <a href="transfers.html">Transfers and TSIG</a>
@@ -44,7 +44,7 @@ The following servers are currently running:
 <li>bind9.sidnlabs.nl (bind 9.9.3)</li>
 <li>knot.sidnlabs.nl (Knot 1.4rc1)</li>
 <li>powerdns.sidnlabs.nl (PowerDNS 3.2)</li>
-<!--<li>yadifa.sidnlabs.nl (Yadifa 2.0.5)</li>-->
+<li>yadifa.sidnlabs.nl (Yadifa 2.0.5)</li>
 </ul>
 
 <p class="bodytext">
@@ -89,15 +89,14 @@ looking into that.
 
 <h2>Disclaimer</h2>
 <p class="bodytext">
-This is a beta service! This service is <em>explicitely</em> not 
-supported by SIDN, but by SIDN Labs. Its setup can change at any 
+This is a beta service! This service is <em>explicitely</em> not
+supported by SIDN, but by SIDN Labs. Its setup can change at any
 moment, without any warning, so it is not advisable to depend on this
 service for any other (automated) service or system.
 </p>
 <p class="bodytext">
-If there are any problems with the software or service, please 
+If there are any problems with the software or service, please
 contact <a href="mailto:jelte.jansen@sidn.nl">Jelte</a>, or SIDN Labs, through
 <a href="//www.sidnlabs.nl/over-sidn-labs/contact/">our contact page</a>.
 We would also be very much interested if you have used the workbench, or if you are still missing something that would make it useful for you. So please let us know!
 </p>
-

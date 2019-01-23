@@ -1,4 +1,5 @@
-<p class="bodytext">
+
+<p>
 Sections:
 <a href="index.html">Main</a> |
 <a href="types.html">RRTypes</a> | 
@@ -7,9 +8,11 @@ Sections:
 <a href="transfers.html">Transfers and TSIG</a>
 </p>
 
-<p class="bodytext">
+<div class="article_intro">
+<p>
 The DNSSEC Bad Tree is a recursively generated tree of DNSSEC-signed zones, which contains specific deliberate signing errors, such as RRSIG records that have expired, RRSIG records that are bogus, etc.
 </p>
+</div>
 <p class="bodytext">
 Based on the first label, a specific error condition is created by the signer (i.e. you'll usually run into the error upon encountering the DS record for the zone that starts with the error label):
 </p>
@@ -65,7 +68,7 @@ All the addresses point back to this webserver, so if you are using a validating
 
 <pre>
 > dig +short +cd A bogussig.bad-dnssec.wb.sidnlabs.nl
-94.198.159.39
+94.198.159.25
 jelte@zen:~/repos/workbench (master)
 > dig +short A bogussig.bad-dnssec.wb.sidnlabs.nl
 jelte@zen:~/repos/workbench (master)
