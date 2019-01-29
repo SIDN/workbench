@@ -8,7 +8,12 @@ RR types |
 <a href="transfers.html">Transfers and TSIG</a>
 </div>
 <p>
-This set of zones is intended to help with testing the handling of the different kind of RRTypes. We have a zone that contains (nearly) every RRType, including experimental and obsolete types. Note that the *contents* of the RRsets in this zone is generally meaningless; the data is intended to test the RRType handling itself, and therefore the Rdata contents tend to be either on the borders of sane data, or simply meaningless (think empty strings, example.org domain names, zero values, etc.).
+This set of zones is intended to help with testing the handling of the different kind of RRTypes. 
+We have a zone that contains (nearly) every RRType, including experimental and obsolete types. 
+Note that the *contents* of the RRsets in this zone is generally meaningless; 
+the data is intended to test the RRType handling itself, and therefore the Rdata contents tend 
+to be either on the borders of sane data, or simply meaningless 
+(think empty strings, example.org domain names, zero values, etc.).
 </p>
 <p>
 In principle, each type is available at the domain name derived from the type mnemonic, some examples:
@@ -51,8 +56,8 @@ If a type is not in this zone, it is probably not supported well enough by all t
 The default zone is unsigned, but we provide a signed version as well: signed-types.wb.sidnlabs.nl. The zone is signed with ldns-signzone.
 </p>
 <p>
-A zone file of the unsigned zone can be found <a href="//workbench.sidnlabs.nl/types.wb.sidnlabs.nl.txt">here</a>.
-A zone file of the signed zone can be found <a href="//workbench.sidnlabs.nl/types-signed.wb.sidnlabs.nl.txt">here</a>.
+A zone file of the unsigned zone can be found <a href="types.wb.sidnlabs.nl.txt">here</a>.
+A zone file of the signed zone can be found <a href="types-signed.wb.sidnlabs.nl.txt">here</a>.
 </p>
 Zone overview:
 <table>

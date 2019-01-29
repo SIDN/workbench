@@ -28,4 +28,9 @@ echo "Install new version"
 cp -a site/* /var/www/html/
 check_rcode
 
+echo "Refresh the unsigend and signed zones (types.html refers to them)"
+cp /var/dns-workbench/zones/types-signed.wb.sidnlabs.nl /var/www/html/types-signed.wb.sidnlabs.nl.txt
+cp /var/dns-workbench/zones/types.wb.sidnlabs.nl /var/www/html/types.wb.sidnlabs.nl.txt
+
+
 echo "- All done!"
