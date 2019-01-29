@@ -1,91 +1,42 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-                           
-<title>SIDN Labs Workbench</title>
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="og:image"       content="https://www.sidn.nl/assets/img/og-image.png" />
+ <title>SIDN Labs Workbench</title>
+ <meta charset="utf-8" />
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+ <meta name="description"    content="" />
+ <meta name="keywords"       content="" />
+ <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+ <link type="text/css" rel="stylesheet" href="/assets/css/layout.css" />
 
-<meta name="og:title"       content="SIDN Labs Workbench" />
-<meta name="og:description" content="" />
-<meta name="description"    content="" />
-<meta name="og:site_name"   content="SIDN - Het bedrijf achter .nl" />
-<meta name="og:url"         content="https://www.sidn.nl/sidn-labs/projecten" />
-<meta name="og:type"        content="website" />
-<meta name="og:locale"      content="nl_NL" />
+ <meta name="msapplication-square70x70logo"   content="/assets/img/favicons/windows-tile-70x70.png" />
+ <meta name="msapplication-square150x150logo" content="/assets/img/favicons/windows-tile-150x150.png" />
+ <meta name="msapplication-square310x310logo" content="/assets/img/favicons/windows-tile-310x310.png" />
+ <meta name="msapplication-TileImage"         content="/assets/img/favicons/windows-tile-144x144.png" />
+ <meta name="msapplication-TileColor"         content="#CEE7F3" />
 
-<meta name="twitter:card"           content="summary" />
-<meta name="twitter:description"    content="Lees meer op sidn.nl" />
-<meta name="twitter:image"          content="http://www.sidn.nl/assets/img/og-image.jpg" />
-<meta name="twitter:site"           content="@sidn" />
-<meta name="twitter:title"          content="SIDN : 404" />
-<meta name="twitter:url"            content="https://www.sidn.nl/sidn-labs/projecten" />
+ <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/img/favicons/apple-touch-icon-152x152-precomposed.png" />
+ <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/img/favicons/apple-touch-icon-120x120-precomposed.png" />
+ <link rel="apple-touch-icon-precomposed" sizes="76x76"   href="/assets/img/favicons/apple-touch-icon-76x76-precomposed.png" />
+ <link rel="apple-touch-icon-precomposed" sizes="60x60"   href="/assets/img/favicons/apple-touch-icon-60x60-precomposed.png" />
+ <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/img/favicons/apple-touch-icon-144x144-precomposed.png" />
+ <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/img/favicons/apple-touch-icon-114x114-precomposed.png" />
+ <link rel="apple-touch-icon-precomposed" sizes="72x72"   href="/assets/img/favicons/apple-touch-icon-72x72-precomposed.png" />
+ <link rel="apple-touch-icon"             sizes="57x57"   href="/assets/img/favicons/apple-touch-icon.png" />
 
-    <meta name="keywords" content="">
-
-      
-      
-  
-          <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-
-        <link type="text/css" rel="stylesheet" href="/assets/css/layout.css?v2" />
-
-        <meta name="msapplication-square70x70logo"   content="/assets/img/favicons/windows-tile-70x70.png" />
-    <meta name="msapplication-square150x150logo" content="/assets/img/favicons/windows-tile-150x150.png" />
-    <meta name="msapplication-square310x310logo" content="/assets/img/favicons/windows-tile-310x310.png" />
-    <meta name="msapplication-TileImage"         content="/assets/img/favicons/windows-tile-144x144.png" />
-    <meta name="msapplication-TileColor"         content="#CEE7F3" />
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/img/favicons/apple-touch-icon-152x152-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/img/favicons/apple-touch-icon-120x120-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="76x76"   href="/assets/img/favicons/apple-touch-icon-76x76-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="60x60"   href="/assets/img/favicons/apple-touch-icon-60x60-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/img/favicons/apple-touch-icon-144x144-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/img/favicons/apple-touch-icon-114x114-precomposed.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72"   href="/assets/img/favicons/apple-touch-icon-72x72-precomposed.png" />
-    <link rel="apple-touch-icon"             sizes="57x57"   href="/assets/img/favicons/apple-touch-icon.png" />
-    <link rel="icon"                         sizes="228x228" href="/assets/img/favicons/coast-icon-228x228.png" />
-    <link rel="shortcut icon"                                href="/assets/img/favicons/favicon.ico" />
-    <link rel="icon" type="image/png"        sizes="64x64"   href="/assets/img/favicons/favicon.png" />
-
-    </head>
+ <link rel="icon"                         sizes="228x228" href="/assets/img/favicons/coast-icon-228x228.png" />
+ <link rel="shortcut icon"                                href="/assets/img/favicons/favicon.ico" />
+ <link rel="icon" type="image/png"        sizes="64x64"   href="/assets/img/favicons/favicon.png" />
+</head>
 
 <body>
-    <div class="media--linkedin"><img src="/assets/img/og-image-sidn.png" alt="" title="" /></div>
     <nav class="pushy pushy-right"></nav>
     <div class="site__overlay"></div>
     <div class="site theme--undefined">
         <div class="site__header">
-                              
-  
-      
-              
         
-          <div class="container">
+         <div class="container">
       
-  
-      
-    
-        
-            
-  
-              	    	    		  		  	  	  		  		  		  	      
-    
-        
-          
-      
-      
-  
-    
-  
-              	    	    		  		  	  	  		  		  		  	      
-    
-        
-          
-      
-      
-  
-                                                                  
 <div class="site__navigation">
 
     <div class="logo logo--sidnlabs">
@@ -103,24 +54,12 @@
             <nav role="nav">
                 <ul class="nav__list nav__list--primary">
                                             <li class="nav__list-item nav__list-item--primary " >
-                                                            <a class="nav__link nav__link--primary" href="//sidn.nl/t/nl-domeinnaam">.nl-domeinnaam</a>
-                                                    </li>
-                                            <li class="nav__list-item nav__list-item--primary " >
-                                                            <a class="nav__link nav__link--primary" href="//sidn.nl/t/diensten">Diensten</a>
-                                                    </li>
-                                            <li class="nav__list-item nav__list-item--primary " >
-                                                            <a class="nav__link nav__link--primary" href="//sidn.nl/t/veilig-internet">Veilig internet</a>
-                                                    </li>
-                                            <li class="nav__list-item nav__list-item--primary " >
-                                                            <a class="nav__link nav__link--primary" href="//sidn.nl/t/kennis-en-ontwikkeling">Kennis en ontwikkeling</a>
-                                                    </li>
-                                            <li class="nav__list-item nav__list-item--primary " >
                                                             <a class="nav__link nav__link--primary" href="https://www.sidnlabs.nl">SIDN Labs</a>
-                                                    </li>
+                                            </li>
                                             <li class="nav__list-item nav__list-item--primary " >
                                                             <a class="nav__link nav__link--primary" href="//sidn.nl/t/over-sidn">Over SIDN</a>
-                                                    </li>
-                                    </ul>
+                                            </li>
+                </ul>
             </nav>
         </div>
 
