@@ -1,0 +1,204 @@
+@font-face {
+    font-family: "Milo Serif";
+    font-style: normal;
+    font-weight: 500;
+    src: url("../fonts/MiloSerifWeb-Medium.woff") format("woff")
+}
+
+@font-face {
+    font-family: "Milo Serif";
+    font-style: normal;
+    font-weight: 700;
+    src: url("../fonts/MiloSerifWeb-Bold.woff") format("woff")
+}
+
+html {
+    background-color: #f5f5f5;
+    color: #464646;
+    font-family: "Milo Serif", serif;
+    font-size: 18px;
+    font-weight: 500;
+    height: 100%;
+    line-height: 1.25
+}
+
+body {
+    height: 100%;
+    margin: 0
+}
+
+.site {
+    text-align: left;
+    /* padding: 0 2.5% */
+}
+
+@media (min-width:1400px) {
+    .site {
+        /* -webkit-align-items: center; */
+        /* -ms-flex-align: center; */
+        /* align-items: center; */
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        min-height: 100%;
+        text-align: left
+    }
+}
+
+br {
+    display: none
+}
+
+@media (max-width:1399px) {
+    /* .logo {
+        padding: 40px 60px 0
+    } */
+    .copy {
+        padding: 0 30px;
+        max-width: 70%
+    }    
+    img {
+        width: 200px;
+        height: auto;
+        padding: 0 0
+    }
+}
+
+@media (min-width:1400px) {
+    .site__content {
+        /* -webkit-align-items: center; */
+        /* -ms-flex-align: center; */
+        /* align-items: center; */
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        /* -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center; */
+        width: 100%
+    }
+    br {
+        display: inline
+    }
+    .logo,
+    .copy {
+        padding: 0 30px;
+        max-width: 70%
+    }
+    .copy {
+        border-left: 1px solid #c8c8c8
+    }
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 40px;
+    margin: 0;
+    padding: 1ex 0
+}
+
+img {
+    display: block;
+    padding: 1em 0;
+    margin: 0 auto
+}
+
+@media (min-width:1400px) {
+    img {
+        /*  width: 225px */
+        width: 200px
+    }
+}
+
+p {
+    margin: 0;
+    padding-bottom: 1.5ex
+}
+
+a {
+    color: #30a8cb;
+    background-color: transparent;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #002154;
+}
+
+div.keyboard {
+/* for <code> and <kbd> */
+    overflow: auto;
+    max-width: 80%;
+    font-size: 14px;
+    color: lightgreen;
+    background-color: black
+}
+
+pre {
+/* prefered when idents are needed and <br> undesired */
+    overflow: auto;
+    max-width: 80%;
+    font-size: 12px;
+    color: lightgreen;
+    background-color: black;
+    padding: 0 0.5%
+}
+
+div.menu {
+    font-family: 'Milo Sans Medium',sans-serif;
+    font-size: 18px;
+    padding-bottom: 1.5ex
+}
+
+table {
+    margin: 0 0 1.5em;
+    border-bottom: 1px solid #d2d2d2;
+    font-family: 'Milo Sans Medium',sans-serif;
+    font-size: 18px
+}
+
+th,td {
+    border-top: 1px solid #d2d2d2;
+    padding: .5em 1ex;
+    color: #6c6c6c
+}
+
+tr:nth-child(odd) {
+    background-color: #fafafa
+}
+
+/*
+thead th,thead td {
+    border-top: none
+}
+*/
+
+/* Temporary maintenance popup */
+
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  /*     background-color: #ff9800; */
+  color: white;
+  font-family: Verdana,sans-serif;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}

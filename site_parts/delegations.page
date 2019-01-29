@@ -1,26 +1,33 @@
-<p class="bodytext">
-Sections:
+<h1>SIDN Labs DNS Workbench - Delegations</h1>
+<div class="menu">
+Sections: 
 <a href="index.html">Main</a> |
 <a href="types.html">RRTypes</a> |
 <a href="bad-dnssec.html">DNSSEC validator testing</a> |
-<b><a href="delegations.html">Delegations</a></b> |
+Delegations |
 <a href="transfers.html">Transfers and TSIG</a>
-</p>
-
-<p class="bodytext">
+</div>
+<p>
 The delegations tree is a recursively generated tree of basic (signed) delegations. All zones in this tree are only hosted on one of the servers, specificed by the name in de *first* label of the zone's apex. Every zone has delegations to zones on each of the servers. The tree is three levels of delegations deep.
 </p>
 <p>
 Currently, all the zones are signed with RSA-SHA1, and NSEC. We could make these for other types as well, should it be requested.
 </p>
-<h3>Examples</h3>
-<p class="bodytext">
+<h3>Examples:</h3>
 <ul>
 	<li><a href="//knot.delegations.wb.sidnlabs.nl/delegations.html">knot.delegations.wb.sidnlabs.nl</a> Served with Knot</li>
 	<li><a href="//nsd.yadifa.knot.delegations.wb.sidnlabs.nl/delegations.html">nsd.yadifa.knot.delegations.wb.sidnlabs.nl</a> Served with Knot</li>
 	<li><a href="//knot.nsd4.powerdns.delegations.wb.sidnlabs.nl/delegations.html">knot.nsd4.powerdns.delegations.wb.sidnlabs.nl</a> Served with Knot (delegated from NSD4, delegated from PowerDNS)</li>
 	<li><a href="//nsd.nsd.nsd.delegations.wb.sidnlabs.nl/delegations.html">nsd.nsd.nsd.delegations.wb.sidnlabs.nl</a> Served with NSD 3 (which also serves both delegations)</li>
 </ul>
-</p>
-
-</pre>
+<br><br>
+<hr>
+<div class="menu">
+Sections: 
+<a href="index.html">Main</a> |
+<a href="types.html">RRTypes</a> |
+<a href="bad-dnssec.html">DNSSEC validator testing</a> |
+Delegations |
+<a href="transfers.html">Transfers and TSIG</a>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br>

@@ -1,22 +1,18 @@
-
-<p>
-Sections:
+<h1>SIDN Labs DNS Workbench - Validator testing</h1>
+<div class="menu">
+Sections: 
 <a href="index.html">Main</a> |
 <a href="types.html">RRTypes</a> | 
-<b><a href="bad-dnssec.html">DNSSEC validator testing</a></b> |
+DNSSEC validator testing |
 <a href="delegations.html">Delegations</a> |
 <a href="transfers.html">Transfers and TSIG</a>
-</p>
-
-<div class="article_intro">
+</div>
 <p>
 The DNSSEC Bad Tree is a recursively generated tree of DNSSEC-signed zones, which contains specific deliberate signing errors, such as RRSIG records that have expired, RRSIG records that are bogus, etc.
 </p>
-</div>
-<p class="bodytext">
+<p>
 Based on the first label, a specific error condition is created by the signer (i.e. you'll usually run into the error upon encountering the DS record for the zone that starts with the error label):
 </p>
-<p class="bodytext">
 <table>
 	<tr>
 		<th>First label</th>
@@ -47,11 +43,10 @@ Based on the first label, a specific error condition is created by the signer (i
 		<td>the RRSIG is signed correctly (with a known algorithm), but has the algorithm field set to another value.</td>
 	</tr>
 </table>
-</p>
-<p class="bodytext">
+<p>
 Some example links:
 </p>
-<p class="bodytext">
+<p>
 <ul>
 	<li><a href="//ok.ok.ok.bad-dnssec.wb.sidnlabs.nl/bad-dnssec.html">ok.ok.ok.bad-dnssec.wb.sidnlabs.nl</a></li>
 	<li><a href="//ok.bogussig.ok.bad-dnssec.wb.sidnlabs.nl/bad-dnssec.html">ok.bogussig.ok.bad-dnssec.wb.sidnlabs.nl</a></li>
@@ -60,21 +55,19 @@ Some example links:
 	<li><a href="//unknownalgorithm.ok.ok.bad-dnssec.wb.sidnlabs.nl/bad-dnssec.html">unknownalgorithm.ok.ok.bad-dnssec.wb.sidnlabs.nl</a></li>
 </ul>
 </p>
-<p class="bodytext">
+<p>
 All the addresses point back to this webserver, so if you are using a validating resolver, the ones containing only 'ok' should work, while any of the others should not.
 </p>
 
-<h3>Examples</h3>
-
+<h3>Examples:</h3>
 <pre>
-> dig +short +cd A bogussig.bad-dnssec.wb.sidnlabs.nl
+$ dig +short +cd A bogussig.bad-dnssec.wb.sidnlabs.nl
 94.198.159.39
-jelte@zen:~/repos/workbench (master)
-> dig +short A bogussig.bad-dnssec.wb.sidnlabs.nl
-jelte@zen:~/repos/workbench (master)
-> 
 
-> drill -k ~/root.key -S ok.ok.ok.bad-dnssec.wb.sidnlabs.nl
+jelte@zen:~/repos/workbench (master)
+$ dig +short A bogussig.bad-dnssec.wb.sidnlabs.nl
+
+$ drill -k ~/root.key -S ok.ok.ok.bad-dnssec.wb.sidnlabs.nl
 ;; Number of trusted keys: 1
 ;; Chasing: ok.ok.ok.bad-dnssec.wb.sidnlabs.nl. A
 
@@ -102,9 +95,7 @@ ok.ok.ok.bad-dnssec.wb.sidnlabs.nl. (A)
                                                             |---. (DNSKEY keytag: 19036 alg: 8 flags: 257)
 ;; Chase successful
 
-
-
-> drill -k ~/root.key -S ok.bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl
+$ drill -k ~/root.key -S ok.bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl
 ;; Number of trusted keys: 1
 ;; Chasing: ok.bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl. A
 
@@ -145,5 +136,16 @@ bad-dnssec.wb.sidnlabs.nl.	20	IN	DNSKEY	256 3 8 AwEAAc124bCaj8nrkm6Q36tskZxAYu29
 No trusted keys found in tree: first error was: Bogus DNSSEC signature
 ;; Chase failed.
 
-
 </pre>
+
+<br><br>
+<hr>
+<div class="menu">
+Sections: 
+<a href="index.html">Main</a> |
+<a href="types.html">RRTypes</a> | 
+DNSSEC validator testing |
+<a href="delegations.html">Delegations</a> |
+<a href="transfers.html">Transfers and TSIG</a>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br>

@@ -1,22 +1,21 @@
-<p class="bodytext">
-Sections:
+<h1>SIDN Labs DNS Workbench - Transfers and TSIG</h1>
+<div class="menu">
+Sections: 
 <a href="index.html">Main</a> |
 <a href="types.html">RRTypes</a> | 
 <a href="bad-dnssec.html">DNSSEC validator testing</a> |
 <a href="delegations.html">Delegations</a> |
-<b><a href="transfers.html">Transfers and TSIG</a></b>
-</p>
-
-<p class="bodytext">
+Transfers and TSIG 
+</div>
+<p>
 All zones are transferable from all servers. This gives users the option to set up their own systems as 'hidden' slaves; they will not get NOTIFY messages, and they are not announced in the zones, but you can use it to test transfers.
 </p>
-<p class="bodytext">
+<p>
 This also gives you the option to inspect the full zones in case there is some interesting behaviour.
 </p>
-<p class="bodytext">
+<p>
 Aside from plain transfers, there are also TSIG keys configured:
 </p>
-<p class="bodytext">
 <table>
 	<tr><th>Name</th><th>Algorithm</th><th>secret</th></tr>
 	<tr>
@@ -40,39 +39,42 @@ Aside from plain transfers, there are also TSIG keys configured:
 		<td>npfrIJjt/MJOjGJoBNZtsjftKMhkSpIYMv2RzRZt1f8=</td>
 	</tr>
 </table>
-</p>
 
+<h3>Examples:</h3>
 
-<h3>Examples</h3>
-
-<pre>
-> drill -y "wb_md5:Wu/utSasZUkoeCNku152Zw==" axfr ok.bad-dnssec.wb.sidnlabs.nl @bind9.sidnlabs.nl   | wc -l
-54
-> drill axfr ok.bad-dnssec.wb.sidnlabs.nl @knot.sidnlabs.nl   | wc -l
-54
-
-
+<div class="keyboard">
+<kbd>
+$ drill -y "wb_md5:Wu/utSasZUkoeCNku152Zw==" axfr ok.bad-dnssec.wb.sidnlabs.nl @bind9.sidnlabs.nl | wc -l<br>
+54<br>
+<br>
+$ drill axfr ok.bad-dnssec.wb.sidnlabs.nl @knot.sidnlabs.nl | wc -l<br>
+54<br>
+</kbd>
+</div>
+<br>
 Knot config snippet:
+<div class="keyboard">
+<code>
+remotes {<br>
+  master { address 94.198.159.39@53; }<br>
+}<br>
+<br>
+zones {<br>
+  sigexpired.bogussig.ok.bad-dnssec.wb.sidnlabs.nl {<br>
+    file "bad_dnssec/zones/sigexpired.bogussig.ok.bad-dnssec.wb.sidnlabs.nl";<br>
+    xfr-in master;<br>
+}<br>
+</code>
+</div>
 
-remotes {
-  master { address 94.198.159.39@53; }
-}
-zones {
-  sigexpired.bogussig.ok.bad-dnssec.wb.sidnlabs.nl {
-    file "bad_dnssec/zones/sigexpired.bogussig.ok.bad-dnssec.wb.sidnlabs.nl";
-    xfr-in master;
-}
-
-
-
-BIND10 config snippet:
-> config show Xfrin/zones[10]
-Xfrin/zones[10]/name	"nods.nods.nods.bad-dnssec.wb.sidnlabs.nl"	string	
-Xfrin/zones[10]/class	"IN"	string	
-Xfrin/zones[10]/master_addr	"94.198.159.39" 	string	
-Xfrin/zones[10]/master_port	53	integer	
-Xfrin/zones[10]/tsig_key	null	string	
-Xfrin/zones[10]/use_ixfr	false	boolean	(default)
-
-
-</pre>
+<br><br>
+<hr>
+<div class="menu">
+Sections: 
+<a href="index.html">Main</a> |
+<a href="types.html">RRTypes</a> | 
+<a href="bad-dnssec.html">DNSSEC validator testing</a> |
+<a href="delegations.html">Delegations</a> |
+Transfers and TSIG 
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br>
