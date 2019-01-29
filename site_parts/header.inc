@@ -51,7 +51,7 @@
     </head>
 
 <body>
-    <div class="media--linkedin"><img src="/assets/img/og-image--linkedin.png" alt="" title="" /></div>
+    <div class="media--linkedin"><img src="/assets/img/og-image-sidn.png" alt="" title="" /></div>
     <nav class="pushy pushy-right"></nav>
     <div class="site__overlay"></div>
     <div class="site theme--undefined">
