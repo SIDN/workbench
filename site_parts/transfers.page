@@ -8,7 +8,7 @@ Sections:
 Transfers and TSIG 
 </div>
 <p>
-All zones are transferable from all servers. This gives users the option to set up their own systems as 'hidden' slaves; they will not get NOTIFY messages, and they are not announced in the zones, but you can use it to test transfers.
+All <a href="/zones/">zones</a> are transferable from all servers. This gives users the option to set up their own systems as 'hidden' slaves; they will not get NOTIFY messages, and they are not announced in the zones, but you can use it to test transfers.
 </p>
 <p>
 This also gives you the option to inspect the full zones in case there is some interesting behaviour.
