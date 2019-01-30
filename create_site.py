@@ -33,6 +33,7 @@ files = []
 for (dirpath, dirnames, filenames) in os.walk(INPUT_DIR):
     files.extend([filename[:-len(INPUT_EXTENSION)] for filename in filenames if filename.endswith(".page")])
 
+os.system("mkdir -p %s" % (OUTPUT_DIR))
 os.system("rm -rf %s/*" % (OUTPUT_DIR))
 os.system("cp -r %s %s" % (ASSETS_DIR, OUTPUT_DIR))
 
