@@ -2,7 +2,7 @@
 <div class="menu">
 Sections: 
 <a href="index.html">Main</a> |
-<a href="types.html">RRTypes</a> | 
+<a href="types.html">RRtypes</a> | 
 DNSSEC validator testing |
 <a href="delegations.html">Delegations</a> |
 <a href="transfers.html">Transfers and TSIG</a>
@@ -142,7 +142,7 @@ No trusted keys found in tree: first error was: Bogus DNSSEC signature
 <div class="menu">
 Sections: 
 <a href="index.html">Main</a> |
-<a href="types.html">RRTypes</a> | 
+<a href="types.html">RRtypes</a> | 
 DNSSEC validator testing |
 <a href="delegations.html">Delegations</a> |
 <a href="transfers.html">Transfers and TSIG</a>

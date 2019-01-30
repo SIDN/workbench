@@ -2,7 +2,7 @@
 <div class="menu">
 Sections: 
 <a href="index.html">Main</a> |
-<a href="types.html">RRTypes</a> | 
+<a href="types.html">RRtypes</a> | 
 <a href="bad-dnssec.html">DNSSEC validator testing</a> |
 <a href="delegations.html">Delegations</a> |
 Transfers and TSIG 
@@ -72,7 +72,7 @@ zones {<br>
 <div class="menu">
 Sections: 
 <a href="index.html">Main</a> |
-<a href="types.html">RRTypes</a> | 
+<a href="types.html">RRtypes</a> | 
 <a href="bad-dnssec.html">DNSSEC validator testing</a> |
 <a href="delegations.html">Delegations</a> |
 Transfers and TSIG 

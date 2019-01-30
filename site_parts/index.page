@@ -2,7 +2,7 @@
 <div class="menu">
 Sections: 
 Main |
-<a href="types.html">RR types</a> |
+<a href="types.html">RRtypes</a> |
 <a href="bad-dnssec.html">Validator testing</a> |
 <a href="delegations.html">Delegations</a> |
 <a href="transfers.html">Transfers and TSIG</a>
@@ -29,7 +29,7 @@ entire infrastructure yourself, you can quickly find answers to
 questions such as 'How does NSD4 respond to an ANY query for a wildcard
 name in an NSEC3 opt-out zone?' (although this particular scenario is on the
 roadmap and not implemented just yet). It can also be used to test different
-(validating) resolver on their behaviour in certain circumstances.
+(validating) resolvers on their behaviour in certain circumstances.
 </p>
 <p>
 <em>Note: This is a work in progress. Server names, zone names and contents may change in the near future. If you see something you don't expect, always check these pages first.</em>
@@ -62,7 +62,7 @@ At this time, there are three 'classes' of setups:
 <table>
 	<tr>
 		<td><a href="types.html">RR types:</a></td>
-		<td>Different RRTypes, including obsolete and exotic ones.</td>
+		<td>Different RRtypes, including obsolete and exotic ones.</td>
 	</tr>
 	<tr>
 		<td><a href="bad-dnssec.html">Validator testing:</a></td>
@@ -80,7 +80,7 @@ At this time, there are three 'classes' of setups:
 
 <h3>Roadmap</h3>
 We intend to continually expand the workbench with different scenarios
-as we come up with them. A few short-term goals
+as we come up with them. A few short-term goals:
 <ul>
   <li>Add delegations between the different servers</li>
   <li>Add zones (or names) with other 'things' than rr types (wildcards, empty non-terminals, etc.)</li>
@@ -112,7 +112,7 @@ or if you are still missing something that would make it useful for you. So plea
 <hr>
 Sections: 
 Main |
-<a href="types.html">RR types</a> |
+<a href="types.html">RRtypes</a> |
 <a href="bad-dnssec.html">Validator testing</a> |
 <a href="delegations.html">Delegations</a> |
 <a href="transfers.html">Transfers and TSIG</a>

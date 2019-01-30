@@ -2,7 +2,7 @@
 <div class="menu">
 Sections: 
 <a href="index.html">Main</a> |
-<a href="types.html">RRTypes</a> |
+<a href="types.html">RRtypes</a> |
 <a href="bad-dnssec.html">DNSSEC validator testing</a> |
 Delegations |
 <a href="transfers.html">Transfers and TSIG</a>
@@ -26,7 +26,7 @@ Currently, all the zones are signed with RSA-SHA1, and NSEC. We could make these
 <div class="menu">
 Sections: 
 <a href="index.html">Main</a> |
-<a href="types.html">RRTypes</a> |
+<a href="types.html">RRtypes</a> |
 <a href="bad-dnssec.html">DNSSEC validator testing</a> |
 Delegations |
 <a href="transfers.html">Transfers and TSIG</a>

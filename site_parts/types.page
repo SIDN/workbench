@@ -8,15 +8,16 @@ RR types |
 <a href="transfers.html">Transfers and TSIG</a>
 </div>
 <p>
-This set of <a href="/typeszones/">zones</a> is intended to help with testing the handling of the different kind of RRTypes. 
-We have a zone that contains (nearly) every RRType, including experimental and obsolete types. 
+This set of <a href="/typeszones/">zones</a> is intended to help with testing the handling of the different kind of RRtypes. 
+We have a zone that contains (nearly) every RRtype, including experimental and obsolete types. 
 Note that the *contents* of the RRsets in this zone is generally meaningless; 
-the data is intended to test the RRType handling itself, and therefore the Rdata contents tend 
+the data is intended to test the RRtype handling itself, and therefore the Rdata contents tend 
 to be either on the borders of sane data, or simply meaningless 
 (think empty strings, example.org domain names, zero values, etc.).
 </p>
 <p>
-In principle, each type is available at the domain name derived from the type mnemonic, some examples:
+In principle, each type is available at the domain name derived from the type
+mnemonic. Some examples:
 </p>
 <table>
 	<tr>
@@ -56,8 +57,9 @@ If a type is not in this zone, it is probably not supported well enough by all t
 The default zone is unsigned, but we provide a signed version as well: signed-types.wb.sidnlabs.nl. The zone is signed with ldns-signzone.
 </p>
 <p>
-A zone file of the unsigned zone can be found <a href="/zones/types.wb.sidnlabs.nl.txt">here</a>.
-A zone file of the signed zone can be found <a href="/zones/types-signed.wb.sidnlabs.nl.txt">here</a>.
+The unsigned zone with many RRtypes can be found <a href="/zones/types.wb.sidnlabs.nl.txt">here</a>.
+This is the only unsigned zone of the DNS workbench. All other zones are DNSSEC signed. 
+The signed zone with many RRtypes can be found <a href="/zones/types-signed.wb.sidnlabs.nl.txt">here</a>.
 </p>
 Zone overview:
 <table>
@@ -75,7 +77,7 @@ Zone overview:
 	</tr>
 </table>
 <p>
-As with the other zones, both can be transfered directly through XFR as well, from all workbench servers. See the
+As with the other zones, both can be transfered directly through AXFR as well, from all workbench servers. See the
 <a href="/transfers.html">transfers</a> page for details.
 </p>
 <h3>Examples:</h3>
