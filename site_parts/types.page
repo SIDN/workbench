@@ -75,7 +75,8 @@ Zone overview:
 	</tr>
 </table>
 <p>
-As with the other zones, both can be transfered directly through XFR as well, from all workbench servers. See the <TRANSFERS> page for details.
+As with the other zones, both can be transfered directly through XFR as well, from all workbench servers. See the
+<a href="/transfers.html">transfers</a> page for details.
 </p>
 <h3>Examples:</h3>
 <div class="keyboard">

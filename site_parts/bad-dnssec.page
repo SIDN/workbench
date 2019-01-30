@@ -54,7 +54,6 @@ Some example links:
 	<li><a href="//ok.ok.sigexpired.bad-dnssec.wb.sidnlabs.nl/bad-dnssec.html">ok.ok.sigexpired.bad-dnssec.wb.sidnlabs.nl</a></li>
 	<li><a href="//unknownalgorithm.ok.ok.bad-dnssec.wb.sidnlabs.nl/bad-dnssec.html">unknownalgorithm.ok.ok.bad-dnssec.wb.sidnlabs.nl</a></li>
 </ul>
-</p>
 <p>
 All the addresses point back to this webserver, so if you are using a validating resolver, the ones containing only 'ok' should work, while any of the others should not.
 </p>

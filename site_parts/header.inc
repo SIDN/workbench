@@ -14,4 +14,4 @@
         <div class="logo"><img src="./assets/img/sidnlabs_logo.png" alt="SIDN Logo" title="" />
         </div>
         <div class="copy">
-<!--------------------- Header ------------------>
+<!-- Header -->
