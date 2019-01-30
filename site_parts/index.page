@@ -27,20 +27,21 @@ see the difference in their responses, if any.
 The idea behind the workbench is that, without having to set up an
 entire infrastructure yourself, you can quickly find answers to
 questions such as 'How does NSD4 respond to an ANY query for a wildcard
-name in an NSEC3 opt-out zone?' (Note: this specific scenario is on the
-roadmap but not implemented just yet).
+name in an NSEC3 opt-out zone?' (although this particular scenario is on the
+roadmap and not implemented just yet).
 </p>
 <p>
-<em>This is a work in progress. Server names, zone names and contents may change in the near future. If you see something you don't expect, always check these pages first.</em>
+<em>Note: This is a work in progress. Server names, zone names and contents may change in the near future. If you see something you don't expect, always check these pages first.</em>
 </p>
 <p>
-At this moment, there are 5 name servers in the work bench,
-a number of different <a href="/zones/">zones</a> (currently, all servers are serving all zones).
+At this moment, there are 5 name servers in the workbench,
+a number of different <a href="/zones/">zones</a> (currently, all servers are serving all
+zones, provided that we are able to load them into the name server).
 </p>
 <p>
 Note that the zone names may change in the near future, as the naming conventions might be modified while we are adding scenarios.
 </p>
-If you see any problems with the bench, or have any suggestions,
+If you see any problems with the workbench, or have any suggestions,
 please contact us (<a href="mailto:sidnlabs@sidn.nl">sidnlabs@sidn.nl</a>). The workbench is available on
 <a href="https://github.com/SIDN/workbench">GitHub</a>.
 
@@ -77,7 +78,7 @@ At this time, there are three 'classes' of setups:
 </table>
 
 <h3>Roadmap</h3>
-We intend to continually expand the work bench with different scenarios
+We intend to continually expand the workbench with different scenarios
 as we come up with them. A few short-term goals
 <ul>
   <li>Add delegations between the different servers</li>
