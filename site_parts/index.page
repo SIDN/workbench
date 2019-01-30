@@ -41,7 +41,7 @@ a number of different zones (currently, all servers are serving all zones).
 Note that the zone names may change in the near future, as the naming conventions might be modified while we are adding scenarios.
 </p>
 If you see any problems with the bench, or have any suggestions,
-please contact us (mailto:sidnlabs@sidn.nl). The workbench is available on
+please contact us (<a href="mailto:sidnlabs@sidn.nl">sidnlabs@sidn.nl</a>). The workbench is available on
 <a href="https://github.com/SIDN/workbench">GitHub</a>.
 
 <h3>Servers</h3>
