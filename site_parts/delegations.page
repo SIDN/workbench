@@ -8,7 +8,8 @@ Delegations |
 <a href="transfers.html">Transfers and TSIG</a>
 </div>
 <p>
-The delegations tree is a recursively generated tree of basic (signed) delegations. All <a href="/zones/">zones</a> in this tree are only hosted on one of the servers, specificed by the name in de *first* label of the zone's apex. Every zone has delegations to zones on each of the servers. The tree is three levels of delegations deep.
+The delegations tree is a recursively generated tree of basic (signed) delegations. All <a
+href="/delegationzones/">delegation zones</a> in this tree are only hosted on one of the servers, specificed by the name in de *first* label of the zone's apex. Every zone has delegations to zones on each of the servers. The tree is three levels of delegations deep.
 </p>
 <p>
 Currently, all the zones are signed with RSA-SHA1, and NSEC. We could make these for other types as well, should it be requested.
