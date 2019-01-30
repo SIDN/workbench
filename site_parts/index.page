@@ -28,7 +28,8 @@ The idea behind the workbench is that, without having to set up an
 entire infrastructure yourself, you can quickly find answers to
 questions such as 'How does NSD4 respond to an ANY query for a wildcard
 name in an NSEC3 opt-out zone?' (although this particular scenario is on the
-roadmap and not implemented just yet).
+roadmap and not implemented just yet). It can also be used to test different
+(validating) resolver on their behaviour in certain circumstances.
 </p>
 <p>
 <em>Note: This is a work in progress. Server names, zone names and contents may change in the near future. If you see something you don't expect, always check these pages first.</em>
@@ -103,7 +104,8 @@ service for any other (automated) service or system.
 <p>
 If there are any problems with the software or service, please
 contact <a href="mailto:sidnlabs@sidn.nl">SIDN Labs</a>.
-We would also be very much interested if you have used the workbench, or if you are still missing something that would make it useful for you. So please let us know!
+We would also be very much interested if you have used the workbench, 
+or if you are still missing something that would make it useful for you. So please let us know!
 </p>
 <div class="menu">
 <br><br>
