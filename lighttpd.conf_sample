@@ -9,6 +9,7 @@ server.modules = (
 server.document-root        = "/var/www/html"
 server.upload-dirs          = ( "/var/cache/lighttpd/uploads" )
 server.errorlog             = "/var/log/lighttpd/error.log"
+#accesslog.filename          = "/var/log/lighttpd/access.log"
 server.pid-file             = "/var/run/lighttpd.pid"
 server.username             = "www-data"
 server.groupname            = "www-data"
@@ -56,7 +57,9 @@ $SERVER["socket"] == "0.0.0.0:443" {
 }
 
 # listen to ipv6
-$SERVER["socket"] == "[::]:80" {  }
+$SERVER["socket"] == "[::]:80" {
+    accesslog.filename = "/var/log/lighttpd/access.log"
+}
 
 $SERVER["socket"] == "[::]:443" {
     ssl.engine = "enable"
