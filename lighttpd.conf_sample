@@ -3,12 +3,12 @@ server.modules = (
 	"mod_alias",
 	"mod_compress",
  	"mod_redirect",
+	"mod_setenv",
 )
 
 server.document-root        = "/var/www/html"
 server.upload-dirs          = ( "/var/cache/lighttpd/uploads" )
 server.errorlog             = "/var/log/lighttpd/error.log"
-accesslog.filename          = "/var/log/lighttpd/access.log"
 server.pid-file             = "/var/run/lighttpd.pid"
 server.username             = "www-data"
 server.groupname            = "www-data"
@@ -42,7 +42,8 @@ $SERVER["socket"] == "0.0.0.0:443" {
     ssl.pemfile = "/etc/lighttpd/web.pem" # Combined Certificate
     ssl.ca-file = "/etc/lighttpd/certs/star.sidnlabs.nl.DigiCertCA.crt" # Root CA
     # https://raymii.org/s/tutorials/Strong_SSL_Security_On_lighttpd.html
-    ssl.use-compression = "disable"
+    # Is default since 1.4.28-2+squeeze1.1)
+    #ssl.use-compression = "disable"
     ssl.use-sslv2 = "disable"
     ssl.use-sslv3 = "disable"
     ssl.cipher-list = "EECDH+AESGCM:EDH+AESGCM:AES128+EECDH:AES128+EDH"
@@ -63,7 +64,8 @@ $SERVER["socket"] == "[::]:443" {
     ssl.pemfile = "/etc/lighttpd/web.pem" # Combined Certificate
     ssl.ca-file = "/etc/lighttpd/certs/star.sidnlabs.nl.DigiCertCA.crt" # Root CA
     # https://raymii.org/s/tutorials/Strong_SSL_Security_On_lighttpd.html
-    ssl.use-compression = "disable"
+    # Is default since 1.4.28-2+squeeze1.1)
+    # ssl.use-compression = "disable"
     ssl.use-sslv2 = "disable"
     ssl.use-sslv3 = "disable"
     ssl.cipher-list = "EECDH+AESGCM:EDH+AESGCM:AES128+EECDH:AES128+EDH"
