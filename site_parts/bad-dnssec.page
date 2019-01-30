@@ -48,11 +48,11 @@ Some example links:
 </p>
 <p>
 <ul>
-	<li><a href="//ok.ok.ok.bad-dnssec.wb.sidnlabs.nl/bad-dnssec.html">ok.ok.ok.bad-dnssec.wb.sidnlabs.nl</a></li>
-	<li><a href="//ok.bogussig.ok.bad-dnssec.wb.sidnlabs.nl/bad-dnssec.html">ok.bogussig.ok.bad-dnssec.wb.sidnlabs.nl</a></li>
-	<li><a href="//signotincepted.bad-dnssec.wb.sidnlabs.nl/bad-dnssec.html">signotincepted.bad-dnssec.wb.sidnlabs.nl</a></li>
-	<li><a href="//ok.ok.sigexpired.bad-dnssec.wb.sidnlabs.nl/bad-dnssec.html">ok.ok.sigexpired.bad-dnssec.wb.sidnlabs.nl</a></li>
-	<li><a href="//unknownalgorithm.ok.ok.bad-dnssec.wb.sidnlabs.nl/bad-dnssec.html">unknownalgorithm.ok.ok.bad-dnssec.wb.sidnlabs.nl</a></li>
+	<li><a href="https://dnssec-analyzer.verisignlabs.com/ok.ok.ok.bad-dnssec.wb.sidnlabs.nl">ok.ok.ok.bad-dnssec.wb.sidnlabs.nl</a></li>
+	<li><a href="https://dnssec-analyzer.verisignlabs.com/ok.bogussig.ok.bad-dnssec.wb.sidnlabs.nl">ok.bogussig.ok.bad-dnssec.wb.sidnlabs.nl</a></li>
+	<li><a href="https://dnssec-analyzer.verisignlabs.com/signotincepted.bad-dnssec.wb.sidnlabs.nl">signotincepted.bad-dnssec.wb.sidnlabs.nl</a></li>
+	<li><a href="https://dnssec-analyzer.verisignlabs.com/ok.ok.sigexpired.bad-dnssec.wb.sidnlabs.nl">ok.ok.sigexpired.bad-dnssec.wb.sidnlabs.nl</a></li>
+	<li><a href="https://dnssec-analyzer.verisignlabs.com/unknownalgorithm.ok.ok.bad-dnssec.wb.sidnlabs.nl">unknownalgorithm.ok.ok.bad-dnssec.wb.sidnlabs.nl</a></li>
 </ul>
 <p>
 All the addresses point back to this webserver, so if you are using a validating resolver, the ones containing only 'ok' should work, while any of the others should not.
