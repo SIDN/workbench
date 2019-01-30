@@ -24,6 +24,8 @@ check_rcode() {
 echo "Remove the old version"
 rm -rf /var/www/html/*
 check_rcode
+rm -rf /var/cache/lighttpd/compress/*
+check_rcode
 echo "Install new version"
 cp -a site/* /var/www/html/
 check_rcode
