@@ -121,3 +121,31 @@ $HTTP["url"] =~ "^/delegationzones($|/)" {
      # dir-listing.encode-header
      dir-listing.set-footer = "<hr><small>SIDN Labs DNS Workbench &copy; 2019</small><br><br>"
 }
+
+$HTTP["url"] =~ "^/typeszones($|/)" {
+     dir-listing.activate = "enable" 
+     dir-listing.auto-layout ="enable"
+     dir-listing.encoding = "utf-8"
+     dir-listing.hide-dotfiles = "enable"
+     dir-listing.external-css = "/assets/css/sidnlabs_wb.css"
+     dir-listing.exclude = ( "~$" )
+     # dir-listing.hide-readme-file (slaat op een eventuele README.txt)
+     # dir-listing.encode-readme
+     # dir-listing.show-header (toont een eventuele HEADER.txt
+     # dir-listing.encode-header
+     dir-listing.set-footer = "<hr><small>SIDN Labs DNS Workbench &copy; 2019</small><br><br>"
+}
+
+$HTTP["url"] =~ "^/badzones($|/)" {
+     dir-listing.activate = "enable" 
+     dir-listing.auto-layout ="enable"
+     dir-listing.encoding = "utf-8"
+     dir-listing.hide-dotfiles = "enable"
+     dir-listing.external-css = "/assets/css/sidnlabs_wb.css"
+     dir-listing.exclude = ( "~$" )
+     # dir-listing.hide-readme-file (slaat op een eventuele README.txt)
+     # dir-listing.encode-readme
+     # dir-listing.show-header (toont een eventuele HEADER.txt
+     # dir-listing.encode-header
+     dir-listing.set-footer = "<hr><small>SIDN Labs DNS Workbench &copy; 2019</small><br><br>"
+}

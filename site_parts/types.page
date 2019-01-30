@@ -8,7 +8,7 @@ RR types |
 <a href="transfers.html">Transfers and TSIG</a>
 </div>
 <p>
-This set of <a href="/zones/">zones</a> is intended to help with testing the handling of the different kind of RRTypes. 
+This set of <a href="/typeszones/">zones</a> is intended to help with testing the handling of the different kind of RRTypes. 
 We have a zone that contains (nearly) every RRType, including experimental and obsolete types. 
 Note that the *contents* of the RRsets in this zone is generally meaningless; 
 the data is intended to test the RRType handling itself, and therefore the Rdata contents tend 

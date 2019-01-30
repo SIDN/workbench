@@ -37,8 +37,12 @@ check_rcode
 echo "Refresh the unsigend and signed zones (types.html refers to them)"
 mkdir /var/www/html/zones
 mkdir /var/www/html/delegationzones
+mkdir /var/www/html/typeszones
+mkdir /var/www/html/badzones
 for a in $(ls /var/dns-workbench/zones/); do ln -s /var/dns-workbench/zones/$a /var/www/html/zones/$a.txt;done
+for a in $(ls /var/dns-workbench/zones/types*.wb.sidnlabs.nl | awk -F\/ '{print $5}'); do ln -s /var/dns-workbench/zones/$a /var/www/html/typeszones/$a.txt;done
 for a in $(ls /var/dns-workbench/zones/*.delegations.wb.sidnlabs.nl | awk -F\/ '{print $5}'); do ln -s /var/dns-workbench/zones/$a /var/www/html/delegationzones/$a.txt;done
+for a in $(ls /var/dns-workbench/zones/*.bad-dnssec.wb.sidnlabs.nl | awk -F\/ '{print $5}'); do ln -s /var/dns-workbench/zones/$a /var/www/html/badzones/$a.txt;done
 #ln -s /var/dns-workbench/zones/types-signed.wb.sidnlabs.nl /var/www/html/types-signed.wb.sidnlabs.nl.txt
 #ln -s /var/dns-workbench/zones/types.wb.sidnlabs.nl /var/www/html/types.wb.sidnlabs.nl.txt
 
