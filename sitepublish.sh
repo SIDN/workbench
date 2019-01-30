@@ -21,6 +21,10 @@ check_rcode() {
     fi
 }
 
+#echo "Cleanup *~"
+#find . -type f -name "*~" | xargs rm
+#check_rcode
+
 echo "Remove the old version"
 rm -rf /var/www/html/*
 check_rcode
