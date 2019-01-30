@@ -1,0 +1,104 @@
+server.modules = (
+	"mod_access",
+	"mod_alias",
+	"mod_compress",
+ 	"mod_redirect",
+)
+
+server.document-root        = "/var/www/html"
+server.upload-dirs          = ( "/var/cache/lighttpd/uploads" )
+server.errorlog             = "/var/log/lighttpd/error.log"
+accesslog.filename          = "/var/log/lighttpd/access.log"
+server.pid-file             = "/var/run/lighttpd.pid"
+server.username             = "www-data"
+server.groupname            = "www-data"
+
+# (MD) listen to ipv4
+#server.bind                = "0.0.0.0"
+#server.bind                = "[::]"
+server.port                 = 80
+
+index-file.names            = ( "index.php", "index.html", "index.lighttpd.html" )
+url.access-deny             = ( "~", ".inc" )
+static-file.exclude-extensions = ( ".php", ".pl", ".fcgi" )
+
+compress.cache-dir          = "/var/cache/lighttpd/compress/"
+compress.filetype           = ( "application/javascript", "text/css", "text/html", "text/plain" )
+
+# default listening port for IPv6 falls back to the IPv4 port
+## Use ipv6 if available
+#include_shell "/usr/share/lighttpd/use-ipv6.pl " + server.port
+include_shell "/usr/share/lighttpd/create-mime.assign.pl"
+include_shell "/usr/share/lighttpd/include-conf-enabled.pl"
+
+
+#### MD: our stuff
+# https://redmine.lighttpd.net/projects/lighttpd/wiki/IPv6-Config
+#
+
+$SERVER["socket"] == "0.0.0.0:443" {
+    ssl.engine = "enable"
+    # cat certs/private/star.sidnlabs.nl.key certs/star.sidnlabs.nl.crt > web.pem
+    ssl.pemfile = "/etc/lighttpd/web.pem" # Combined Certificate
+    ssl.ca-file = "/etc/lighttpd/certs/star.sidnlabs.nl.DigiCertCA.crt" # Root CA
+    # https://raymii.org/s/tutorials/Strong_SSL_Security_On_lighttpd.html
+    ssl.use-compression = "disable"
+    ssl.use-sslv2 = "disable"
+    ssl.use-sslv3 = "disable"
+    ssl.cipher-list = "EECDH+AESGCM:EDH+AESGCM:AES128+EECDH:AES128+EDH"
+    ssl.honor-cipher-order = "enable"
+    ssl.dh-file = "/etc/lighttpd/certs/dhparam.pem"
+    ssl.ec-curve = "secp384r1"
+    # server.name = "workbench.sidnlabs.nl" # Domain Name OR Virtual Host Name
+    server.document-root = "/var/www/html"
+    accesslog.filename = "/var/log/lighttpd/ssl_access.log"
+}
+
+# listen to ipv6
+$SERVER["socket"] == "[::]:80" {  }
+
+$SERVER["socket"] == "[::]:443" {
+    ssl.engine = "enable"
+    # cat certs/private/star.sidnlabs.nl.key certs/star.sidnlabs.nl.crt > web.pem
+    ssl.pemfile = "/etc/lighttpd/web.pem" # Combined Certificate
+    ssl.ca-file = "/etc/lighttpd/certs/star.sidnlabs.nl.DigiCertCA.crt" # Root CA
+    # https://raymii.org/s/tutorials/Strong_SSL_Security_On_lighttpd.html
+    ssl.use-compression = "disable"
+    ssl.use-sslv2 = "disable"
+    ssl.use-sslv3 = "disable"
+    ssl.cipher-list = "EECDH+AESGCM:EDH+AESGCM:AES128+EECDH:AES128+EDH"
+    ssl.honor-cipher-order = "enable"
+    ssl.dh-file = "/etc/lighttpd/certs/dhparam.pem"
+    ssl.ec-curve = "secp384r1"
+    # server.name = "workbench.sidnlabs.nl" # Domain Name OR Virtual Host Name
+    server.document-root = "/var/www/html"
+    accesslog.filename = "/var/log/lighttpd/ssl_access.log"
+}
+
+# Redirect HTTP to HTTPS, but not for dvps.forfun.net
+$HTTP["scheme"] == "http" {
+    $HTTP["host"] =~ "(workbench\.sidnlabs\.nl)" { # HTTP URL - niet nodig?
+         url.redirect = (".*" => "https://%0$0") # Redirection HTTPS URL
+    }
+}
+
+$HTTP["scheme"] == "https" {
+    $HTTP["host"] =~ "(workbench\.sidnlabs\.nl)" { # HTTP URL - niet nodig?
+        setenv.add-response-header = ( "Strict-Transport-Security" => "max-age=16000000; includeSubdomains" )
+    }
+}
+
+# Directory Listing for zones
+$HTTP["url"] =~ "^/zones($|/)" {
+     dir-listing.activate = "enable" 
+     dir-listing.encoding = "utf-8"
+     dir-listing.hide-dotfiles = "enable"
+     dir-listing.external-css = "/assets/css/sidnlabs_wb.css"
+     dir-listing.exclude = ( "~$" )
+     # dir-listing.hide-readme-file (slaat op een eventuele README.txt)
+     # dir-listing.encode-readme
+     # dir-listing.show-header (toont een eventuele HEADER.txt
+     # dir-listing.encode-header
+     # dir-listing.auto-layout 
+     dir-listing.set-footer = "<hr><small>SIDN Labs DNS Workbench &copy; 2019</small><br><br>"
+}
