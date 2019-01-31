@@ -17,14 +17,14 @@ This also gives you the option to inspect the full zones in case there is some i
 Aside from plain transfers, there are also TSIG keys configured:
 </p>
 <table>
-	<tr><th>Name</th><th>Algorithm</th><th>secret</th></tr>
+	<tr><th>Name</th><th><a href="https://www.iana.org/assignments/tsig-algorithm-names/tsig-algorithm-names.xml">Algorithm</a></th><th>secret</th></tr>
 	<tr>
-		<td>wb_md5.</td>
+		<td>wb_md5</td>
 		<td>hmac-md5.sig-alg.reg.int</td>
 		<td>Wu/utSasZUkoeCNku152Zw==</td>
 	</tr>
 	<tr>
-		<td>wb_sha1.</td>
+		<td>wb_sha1</td>
 		<td>hmac-sha1</td>
 		<td>Vn37JPSCmaCHKJhghcpRg8m6PlQ=</td>
 	</tr>

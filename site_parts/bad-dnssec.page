@@ -8,7 +8,9 @@ DNSSEC validator testing |
 <a href="transfers.html">Transfers and TSIG</a>
 </div>
 <p>
-The DNSSEC Bad Tree is a recursively generated tree of DNSSEC-signed <a href="/badzones/">zones</a>, which contains specific deliberate signing errors, such as RRSIG records that have expired, RRSIG records that are bogus, etc.
+The DNSSEC Bad Tree is a recursively generated tree 
+(under <a href = "/badzones/bad-dnssec.wb.sidnlabs.nl.txt">bad-dnssec.wb.sidnlabs.nl</a>) of DNSSEC-signed <a href="/badzones/">zones</a>, which contains specific deliberate signing errors, such as
+various invalid RRSIGs and unknown algorithm.
 </p>
 <p>
 Based on the first label, a specific error condition is created by the signer (i.e. you'll usually run into the error upon encountering the DS record for the zone that starts with the error label):
@@ -47,7 +49,7 @@ Based on the first label, a specific error condition is created by the signer (i
 Some example zones (leading to <a href="https://dnssec-analyzer.verisignlabs.com/">https://dnssec-analyzer.verisignlabs.com/</a>) :
 </p>
 <ul>
-	<li><a href="https://dnssec-analyzer.verisignlabs.com/ok.ok.ok.bad-dnssec.wb.sidnlabs.nl">ok.ok.ok.bad-dnssec.wb.sidnlabs.nl</a></li>
+	<li><a href="https://dnssec-analyzer.verisignlabs.com/ok.ok.ok.bad-dnssec.wb.sidnlabs.nl">ok.ok.ok.bad-dnssec.wb.sidnlabs.nl</a> a good zone</li>
 	<li><a href="https://dnssec-analyzer.verisignlabs.com/ok.bogussig.ok.bad-dnssec.wb.sidnlabs.nl">ok.bogussig.ok.bad-dnssec.wb.sidnlabs.nl</a></li>
 	<li><a href="https://dnssec-analyzer.verisignlabs.com/signotincepted.bad-dnssec.wb.sidnlabs.nl">signotincepted.bad-dnssec.wb.sidnlabs.nl</a></li>
 	<li><a href="https://dnssec-analyzer.verisignlabs.com/ok.ok.sigexpired.bad-dnssec.wb.sidnlabs.nl">ok.ok.sigexpired.bad-dnssec.wb.sidnlabs.nl</a></li>
