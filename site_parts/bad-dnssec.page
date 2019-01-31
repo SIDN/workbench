@@ -46,7 +46,6 @@ Based on the first label, a specific error condition is created by the signer (i
 <p>
 Some example zones (leading to <a href="https://dnssec-analyzer.verisignlabs.com/">https://dnssec-analyzer.verisignlabs.com/</a>) :
 </p>
-<p>
 <ul>
 	<li><a href="https://dnssec-analyzer.verisignlabs.com/ok.ok.ok.bad-dnssec.wb.sidnlabs.nl">ok.ok.ok.bad-dnssec.wb.sidnlabs.nl</a></li>
 	<li><a href="https://dnssec-analyzer.verisignlabs.com/ok.bogussig.ok.bad-dnssec.wb.sidnlabs.nl">ok.bogussig.ok.bad-dnssec.wb.sidnlabs.nl</a></li>
