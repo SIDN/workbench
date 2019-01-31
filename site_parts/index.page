@@ -47,13 +47,13 @@ please contact us (<a href="mailto:sidnlabs@sidn.nl">sidnlabs@sidn.nl</a>). The 
 <a href="https://github.com/SIDN/workbench">GitHub</a>.
 
 <h3>Servers</h3>
-The following servers are currently running:
+The following servers, all open source,  are currently running:
 <ul>
-<li>nsd4.sidnlabs.nl (NSD 4.1.17 - Ubuntu 18.04))</li>
-<li>bind9.sidnlabs.nl (bind 9.11.3 - Ubuntu 18.04)</li>
-<li>knot.sidnlabs.nl (Knot 2.6.5 - Ubuntu 18.04)</li>
-<li>powerdns.sidnlabs.nl (PowerDNS 4.1.1 with SQLite3 backend - Ubuntu 18.04)</li>
-<li>yadifa.sidnlabs.nl (Yadifa 2.3.7 - Ubuntu 18.04)</li>
+<li>nsd4.sidnlabs.nl (<a href="https://www.nlnetlabs.nl/projects/nsd/about/">NSD</a> 4.1.17 - Ubuntu 18.04))</li>
+<li>bind9.sidnlabs.nl (<a href="https://www.isc.org/downloads/bind/">BIND</a> 9.11.3 - Ubuntu 18.04)</li>
+<li>knot.sidnlabs.nl (<a href="https://www.knot-dns.cz/">Knot</a> 2.6.5 - Ubuntu 18.04)</li>
+<li>powerdns.sidnlabs.nl (<a href="https://www.powerdns.com/">PowerDNS</a> 4.1.1 with SQLite3 backend - Ubuntu 18.04)</li>
+<li>yadifa.sidnlabs.nl (<a href="https://www.yadifa.eu/">Yadifa</a> 2.3.7 - Ubuntu 18.04)</li>
 </ul>
 
 <p>
@@ -101,12 +101,11 @@ This is a beta service. This service is <em>explicitely</em> not
 supported by SIDN, but by SIDN Labs. Its setup can change at any
 moment, without any warning, so it is not advisable to depend on this
 service for any other (automated) service or system.
-<p>
 If there are any problems with the software or service, please
 contact <a href="mailto:sidnlabs@sidn.nl">SIDN Labs</a>.
 We would also be very much interested if you have used the workbench, 
 or if you are still missing something that would make it useful for you. So please let us know!
-</p>
+
 <div class="menu">
 <br><br>
 <hr>

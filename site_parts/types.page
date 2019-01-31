@@ -68,11 +68,11 @@ Zone overview:
 		<th>Description</th>
 	</tr>
 	<tr>
-		<td>types.wb.sidnlabs.nl</td>
+		<td><a href="/zones/types.wb.sidnlabs.nl.txt">types.wb.sidnlabs.nl</a></td>
 		<td>Unsigned version of the zone-with-many-rrtypes</td>
 	</tr>
 	<tr>
-		<td>types-signed.wb.sidnlabs.nl</td>
+		<td><a href="/zones/types-signed.wb.sidnlabs.nl.txt">types-signed.wb.sidnlabs.nl</a></td>
 		<td>DNSSEC-signed version of the zone-with-many-rrtypes</td>
 	</tr>
 </table>
