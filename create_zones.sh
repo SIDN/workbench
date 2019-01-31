@@ -16,6 +16,16 @@ fi
 # Create output dir if it does not exist:
 mkdir -p ./output
 
+# Do or don't? You pick...
+rm -rf output/final*
+rm -rf output/keys/*
+rm -rf output/signed/*
+rm -rf output/uncompleted/*
+rm -rf output/unsigned/*
+rm -rf output/zone_db/*
+# (removing existing stuff, just to make sure everything is truly regenerated
+# Skipping output/server, since it contains configs
+
 echo "Running static zones generator" &&\
 ./tools/generators/static_zones.py &&\
 echo "Running bad-dnssec zones generator" &&\

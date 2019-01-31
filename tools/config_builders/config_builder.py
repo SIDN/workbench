@@ -202,6 +202,7 @@ class NSDConfigGenerator(ConfigGenerator):
     def get_update_lines(self):
         # Note: the script called here must be present
         # (it is not a standard reload script)
+        # No loger used in 2019 version
         return [
             "sudo /etc/nsd3/nsdc_update"
         ]
@@ -259,6 +260,7 @@ class NSD4ConfigGenerator(ConfigGenerator):
                 lines.append("\trequest-xfr: %s NOKEY" % (master_addr))
         return lines
 
+    # NSD4
     def get_update_lines(self):
         return [
             "/usr/sbin/nsd-control reload"
@@ -315,6 +317,7 @@ class Bind9ConfigGenerator(ConfigGenerator):
         ])
         return lines
     
+    # BIND9
     def get_update_lines(self):
         return [
             "rndc reconfig",
@@ -380,6 +383,8 @@ class Bind10ConfigGenerator(ConfigGenerator):
 
         return lines
     
+    # BIND10
+    # No longer in use in 2019 version
     def get_update_lines(self):
         lines = []
         lines.append("cat /var/workbench/bind10_commands.txt | bindctl")
@@ -502,11 +507,12 @@ class KnotConfigGenerator(ConfigGenerator):
 
         return lines
     
+    # Knot
     def get_update_lines(self):
         # Note: this calls a custom script which was created manually
         return [
             # "sudo /etc/knot/knotc_update"
-            " sudo /usr/sbin/knotc -s /var/run/knot/knot.sock reload"
+            "/usr/sbin/knotc -s /var/run/knot/knot.sock reload"
         ]
 
 class PowerDNSConfigGenerator(ConfigGenerator):
@@ -514,6 +520,10 @@ class PowerDNSConfigGenerator(ConfigGenerator):
     # manipulate the zone data through the database.
     # Part of that is done through the custom script
     # /var/workbench/add_or_update_zone
+    #
+    # 2019 version update: 
+    # We are a simpel superslave, so the above does no longer apply
+    #
 
     def get_name(self):
         return "powerdns"
@@ -536,21 +546,30 @@ class PowerDNSConfigGenerator(ConfigGenerator):
     def get_zone_chunk(self, zd):
         # All done through other script?
         return []
-    
-    def get_update_lines(self):
-        lines = []
-        for zd in self.zds:
-            zname = zd.get("name")
-            zname_u = dnsutil.ufqdn(zname)
-            if self.is_primary_for(zd):
-                # zone in database goes
-                lines.append("sudo /var/workbench/add_or_update_zone.sh %s %s" % (zname_u, "zones/%s" % zname_u))
-                # if it is slave, it should work automagically (supermasters)
-            
-            # dnssec stuff goes for both
-            lines.append("sudo /var/workbench/pdnssec_set.sh %s" % zname_u)
 
-        return lines
+    # 2019 version
+    # Maybe too strong?
+    def get_update_lines(self):
+        return [
+            "systemctl restart pdns",
+            "systemctl restart bind9"
+        ]
+
+    # Former version    
+    #def get_update_lines(self):
+    #    lines = []
+    #    for zd in self.zds:
+    #        zname = zd.get("name")
+    #        zname_u = dnsutil.ufqdn(zname)
+    #        if self.is_primary_for(zd):
+    #            # zone in database goes
+    #            lines.append("sudo /var/workbench/add_or_update_zone.sh %s %s" % (zname_u, "zones/%s" % zname_u))
+    #            # if it is slave, it should work automagically (supermasters)
+    #        
+    #        # dnssec stuff goes for both
+    #        lines.append("sudo /var/workbench/pdnssec_set.sh %s" % zname_u)
+    #
+    #    return lines
 
 class EmptyConfigGenerator(ConfigGenerator):
     def get_name(self):
@@ -634,7 +653,8 @@ class YadifaConfigGenerator(ConfigGenerator):
         return [
             # Note: this calls a custom script which was created manually
             # "sudo /var/workbench/restart_yadifa.sh"
-            "sudo /etc/init.d/yadifa restart"
+            # 2019 version:
+            "/etc/init.d/yadifa restart"
         ]
 
 

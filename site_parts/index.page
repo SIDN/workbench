@@ -52,7 +52,7 @@ The following servers are currently running:
 <li>nsd4.sidnlabs.nl (NSD 4.1.17 - Ubuntu 18.04))</li>
 <li>bind9.sidnlabs.nl (bind 9.11.3 - Ubuntu 18.04)</li>
 <li>knot.sidnlabs.nl (Knot 2.6.5 - Ubuntu 18.04)</li>
-<li>powerdns.sidnlabs.nl (PowerDNS 4.1.1 with BIND backend - Ubuntu 18.04)</li>
+<li>powerdns.sidnlabs.nl (PowerDNS 4.1.1 with SQLite3 backend - Ubuntu 18.04)</li>
 <li>yadifa.sidnlabs.nl (Yadifa 2.3.7 - Ubuntu 18.04)</li>
 </ul>
 
