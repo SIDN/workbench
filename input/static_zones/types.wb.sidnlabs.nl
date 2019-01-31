@@ -177,8 +177,12 @@ px				PX	10	map822 mapx400
 type26			PX	10	map822 mapx400
 
 ; type 27
-gpos			TYPE27	\# 18 05 32 33 2e 36 37 05 32 33 2e 36 37 05 32 33 2e 36 37
-type27			TYPE27	\# 18 05 32 33 2e 36 37 05 32 33 2e 36 37 05 32 33 2e 36 37
+; Does not work in PowerDNS 4.1.1 with BIND-backend
+; https://github.com/PowerDNS/pdns/issues/7437
+;gpos			TYPE27	\# 18 05 32 33 2e 36 37 05 32 33 2e 36 37 05 32 33 2e 36 37
+gpos			TXT	"Excluded because of https://github.com/PowerDNS/pdns/issues/7437"
+;type27			TYPE27	\# 18 05 32 33 2e 36 37 05 32 33 2e 36 37 05 32 33 2e 36 37
+type27			TXT	"Excluded because of https://github.com/PowerDNS/pdns/issues/7437"
 
 ; type 28
 aaaa			AAAA	2001:7b8:c05::80:4
@@ -211,10 +215,12 @@ naptr			NAPTR	100 100 "s" "http+l@r" "" naptr.replacement
 type35			NAPTR	100 100 "s" "http+l@r" "" naptr.replacement
 
 ; type 36
-kx01			KX	10 kdc
-kx02			KX	10 .
-kx				KX	10 kx
-type36			KX	10 kx
+;kx01			KX	10 kdc
+;kx02			KX	10 .
+;kx			KX	10 kx
+kx			TXT	"Excluded because of https://github.com/PowerDNS/pdns/issues/7437"
+;type36			KX	10 kx
+type36			TXT	"Excluded because of https://github.com/PowerDNS/pdns/issues/7437"
 
 ; type 37
 cert01			CERT	65534 65535 254 (

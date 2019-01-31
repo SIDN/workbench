@@ -16,7 +16,7 @@ Currently, all the zones are signed with RSA-SHA1, and NSEC. We could make these
 </p>
 <h3>Examples:</h3>
 <ul>
-	<li><a href="/delegationzones/delegations.wb.sidnlabs.nl.txt">delegations.wb.sidnlabs.nl</a> Served from all name servers</li>
+	<li><a href="/delegationzones/delegations.wb.sidnlabs.nl.txt">delegations.wb.sidnlabs.nl</a> Served from all name servers (just like <a href="/zones/wb.sidnlabs.nl.txt">wb.sidnlabs.nl</a> by the way)</li>
 	<li><a href="/delegationzones/knot.delegations.wb.sidnlabs.nl.txt">knot.delegations.wb.sidnlabs.nl</a> Served with Knot</li>
 	<li><a href="/delegationzones/knot.nsd4.powerdns.delegations.wb.sidnlabs.nl.txt">knot.nsd4.powerdns.delegations.wb.sidnlabs.nl</a> Served with Knot (delegated from NSD4, delegated from PowerDNS)</li>
 </ul>
