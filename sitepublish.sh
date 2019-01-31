@@ -33,6 +33,9 @@ check_rcode
 echo "Install new version"
 cp -a site/* /var/www/html/
 check_rcode
+# Needed for the Directory Listing pages:
+ln -s /var/www/html/assets/favicon.ico /var/www/html/
+check_rcode
 
 echo "Refresh the unsigend and signed zones (types.html refers to them)"
 mkdir /var/www/html/zones
