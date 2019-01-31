@@ -16,10 +16,9 @@ Currently, all the zones are signed with RSA-SHA1, and NSEC. We could make these
 </p>
 <h3>Examples:</h3>
 <ul>
+	<li><a href="https://dnssec-analyzer.verisignlabs.com/delegations.wb.sidnlabs.nl">delegations.wb.sidnlabs.nl</a> Served from all name servers</li>
 	<li><a href="https://dnssec-analyzer.verisignlabs.com/knot.delegations.wb.sidnlabs.nl">knot.delegations.wb.sidnlabs.nl</a> Served with Knot</li>
-	<li><a href="https://dnssec-analyzer.verisignlabs.com/nsd.yadifa.knot.delegations.wb.sidnlabs.nl">nsd.yadifa.knot.delegations.wb.sidnlabs.nl</a> Served with Knot</li>
 	<li><a href="https://dnssec-analyzer.verisignlabs.com/knot.nsd4.powerdns.delegations.wb.sidnlabs.nl">knot.nsd4.powerdns.delegations.wb.sidnlabs.nl</a> Served with Knot (delegated from NSD4, delegated from PowerDNS)</li>
-	<li><a href="https://dnssec-analyzer.verisignlabs.com/nsd.nsd.nsd.delegations.wb.sidnlabs.nl">nsd.nsd.nsd.delegations.wb.sidnlabs.nl</a> Served with NSD 3 (which also serves both delegations)</li>
 </ul>
 <br><br>
 <hr>
