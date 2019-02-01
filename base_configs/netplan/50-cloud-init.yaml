@@ -6,9 +6,8 @@
 network:
     version: 2
     ethernets:
-# nsd(4), bind9, powerdns, yadifa, knot + website
         ens160:
-            #  powerdns  knot  yadifa nsd4 bind9                                                               
+            # powerdns  knot  yadifa nsd4 bind9                                                               
             addresses: [ "2a00:d78:0:712:94:198:159:26/64",
                          94.198.159.26/26,
                          "2a00:d78:0:712:94:198:159:27/64",
@@ -20,7 +19,7 @@ network:
                          "2a00:d78:0:712:94:198:159:39/64",
                          94.198.159.39/26
                        ]
-                       # 94.198.159.59 is eigenlijk dhcp en moet tzt weg!
+                       # ip addr show is your friend, and ifconfig not so much
             gateway6: "2a00:d78:0:712:94:198:159:1"            
             gateway4: 94.198.159.1
             dhcp4: false
