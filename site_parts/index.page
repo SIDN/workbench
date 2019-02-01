@@ -132,7 +132,7 @@ just let us know.
 	</tr>
 	<tr>
 		<td>nsec3-opt-out.wb.sidnlabs.nl missing an NS</a></td>
-		<td>All it has is DS, that's obviously not good.</td>
+		<td>Possibly fixed - needs double check</td>
 	</tr>
 	<tr>
 		<td>No TSIG's on PowerDNS and Yadifa</td>
