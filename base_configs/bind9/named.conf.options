@@ -23,9 +23,9 @@ options {
 
 	auth-nxdomain no;    # conform to RFC1035
 	notify explicit;
-	# listen-on { 94.198.159.39; };
-	listen-on port 5339 { 127.0.0.1; }; # tijdelijk - moet weg na/tijdens livegang DNS workbench!
-	listen-on-v6 { 2a00:d78:0:712:94:198:159:39F; };
+	listen-on { 94.198.159.39; };
+	#listen-on port 5339 { 127.0.0.1; }; # tijdelijk - moet weg na/tijdens livegang DNS workbench!
+	listen-on-v6 { 2a00:d78:0:712:94:198:159:39; };
 
 	server-id "bind9.sidnlabs.nl";
 	hostname "bind9.sidnlabs.nl";

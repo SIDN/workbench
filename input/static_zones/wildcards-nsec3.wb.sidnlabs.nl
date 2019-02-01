@@ -5,14 +5,14 @@ wildcards-nsec3.wb.sidnlabs.nl.	60	IN	NS	powerdns.sidnlabs.nl.
 wildcards-nsec3.wb.sidnlabs.nl.	60	IN	NS	bind9.sidnlabs.nl.
 wildcards-nsec3.wb.sidnlabs.nl.	60	IN	NS	nsd4.sidnlabs.nl.
 wildcards-nsec3.wb.sidnlabs.nl.	60	IN	NS	knot.sidnlabs.nl.
-;wildcards-nsec3.wb.sidnlabs.nl.	60	IN	NS	nsd.sidnlabs.nl.
 wildcards-nsec3.wb.sidnlabs.nl.	60	IN	NS	yadifa.sidnlabs.nl.
-;wildcards-nsec3.wb.sidnlabs.nl.	60	IN	A	94.198.159.25
 wildcards-nsec3.wb.sidnlabs.nl.	60	IN	A	94.198.159.39
-*.wildcards-nsec3.wb.sidnlabs.nl.  60  IN  A   94.198.159.25
-;www.wildcards-nsec3.wb.sidnlabs.nl.	60	IN	A	94.198.159.25
+wildcards-nsec3.wb.sidnlabs.nl.	60	IN	AAAA	2a00:d78::712:94:198:159:39
+*.wildcards-nsec3.wb.sidnlabs.nl.  60  IN	A   94.198.159.39
+*.wildcards-nsec3.wb.sidnlabs.nl.  60  IN	AAAA	2a00:d78::712:94:198:159:39
 www.wildcards-nsec3.wb.sidnlabs.nl.	60	IN	A	94.198.159.39
+www.wildcards-nsec3.wb.sidnlabs.nl.	60	IN	AAAA	2a00:d78::712:94:198:159:39
 txt.wildcards-nsec3.wb.sidnlabs.nl. 60 IN TXT "Non-wildcard value"
-;*.ent.wildcards-nsec3.wb.sidnlabs.nl 60	IN	A 94.198.159.25
 *.ent.wildcards-nsec3.wb.sidnlabs.nl 60	IN	A 94.198.159.39
+*.ent.wildcards-nsec3.wb.sidnlabs.nl 60	IN	AAAA	2a00:d78::712:94:198:159:39
 txt.ent.wildcards-nsec3.wb.sidnlabs.nl. 60 IN TXT "Non-wildcard value"

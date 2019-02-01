@@ -77,9 +77,11 @@ update_file knot output/servers/knot/knot.conf /etc/knot/workbench
 update_file knot output/servers/knot/update.sh /etc/knot/workbench
 update_file bind9 output/servers/bind9/bind9.conf /etc/bind/workbench
 update_file bind9 output/servers/bind9/update.sh /etc/bind/workbench
-# No include trick for powerdns
+# No include-config for powerdns, but straight in /etc/powerdns (not /etc/powerdns/workbench)
 update_file powerdns output/servers/powerdns/powerdns.conf /etc/powerdns/pdns.conf
 update_file powerdns output/servers/powerdns/update.sh /etc/powerdns/workbench
+cp -a ./powerdns_clean.sql /etc/powerdns
+cp -a ./powerdns_supermaster.sql /etc/powerdns
 update_file yadifa output/servers/yadifa/yadifa.conf /etc/yadifa/workbench
 update_file yadifa output/servers/yadifa/update.sh /etc/yadifa/workbench
 #update_file bind10 configs/bind10_transfers.txt /home/jelte/bind10_transfers.txt
@@ -124,8 +126,8 @@ sed -i "s/masters\/workbench\/types-signed.wb.sidnlabs.nl/masters\/rfc3597workbe
 # Then reload Yadifa:
 sleep 3
 # TODO: fix the IP-addresses when going into production!!
-dig +onesoa +unknownformat axfr types.wb.sidnlabs.nl @2a00:d78:0:712:94:198:159:39F > /var/dns-workbench/rfc3597zones/types.wb.sidnlabs.nl
-dig +onesoa +unknownformat axfr types-signed.wb.sidnlabs.nl @2a00:d78:0:712:94:198:159:39F > /var/dns-workbench/rfc3597zones/types-signed.wb.sidnlabs.nl
+dig +onesoa +unknownformat axfr types.wb.sidnlabs.nl @2a00:d78:0:712:94:198:159:39 > /var/dns-workbench/rfc3597zones/types.wb.sidnlabs.nl
+dig +onesoa +unknownformat axfr types-signed.wb.sidnlabs.nl @2a00:d78:0:712:94:198:159:39 > /var/dns-workbench/rfc3597zones/types-signed.wb.sidnlabs.nl
 sleep 1
 apply_update /etc/yadifa/workbench
 

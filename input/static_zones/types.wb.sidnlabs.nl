@@ -16,9 +16,9 @@ $TTL 60
 ; type 1
 a01			A	0.0.0.0
 a02			A	255.255.255.255
-a			A	213.136.31.221 ; Address of web host
-type1		A	213.136.31.221 ; Address of web host
-www			A	213.136.31.221 ; Address of web host
+a			A	198.51.100.53 ; Address of web host
+type1			A	198.51.100.53 ; Address of web host
+www			A	198.51.100.53 ; Address of web host
 
 ; type 2
 ; see NS records at top of file
@@ -34,12 +34,12 @@ type3		TXT	"Removed because BIND9 refuses to load it"
 ;mf			MF	mailforwarder
 ;type4			MF	mailforwarder
 mf			TXT	"Removed because BIND9 refuses to load it"
-type4		TXT	"Removed because BIND9 refuses to load it"
+type4			TXT	"Removed because BIND9 refuses to load it"
 
 ; type 5
 cname01			CNAME	cname-target.
 cname02			CNAME	cname-target
-;cname03			CNAME	.
+;cname03		CNAME	.
 cname			CNAME	www
 type5			CNAME	www
 
@@ -47,22 +47,22 @@ type5			CNAME	www
 ; see SOA record at top of file
 
 ; type 7
-;mb				MB	mailbox
+;mb			MB	mailbox
 ;type7			MB	mailbox
-mb				TXT	"Removed because NSD4 refuses to load it"
+mb			TXT	"Removed because NSD4 refuses to load it"
 type7			TXT	"Removed because NSD4 refuses to load it"
 
 
 ; type 8
 mg01			MG	mgmname
 mg02			MG	.
-mg				MG	mailgroupmember
+mg			MG	mailgroupmember
 type8			MG	mailgroupmember
 
 ; type 9
 mr01			MR	mrname
 mr02			MR	.
-mr				MR	mailrename
+mr			MR	mailrename
 type9			MR	mailrename
 
 ; type 10
@@ -73,7 +73,7 @@ wks01			WKS	10.0.0.1 tcp telnet ftp 0 1 2
 wks02			WKS	10.0.0.1 udp domain 0 1 2
 ; ldns does not appear to accept this one (TODO)
 ;wks03			WKS	10.0.0.2 tcp 65535
-wks				WKS	10.0.0.1 tcp telnet ftp 0 1 2
+wks			WKS	10.0.0.1 tcp telnet ftp 0 1 2
 type11			WKS	10.0.0.1 tcp telnet ftp 0 1 2
 
 ; type 12
@@ -126,7 +126,7 @@ afsdb			AFSDB	12345 afsnode
 type18			AFSDB	12345 afsnode
 
 ; type 19
-x25				X25	"3033033033"
+x25			X25	"3033033033"
 type19			X25	"3033033033"
 
 ; type 20
@@ -173,7 +173,7 @@ nsap			NSAP	0x012345
 ;				a60zyGW6LFe9r8n6paHrlG5ojqf0BaqHT+8= )
 
 ; type 26
-px				PX	10	map822 mapx400
+px			PX	10	map822 mapx400
 type26			PX	10	map822 mapx400
 
 ; type 27
@@ -181,8 +181,8 @@ gpos			TYPE27	\# 18 05 32 33 2e 36 37 05 32 33 2e 36 37 05 32 33 2e 36 37
 type27			TYPE27	\# 18 05 32 33 2e 36 37 05 32 33 2e 36 37 05 32 33 2e 36 37
 
 ; type 28
-aaaa			AAAA	2001:7b8:c05::80:4
-type28			AAAA	2001:7b8:c05::80:4
+aaaa			AAAA	2001:db8:53::beef
+type28			AAAA	2001:db8:53::beef
 
 ; type 29
 loc01			LOC	60 9 N 24 39 E 10 20 2000 20
@@ -233,7 +233,7 @@ type37			CERT	65534 65535 254 (
 ; type 38
 ; TODO: this one makes dig (but not drill) spew garbage, not sure
 ; if NSD or dig.
-;a6				TYPE38	\# 29  00 ffffffffffffffffffffffffffffffff 087369646e6c616273026e6c ; sidnlabs.nl
+;a6			TYPE38	\# 29  00 ffffffffffffffffffffffffffffffff 087369646e6c616273026e6c ; sidnlabs.nl
 
 
 ; type 39
@@ -318,25 +318,25 @@ type59			TYPE59	\# 36 fcb2080286632f83494b1d7037e72949fd6cd8689c5daaf4df1e5d7e6e
 ; nothing from 60 to 98
 
 ; type 99
-spf				SPF	"v=spf1 +mx a:colo.example.com/28 -all"
+spf			SPF	"v=spf1 +mx a:colo.example.com/28 -all"
 type99			SPF	"v=spf1 +mx a:colo.example.com/28 -all"
 
 ; types 100-103 are reserved by IANA
 
 ; type 104
-nid				TYPE104 \# 10 00 0a 00 94 01 98 01 52 01 69
+nid			TYPE104 \# 10 00 0a 00 94 01 98 01 52 01 69
 type104			TYPE104 \# 10 00 0a 00 94 01 98 01 52 01 69
 
 ; type 105
-l32				TYPE105 \# 6 00 0a c0 00 02 01
+l32			TYPE105 \# 6 00 0a c0 00 02 01
 type105			TYPE105 \# 6 00 0a c0 00 02 01
 
 ; type 106
-l64				TYPE106 \# 10 00 0a 2a 00 0d 78 00 04 05 03
+l64			TYPE106 \# 10 00 0a 2a 00 0d 78 00 04 05 03
 type106			TYPE106 \# 10 00 0a 2a 00 0d 78 00 04 05 03
 
 ; type 107
-lp				TYPE107 \# 27 00 0a 0b 6c 36 34 2d 73 75 62 6e 65 74 31 07 65 78 61 6d 70 6c 65 03 63 6f 6d 00
+lp			TYPE107 \# 27 00 0a 0b 6c 36 34 2d 73 75 62 6e 65 74 31 07 65 78 61 6d 70 6c 65 03 63 6f 6d 00
 type107			TYPE107 \# 27 00 0a 0b 6c 36 34 2d 73 75 62 6e 65 74 31 07 65 78 61 6d 70 6c 65 03 63 6f 6d 00
 
 ; type 108, see http://tools.ietf.org/html/draft-jabley-dnsext-eui48-eui64-rrtypes-07
