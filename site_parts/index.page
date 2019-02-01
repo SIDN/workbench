@@ -13,7 +13,8 @@ Main |
 <div class="alert">
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
   <strong>Attention:</strong><br>The DNS workbench is currently under
-maintenance - be prepared for some ocassional downtime and changes.
+maintenance - be prepared for some ocassional downtime and changes. Text on
+this page might not reflect reality, while we are in the transition.
 </div>
 <br>
 
@@ -47,13 +48,38 @@ please contact us (<a href="mailto:sidnlabs@sidn.nl">sidnlabs@sidn.nl</a>). The 
 <a href="https://github.com/SIDN/workbench">GitHub</a>.
 
 <h3>Servers</h3>
-The following servers, all open source,  are currently running:
+The following servers, all open source,  are currently running (for now all as Ubuntu 18.04 packages):
 <ul>
-<li>nsd4.sidnlabs.nl (<a href="https://www.nlnetlabs.nl/projects/nsd/about/">NSD</a> 4.1.17 - Ubuntu 18.04))</li>
-<li>bind9.sidnlabs.nl (<a href="https://www.isc.org/downloads/bind/">BIND</a> 9.11.3 - Ubuntu 18.04)</li>
-<li>knot.sidnlabs.nl (<a href="https://www.knot-dns.cz/">Knot</a> 2.6.5 - Ubuntu 18.04)</li>
-<li>powerdns.sidnlabs.nl (<a href="https://www.powerdns.com/">PowerDNS</a> 4.1.1 with SQLite3 backend - Ubuntu 18.04)</li>
-<li>yadifa.sidnlabs.nl (<a href="https://www.yadifa.eu/">Yadifa</a> 2.3.7 - Ubuntu 18.04)</li>
+ <li>bind9.sidnlabs.nl (<a href="https://www.isc.org/downloads/bind/">BIND</a> 9.11.3)
+    <ul>
+      <li>IPv4: 94.198.159.39</li>
+      <li>IPv6: 2a00:d78::712:94:198:159:39</li>
+    </ul>
+ </li>
+ <li>knot.sidnlabs.nl (<a href="https://www.knot-dns.cz/">Knot</a> 2.6.5)
+    <ul>
+      <li>IPv4: 94.198.159.27</li>
+      <li>IPv6: 2a00:d78::712:94:198:159:27</li>
+    </ul>
+ </li>
+ <li>nsd4.sidnlabs.nl (<a href="https://www.nlnetlabs.nl/projects/nsd/about/">NSD</a> 4.1.17)
+    <ul>
+      <li>IPv4: 94.198.159.33</li>
+      <li>IPv6: 2a00:d78::712:94:198:159:33</li>
+    </ul>
+ </li>
+ <li>powerdns.sidnlabs.nl (<a href="https://www.powerdns.com/">PowerDNS</a> 4.1.1 with SQLite3 backend)
+    <ul>
+      <li>IPv4: 94.198.159.26</li>
+      <li>IPv6: 2a00:d78::712:94:198:159:26</li>
+    </ul>
+ </li>
+ <li>yadifa.sidnlabs.nl (<a href="https://www.yadifa.eu/">Yadifa</a> 2.3.7)
+    <ul>
+      <li>IPv4: 94.198.159.28</li>
+      <li>IPv6: 2a00:d78::712:94:198:159:28</li>
+    </ul>
+ </li>
 </ul>
 
 <p>
