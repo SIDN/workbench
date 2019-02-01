@@ -119,14 +119,15 @@ apply_update /etc/knot/workbench
 apply_update /etc/powerdns/workbench
 
 # Now comes a dirty trick...
-# Wait a few seconds for bind to load
-# Translate two zones to RFC3597-format
+# Modify the yadifa config
 sed -i "s/masters\/workbench\/types.wb.sidnlabs.nl/masters\/rfc3597workbench\/types.wb.sidnlabs.nl/" /etc/yadifa/workbench/yadifa.conf
 sed -i "s/masters\/workbench\/types-signed.wb.sidnlabs.nl/masters\/rfc3597workbench\/types-signed.wb.sidnlabs.nl/" /etc/yadifa/workbench/yadifa.conf
-# Then reload Yadifa:
+# Wait a few seconds for bind to load
 sleep 3
+# Translate two zones to RFC3597-format - hoping to pick up the most recent version from BIND (via IPv6, obviously)
 dig +onesoa +unknownformat axfr types.wb.sidnlabs.nl @2a00:d78:0:712:94:198:159:39 > /var/dns-workbench/rfc3597zones/types.wb.sidnlabs.nl
 dig +onesoa +unknownformat axfr types-signed.wb.sidnlabs.nl @2a00:d78:0:712:94:198:159:39 > /var/dns-workbench/rfc3597zones/types-signed.wb.sidnlabs.nl
+# Then reload Yadifa (and hope for the best, but please check the serial):
 sleep 1
 apply_update /etc/yadifa/workbench
 
