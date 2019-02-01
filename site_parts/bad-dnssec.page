@@ -61,10 +61,9 @@ All the addresses point back to this webserver, so if you are using a validating
 
 <h3>Examples:</h3>
 <pre>
-$ dig +short +cd A bogussig.bad-dnssec.wb.sidnlabs.nl
-94.198.159.39
+$ dig +short +cd AAAA bogussig.bad-dnssec.wb.sidnlabs.nl
+2a00:d78:4:503:94:198:159:39
 
-jelte@zen:~/repos/workbench (master)
 $ dig +short A bogussig.bad-dnssec.wb.sidnlabs.nl
 
 $ drill -k ~/root.key -S ok.ok.ok.bad-dnssec.wb.sidnlabs.nl
@@ -98,7 +97,6 @@ ok.ok.ok.bad-dnssec.wb.sidnlabs.nl. (A)
 $ drill -k ~/root.key -S ok.bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl
 ;; Number of trusted keys: 1
 ;; Chasing: ok.bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl. A
-
 
 DNSSEC Trust tree:
 ok.bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl. (A)

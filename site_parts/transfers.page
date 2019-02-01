@@ -46,28 +46,25 @@ Aside from plain transfers, there are also TSIG keys configured:
 <div class="keyboard">
 <kbd>
 $ drill -y "wb_md5:Wu/utSasZUkoeCNku152Zw==" axfr ok.bad-dnssec.wb.sidnlabs.nl @bind9.sidnlabs.nl | wc -l<br>
-54<br>
+73<br>
 <br>
 $ drill axfr ok.bad-dnssec.wb.sidnlabs.nl @knot.sidnlabs.nl | wc -l<br>
-54<br>
+73<br>
 </kbd>
 </div>
 <br>
 Knot config snippet:
 <div class="keyboard">
-<code>
-remotes {<br>
-  master { address 94.198.159.39@53; }<br>
-}<br>
-<br>
-zones {<br>
-  sigexpired.bogussig.ok.bad-dnssec.wb.sidnlabs.nl {<br>
-    file "bad_dnssec/zones/sigexpired.bogussig.ok.bad-dnssec.wb.sidnlabs.nl";<br>
-    xfr-in master;<br>
-}<br>
-</code>
+<pre>
+  - domain: ok.bad-dnssec.wb.sidnlabs.nl.
+    acl: any
+    acl: awb_md5
+    acl: awb_sha1
+    acl: awb_sha1_longkey
+    acl: awb_sha256
+    file: "/var/dns-workbench/zones/ok.bad-dnssec.wb.sidnlabs.nl"
+</pre>
 </div>
-
 <br><br>
 <hr>
 <div class="menu">

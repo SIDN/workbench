@@ -89,7 +89,7 @@ currently PowerDNS will produce rubbisch when trying the AXFR.
 <h3>Examples:</h3>
 <div class="keyboard">
 <kbd>
-$ dig +short -t GPOS gpos.types.wb.sidnlabs.nl @nsd.sidnlabs.nl<br>
+$ dig +short -t GPOS gpos.types.wb.sidnlabs.nl @nsd4.sidnlabs.nl<br>
 "23.67" "23.67" "23.67"<br>
 <br>
 $ dig +short -t GPOS type27.types.wb.sidnlabs.nl @knot.sidnlabs.nl<br>
