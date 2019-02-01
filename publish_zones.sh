@@ -119,6 +119,8 @@ apply_update /etc/powerdns/workbench
 # Now comes a dirty trick...
 # Wait a few seconds for bind to load
 # Translate two zones to RFC3597-format
+sed -i "s/masters\/workbench\/types.wb.sidnlabs.nl/masters\/rfc3597workbench\/types.wb.sidnlabs.nl/" /etc/yadifa/workbench/yadifa.conf
+sed -i "s/masters\/workbench\/types-signed.wb.sidnlabs.nl/masters\/rfc3597workbench\/types-signed.wb.sidnlabs.nl/" /etc/yadifa/workbench/yadifa.conf
 # Then reload Yadifa:
 sleep 3
 # TODO: fix the IP-addresses when going into production!!
