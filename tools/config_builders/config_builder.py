@@ -403,7 +403,8 @@ class KnotConfigGenerator(ConfigGenerator):
     
     def get_start(self):
         return [ "server:",
-                 "  identity: knot",
+                 "  identity: knot.sidnlabs.nl",
+                 "  nsid: knot.sidnlabs.nl",
                  "  #listen: 127.0.0.1",
                  "  #listen: 94.198.159.27",
                  "  listen: 127.0.0.1@5327",

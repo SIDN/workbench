@@ -1,0 +1,3 @@
+
+  # MD: DNS Workbench zones
+  /var/dns-workbench/zones/** rw,
