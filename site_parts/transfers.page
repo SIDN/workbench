@@ -15,6 +15,7 @@ This also gives you the option to inspect the full zones in case there is some i
 </p>
 <p>
 Aside from plain transfers, there are also TSIG keys configured:
+<br>(NOTE: Yadifa and PowerDNS don't have TSIG keys configured just yet)
 </p>
 <table>
 	<tr><th>Name</th><th><a href="https://www.iana.org/assignments/tsig-algorithm-names/tsig-algorithm-names.xml">Algorithm</a></th><th>secret</th></tr>

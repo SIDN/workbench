@@ -91,10 +91,19 @@ def set_servers(zd):
     # So we'll make BIND9 (was NSD) the master, and all the others the secondary
     # For the types zones
     #zd.add("primary_names", "nsd")
-    zd.add("primary_names", "bind9")    
+    zd.add("primary_names", "bind9")
+    # TODO what about making nsd4 and knot masters as well?
+    # Can the load types, types-signed, wildcards-nsec3 and nsec3-opt-out?
+    # DONE: nsd4 can't be primary here - neither can knot
     zd.add("secondary_names", "nsd4")
     zd.add("secondary_names", "knot")
-    zd.add("secondary_names", "yadifa")
+    # yadifa works better as master, because we use the rfc3587 trick now
+    # in order to let it accept types.wb.sidnlabs.nl and types-signes.wb.sidnlabs.nl
+    # it doesn't want to load the non-rfc3587 versions, neither as master nor as slave
+    #zd.add("secondary_names", "yadifa")
+    zd.add("primary_names", "yadifa")
+    # powerdns is a different case, it is a superslave
+    # see below
 
 def generate_static_zone_entries():
     zds = []
@@ -116,6 +125,7 @@ def generate_static_zone_entries():
     zds.append(zd)
 
     # Apex cname works with powerdns only
+    # TODO: is this still the case?
     zd = zonedata.ZoneData()
     dname = "apexcname." + env.DOMAIN
     zd.set("name", dname)

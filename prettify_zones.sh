@@ -9,9 +9,9 @@ cd $DIR
 #
 for a in $(ls *.nl)
 do
-	# Prepocess the problematic one
+
 	if [[ $a == *"apexcname.wb.sidnlabs.nl"* ]]; then
-  		#echo "preprocessing $a"
+		# Prepocess the problematic one
   		cp $a $a.prep
   		sed -i "s/\tCNAME\t/\tMB\t/" ./$a.prep
   		sed -i "s/\ CNAME\ /\ MB\ /" ./$a.prep
@@ -20,9 +20,9 @@ do
   		named-compilezone -i "none" -s "relative" -f text -F text -o $a.txt $a $a
 	fi
 
-	# Completing the problematic one
+
 	if [[ $a == *"apexcname.wb.sidnlabs.nl"* ]]; then
-  		#echo "finisching $a"
+		# Completing the problematic one
   		sed -i "s/\tMB\t/\tCNAME\t/" ./$a.txt
   		sed -i "s/\ MB\ /\ CNAME\ /" ./$a.txt
   		rm $a.prep
