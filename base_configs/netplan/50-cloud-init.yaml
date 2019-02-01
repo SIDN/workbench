@@ -8,9 +8,22 @@ network:
     ethernets:
 # nsd(4), bind9, powerdns, yadifa, knot + website
         ens160:
-            #            powerdns                            knot                                yadifa                              nsd4                                bind9                                                               
-            addresses: ["2a00:d78:0:712:94:198:159:26F/64", "2a00:d78:0:712:94:198:159:27F/64", "2a00:d78:0:712:94:198:159:28F/64", "2a00:d78:0:712:94:198:159:33F/64", "2a00:d78:0:712:94:198:159:39F/64" ]
+            #  powerdns  knot  yadifa nsd4 bind9                                                               
+            addresses: [ "2a00:d78:0:712:94:198:159:26F/64", 
+                         "2a00:d78:0:712:94:198:159:27F/64",
+                         "2a00:d78:0:712:94:198:159:28/64",
+                         94.198.159.28/26,
+                         "2a00:d78:0:712:94:198:159:33F/64",
+                         "2a00:d78:0:712:94:198:159:39F/64",
+                         94.198.159.59/26
+                       ]
+                       # 94.198.159.59 is eigenlijk dhcp en moet tzt weg!
             gateway6: "2a00:d78:0:712:94:198:159:1"            
-            dhcp4: true
+            gateway4: 94.198.159.1
+            dhcp4: false
             dhcp6: false
-            optional: true
+            #optional: true
+            nameservers:
+               addresses: [ 94.198.152.132, 94.198.152.133, "2a00:d78::148:94:198:152:132", "2a00:d78::148:94:198:152:133" ]
+               search:
+               - sidnlabs.nl
