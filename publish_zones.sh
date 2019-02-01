@@ -125,7 +125,6 @@ sed -i "s/masters\/workbench\/types.wb.sidnlabs.nl/masters\/rfc3597workbench\/ty
 sed -i "s/masters\/workbench\/types-signed.wb.sidnlabs.nl/masters\/rfc3597workbench\/types-signed.wb.sidnlabs.nl/" /etc/yadifa/workbench/yadifa.conf
 # Then reload Yadifa:
 sleep 3
-# TODO: fix the IP-addresses when going into production!!
 dig +onesoa +unknownformat axfr types.wb.sidnlabs.nl @2a00:d78:0:712:94:198:159:39 > /var/dns-workbench/rfc3597zones/types.wb.sidnlabs.nl
 dig +onesoa +unknownformat axfr types-signed.wb.sidnlabs.nl @2a00:d78:0:712:94:198:159:39 > /var/dns-workbench/rfc3597zones/types-signed.wb.sidnlabs.nl
 sleep 1

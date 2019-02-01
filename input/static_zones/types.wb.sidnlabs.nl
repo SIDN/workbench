@@ -6,7 +6,6 @@ $TTL 60
 					600
 					1814400
 					3600 )
-;@			NS	nsd.sidnlabs.nl.
 @			NS	nsd4.sidnlabs.nl.
 @			NS	bind9.sidnlabs.nl.
 @			NS	knot.sidnlabs.nl.

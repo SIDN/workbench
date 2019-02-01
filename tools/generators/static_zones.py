@@ -159,16 +159,6 @@ def generate_static_zone_entries():
         dnsutil.add_standard_sign_options(zd)
         zds.append(zd)
 
-    # TODO: remove ?
-    ## Secondary for example.nl on nsd.sidnlabs.nl
-    #zd = zonedata.ZoneData()
-    #zd.set("name", "example.nl")
-    ## explicitely set primary_names to none, not empty list
-    #zd.set("nofile", True)
-    #zd.add("primary_names", "94.198.159.3")
-    #zd.add("secondary_names", "nsd")
-    #zds.append(zd)
-
     zonedata.write_zone_data(env.ZONE_DB_PATH + "/static_zones.db", zds)
     #print([str(zd) for zd in zds])
     
