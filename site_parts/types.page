@@ -77,8 +77,14 @@ Zone overview:
 	</tr>
 </table>
 <p>
+Yadifa doesn't really like them, but we where able to work around this by
+converting the zones to <a href="https://tools.ietf.org/html/rfc3597">RFC3597</a>-format and then they
+are accepted.
+</p>
+<p>
 As with the other zones, both can be transfered directly through AXFR as well, from all workbench servers. See the
-<a href="/transfers.html">transfers</a> page for details.
+<a href="/transfers.html">transfers</a> page for details. Please not that
+currently PowerDNS will produce rubbisch when trying the AXFR.
 </p>
 <h3>Examples:</h3>
 <div class="keyboard">

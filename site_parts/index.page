@@ -95,6 +95,33 @@ consistent, predictable, and easily maintainable, currently we are
 looking into that.
 </p>
 
+<h3>Known issues</h3>
+We are aware of a number of issues and hope to work on them soon. If you find more,
+just let us know.
+<table>
+	<tr>
+		<td>types[-signed].wb.sidnlabs.nl won't AXFR from PowerDNS</a></td>
+		<td>Could be a bug.</td>
+	</tr>
+	<tr>
+		<td>nsec3-opt-out.wb.sidnlabs.nl missing an NS</a></td>
+		<td>All it has is DS, that's obviously not good.</td>
+	</tr>
+	<tr>
+		<td>No TSIG's on PowerDNS and Yadifa</td>
+		<td>Have to look into that.</td>
+	</tr>
+	<tr>
+		<td>types[-signed].wb.sidnlabs.nl might have to be updated</td>
+		<td>Some <a
+href="https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml">newer RRtypes</a> might have been defined, since we created it</td>
+	</tr>
+	<tr>
+		<td>Your issue here?</td>
+		<td>Just let us know!</td>
+	</tr>
+</table>
+
 <hr>
 <h4>Disclaimer</h4>
 This is a beta service. This service is <em>explicitely</em> not
