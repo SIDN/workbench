@@ -12,9 +12,10 @@ Main |
 
 <div class="alert">
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-  <strong>Attention:</strong><br>The DNS workbench is currently under
-maintenance - be prepared for some ocassional downtime and changes. Text on
-this page might not reflect reality, while we are in the transition.
+  <strong>Attention:</strong><br>We switched to the new (2019 release) DNS
+workbench. It should work like before, although we see some issues. If you
+spot irregularities, please do not hesitate to let us know. Thank you and
+enjoy!
 </div>
 <br>
 

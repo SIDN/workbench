@@ -185,9 +185,9 @@ thead th,thead td {
 .alert {
   padding: 20px;
   /* red */
-  background-color: #f44336;
+  /* background-color: #f44336; */
   /* orange */
-  /*     background-color: #ff9800; */
+     background-color: #ff9800;
   /* green */
   /* background-color: #4caf50; */
   color: white;
