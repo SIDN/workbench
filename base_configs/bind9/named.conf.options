@@ -32,8 +32,8 @@ options {
 
 	// Notify PowerDNS SQLite3 backend (which is superslave)
 	// Does not also-notify the zones that have their own also-notify configured!
-	also-notify { 2a00:d78:0:712:94:198:159:26F; };
-	//notify-source 94.198.159.39;
-	notify-source-v6 2a00:d78:0:712:94:198:159:39F;
+	also-notify { 2a00:d78:0:712:94:198:159:26; 94.198.159.26; };
+	notify-source-v6 2a00:d78:0:712:94:198:159:39;
+	notify-source 94.198.159.39;
 };
 
