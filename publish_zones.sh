@@ -131,4 +131,5 @@ dig +onesoa +unknownformat axfr types-signed.wb.sidnlabs.nl @2a00:d78:0:712:94:1
 sleep 1
 apply_update /etc/yadifa/workbench
 
-echo "- All done!"
+echo "- All done! - consider to run ANALYZE; on sqlite3"
+# https://doc.powerdns.com/authoritative/backends/generic-sqlite3.html
