@@ -134,6 +134,10 @@ just let us know.
 		<td>types[-signed].wb.sidnlabs.nl won't AXFR from PowerDNS</a></td>
 		<td>Could be a bug in PowerDNS - will investigate further.</td>
 	</tr>
+	<tr>
+		<td>types-signed.wb.sidnlabs.nl has issues</a></td>
+		<td>Check <a href="https://dnssec-analyzer.verisignlabs.com/types-signed.wb.sidnlabs.nl">here</a></td>
+	</tr>
 <!--
 	<tr>
 		<td>powerdns.delegations.wb.sidnlabs.nl not right</a></td>
