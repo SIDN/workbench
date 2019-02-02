@@ -208,3 +208,26 @@ thead th,thead td {
 .closebtn:hover {
   color: black;
 }
+
+/* nice trick via https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a */
+
+a[href^="https"]::before {
+  content: "🔗 ";
+}
+
+/* http as well, could perhaps be incorporated in the one above? */
+a[href^="https"]::before {
+  content: "🔗 ";
+}
+
+a[href^="mailto"]::before {
+  content: "📧 ";
+}
+
+a[href^="tel"]::before {
+  content: "📞 ";
+}
+
+li {
+  margin-bottom: .5rem;
+}

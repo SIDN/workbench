@@ -14,8 +14,9 @@ Main |
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
   <strong>Attention:</strong><br>We switched to the new (2019 release) of
 the DNS workbench. It should work like before, probably even better, although we
-still see a number issues. So don't trust the
-results just yet, while we are working to fix them. If you spot irregularities, please do not hesitate to let us know. Thank you and
+still see a number of <a href="/index.html#issues" style="color:white;">issues</a>. So don't trust the
+results just yet, while we are working on fixing these issues. If you spot
+additional irregularities, please do not hesitate to let us know. Thank you and
 enjoy!
 </div>
 <br>
@@ -123,7 +124,9 @@ consistent, predictable, and easily maintainable, currently we are
 looking into that.
 </p>
 
-<h3>Known issues</h3>
+<div id="issues">
+  <h3>Known issues</h3>
+</div>
 We are aware of a number of issues and hope to work on them soon. If you find more,
 just let us know.
 <table>
@@ -133,14 +136,16 @@ just let us know.
 	</tr>
 	<tr>
 	<tr>
-		<td>powerdns.delegations.wb.sidn.nl not right?</a></td>
-		<td>try <a
+		<td>powerdns.delegations.wb.sidn.nl not right</a></td>
+		<td>See: <a
 href="http://dnsviz.net/d/bind9.knot.powerdns.delegations.wb.sidnlabs.nl/dnssec/">DNSviz</a>
-or <a href="https://dnssec-analyzer.verisignlabs.com/bind9.knot.powerdns.delegations.wb.sidnlabs.nl">DNSSEC-debugger</a></td>
+or <a
+href="https://dnssec-analyzer.verisignlabs.com/bind9.knot.powerdns.delegations.wb.sidnlabs.nl">DNSSEC-debugger</a>. Rootcause
+known, working on a solution.</td>
 	</tr>
 	<tr>
 		<td>nsec3-opt-out.wb.sidnlabs.nl missing an NS</a></td>
-		<td>Possibly fixed - needs double check</td>
+		<td>Possibly fixed - needs double check.</td>
 	</tr>
 	<tr>
 		<td>No TSIG's on PowerDNS and Yadifa</td>
@@ -149,7 +154,9 @@ or <a href="https://dnssec-analyzer.verisignlabs.com/bind9.knot.powerdns.delegat
 	<tr>
 		<td>types[-signed].wb.sidnlabs.nl might have to be updated</td>
 		<td>Some <a
-href="https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml">newer RRtypes</a> might have been defined, since we created it</td>
+href="https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml">newer RRtypes</a> might have been defined, since we created
+that zone. Have to incorporate some of these new types maybe. Will look into
+that soon.</td>
 	</tr>
 	<tr>
 		<td>Your issue here?</td>
