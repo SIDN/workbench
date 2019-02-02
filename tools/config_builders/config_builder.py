@@ -317,7 +317,8 @@ class Bind9ConfigGenerator(ConfigGenerator):
         if self.is_primary_for(zd):
             lines.append("        type master;")
             secondary_addrs = [env.SERVERS[n] for n in zd.get("secondary_names")]
-            # We don't really need this, do we? Let BIND to it's thing.
+            # We don't really need this, do we? Let BIND do it's thing.
+            # UPDATE: we might need it again, due to the powerdns.delegations issue
             #if len(secondary_addrs) > 0:
             #    lines.append("        also-notify { %s; };" % "; ".join(secondary_addrs))
         elif self.is_secondary_for(zd):
