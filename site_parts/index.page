@@ -131,6 +131,13 @@ just let us know.
 		<td>Could be a bug.</td>
 	</tr>
 	<tr>
+	<tr>
+		<td>powerdns.delegations.wb.sidn.nl not right?</a></td>
+		<td>try <a
+href="http://dnsviz.net/d/bind9.knot.powerdns.delegations.wb.sidnlabs.nl/dnssec/">DNSviz</a>
+or <a href="https://dnssec-analyzer.verisignlabs.com/bind9.knot.powerdns.delegations.wb.sidnlabs.nl">DNSSEC-debugger</a></td>
+	</tr>
+	<tr>
 		<td>nsec3-opt-out.wb.sidnlabs.nl missing an NS</a></td>
 		<td>Possibly fixed - needs double check</td>
 	</tr>
