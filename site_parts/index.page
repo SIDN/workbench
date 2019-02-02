@@ -154,7 +154,7 @@ known, working on a solution.</td>
 -->
 	<tr>
 		<td><a href="zones/apexcname.wb.sidnlabs.nl.txt">apexcname.wb.sidnlabs.nl</a> may have wrong DNSSEC</td>
-		<td>Pretty hard to verify, because of the CNAME, so let's see what we can do.</td>
+		<td>Pretty hard to verify, because of the CNAME. UPDATE: solved, <code>validns -v -s ./apexcname.wb.sidnlabs.nl.txt</code> was our friend!</td>
 	</tr>
 	<tr>
 		<td><a href="zones/nsec3-opt-out.wb.sidnlabs.nl.txt">nsec3-opt-out.wb.sidnlabs.nl</a> has some DNSviz errors</td>
