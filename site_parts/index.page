@@ -135,7 +135,7 @@ We are aware of a number of issues and hope to work on them soon. If you find mo
 just let us know.
 <table>
 	<tr>
-		<td>types[-signed].wb.sidnlabs.nl won't AXFR from PowerDNS</a></td>
+		<td>types[-signed].wb.sidnlabs.nl won't AXFR from PowerDNS</td>
 		<td>Could be a bug in PowerDNS - will investigate further.</td>
 	</tr>
 <!--
