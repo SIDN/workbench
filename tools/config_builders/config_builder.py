@@ -273,7 +273,9 @@ class NSD4ConfigGenerator(ConfigGenerator):
     def get_update_lines(self):
         return [
             "#/usr/sbin/nsd-control reload",
-            "systemctl restart nsd"
+            "systemctl stop nsd",
+            "rm -rf /var/lib/nsd/*",
+            "systemctl start nsd"
         ]
 
 class Bind9ConfigGenerator(ConfigGenerator):
