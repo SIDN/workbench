@@ -136,24 +136,22 @@ just let us know.
 	</tr>
 	<tr>
 	<tr>
-		<td>powerdns.delegations.wb.sidn.nl not right</a></td>
-		<td>See: <a
-href="http://dnsviz.net/d/bind9.knot.powerdns.delegations.wb.sidnlabs.nl/dnssec/">DNSviz</a>
-or <a
-href="https://dnssec-analyzer.verisignlabs.com/bind9.knot.powerdns.delegations.wb.sidnlabs.nl">DNSSEC-debugger</a>. Rootcause
+		<td>powerdns.delegations.wb.sidnlabs.nl not right</a></td>
+		<td>See: <a href="http://dnsviz.net/d/bind9.knot.powerdns.delegations.wb.sidnlabs.nl/dnssec/">DNSviz</a>
+or <a href="https://dnssec-analyzer.verisignlabs.com/bind9.knot.powerdns.delegations.wb.sidnlabs.nl">DNSSEC-debugger</a>. Rootcause
 known, working on a solution.</td>
 	</tr>
 	<tr>
-		<td><a href="zones/apexcname.wb.sidnlabs.nl.txt">apexcname.wb.sidnlabs.nl</a> is not present anymore</a></td>
-		<td>PowerDNS had this. UPDATE: we have a preliminary experimtal solution, have to check if this is acceptable</td>
+		<td><a href="zones/apexcname.wb.sidnlabs.nl.txt">apexcname.wb.sidnlabs.nl</a>has no DNSSEC RRs anymore</td>
+		<td>We think we know why and are currently looking into options to fix this</td>
 	</tr>
 	<tr>
-		<td>nsec3-opt-out.wb.sidnlabs.nl missing an NS</a></td>
-		<td>Possibly fixed - needs double check.</td>
+		<td><a href="zones/nsec3-opt-out.wb.sidnlabs.nl.txt">nsec3-opt-out.wb.sidnlabs.nl</a> does not seem right</td>
+ 		<td><a href="https://dnssec-analyzer.verisignlabs.com/nsec3-opt-out.wb.sidnlabs.nl">Looking into this</a></td>
 	</tr>
 	<tr>
 		<td>No TSIG's on PowerDNS and Yadifa</td>
-		<td>Have to look into that.</td>
+		<td>Not a bug, but rather a todo. Have to find some time for it.</td>
 	</tr>
 	<tr>
 		<td>types[-signed].wb.sidnlabs.nl might have to be updated</td>

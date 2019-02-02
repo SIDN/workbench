@@ -130,17 +130,9 @@ dig +onesoa +unknownformat axfr types-signed.wb.sidnlabs.nl @2a00:d78:0:712:94:1
 sleep 1
 apply_update /etc/yadifa/workbench
 
-# TODO: more check_rcode here and there...?
-
-# Another trick: import apexcname.wb.sidnlabs.nl into PowerDNS
-# They are activated in /etc/powerdns/workbench/update.sh
-zone2sql --gsqlite=yes --zone-name=apexcname.wb.sidnlabs.nl --zone=/var/dns-workbench/zones/apexcname.wb.sidnlabs.nl > /etc/powerdns.powerdns_apexcname.sql
-# Attention, since our zones cintain an '$ORIGIN .' the zone2sql step can only used once without running into a database unique constraint problem
-# Se slave nsec3-opt-out.wb.sidnlabs.nl and wildcards-nsec3.wb.sidnlabs.nl together with types[-].wb.sidnlabs.nl
-# Mind you: types[-].wb.sidnlabs.nl *has* to be slaved (and it cannot be via bind backend)
-# https://github.com/PowerDNS/pdns/issues/7437
-
 apply_update /etc/powerdns/workbench
+
+# TODO: maybe add some more check_rcode? We forgot to do this when we where busy hacking
 
 echo "- All done! - consider to run ANALYZE; on sqlite3"
 # https://doc.powerdns.com/authoritative/backends/generic-sqlite3.html

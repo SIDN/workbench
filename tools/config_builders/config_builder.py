@@ -572,7 +572,12 @@ class PowerDNSConfigGenerator(ConfigGenerator):
             lines.append("        type native;")
             # Secondory stuff left out here - won't use it anyway
 
+        # again a dirty trick... zone2sql stripped the DNSSEC so that method couldn't be used
         lines.extend([
+            "};",
+            "zone \"apexcname.wb.sidnlabs.nl.\" {",
+            "        file \"/var/dns-workbench/zones/apexcname.wb.sidnlabs.nl\";",
+            "        type native;",
             "};"
         ])
         return lines
@@ -584,12 +589,14 @@ class PowerDNSConfigGenerator(ConfigGenerator):
             "systemctl stop pdns",
             "echo 'empty the entire database'",
             "sqlite3 /var/lib/powerdns/pdns.sqlite3 < /etc/powerdns/powerdns_clean.sql",
+            "rm /var/lib/powerdns/bind-dns-db.sqlite3",
+            "pdnsutil create-bind-db /var/lib/powerdns/bind-dns-db.sqlite3",
+            "chown pdns:pdns /var/lib/powerdns/bind-dns-db.sqlite3",
+            "for a in $(pdnsutil list-all-zones native); do pdnsutil set-presigned $a; done",
             "# That nasty types[-signed].wb.sidn.nl zone has to be slaved by sqlite3, so yet another exception:",
             "# This also includes nsec3-opt-out and wildcards-nsec3 zones btw",
             "echo 'slaving types[-signed] and nsec3-opt-out and wildcards-nsec3 from bind9'",
             "sqlite3 /var/lib/powerdns/pdns.sqlite3 < /etc/powerdns/powerdns_slaves.sql",
-            "echo 'now loading apexcname.wb.sidnlabs.nl into sqlite3'",
-            "sqlite3 /var/lib/powerdns/pdns.sqlite3 < /etc/powerdns/powerdns_apexcname.sql",
             "# TODO: ANALYZE; ?",
             "systemctl start pdns",
         ]
