@@ -148,10 +148,12 @@ known, working on a solution.</td>
 		<td>We think we know why and are currently looking into options to fix this</td>
 	</tr>
 -->
+<!--
 	<tr>
 		<td><a href="zones/nsec3-opt-out.wb.sidnlabs.nl.txt">nsec3-opt-out.wb.sidnlabs.nl</a> does not seem right</td>
  		<td><a href="https://dnssec-analyzer.verisignlabs.com/nsec3-opt-out.wb.sidnlabs.nl">Looking into this</a></td>
 	</tr>
+-->
 	<tr>
 		<td>Proper working of <a href="zones/wildcards-nsec3.wb.sidnlabs.nl.txt">wildcards-nsec3.wb.sidnlabs.nl</a> Needs inspection</td>
  		<td>Is <a href="http://dnsviz.net/d/wildcards-nsec3.wb.sidnlabs.nl/dnssec/">this</a> right?</td>
