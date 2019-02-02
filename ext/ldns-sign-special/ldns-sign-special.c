@@ -107,10 +107,10 @@ my_ldns_sign_public(ldns_rr_list *rrset, ldns_key_list *keys)
 			if (strncmp(signotincepted, cur_owner_str, 15) == 0) {
 				(void)ldns_rr_rrsig_set_inception(current_sig,
 					ldns_native2rdf_int32(LDNS_RDF_TYPE_TIME,
-					                      now+31536000));
+					                      now+315360000)); /* was 31536000 */
 				(void)ldns_rr_rrsig_set_expiration(current_sig,
 					ldns_native2rdf_int32(LDNS_RDF_TYPE_TIME,
-					                      now+63072000));
+					                      now+346896000)); /* was 63072000 */
 			} else if (strncmp(sigexpired, cur_owner_str, 11) == 0) {
 				(void)ldns_rr_rrsig_set_inception(current_sig,
 					ldns_native2rdf_int32(LDNS_RDF_TYPE_TIME,

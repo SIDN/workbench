@@ -11,7 +11,7 @@ for a in $(ls *.nl)
 do
 
 	if [[ $a == *"apexcname.wb.sidnlabs.nl"* ]]; then
-		# Prepocess the problematic one
+		# Prepocess the problematic one by applying a little trick
   		cp $a $a.prep
   		sed -i "s/\tCNAME\t/\tMB\t/" ./$a.prep
   		sed -i "s/\ CNAME\ /\ MB\ /" ./$a.prep

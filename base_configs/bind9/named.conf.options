@@ -30,16 +30,17 @@ options {
 	server-id "bind9.sidnlabs.nl";
 	hostname "bind9.sidnlabs.nl";
 
-	// Notify PowerDNS SQLite3 backend (which is superslave)
-	// Also notify knot an nsd4 because they slave certain
-	// zones, such as types.wb.sidnlabs.nl
-	also-notify { 2a00:d78:0:712:94:198:159:26;
-                      94.198.159.26;
-		      2a00:d78:0:712:94:198:159:27;
-                      94.198.159.27;
-		      2a00:d78:0:712:94:198:159:33;
-                      94.198.159.33;
-	             };
+	// [NOT ANYMORE:] Notify PowerDNS SQLite3 backend (which is superslave)
+	// [NOT ANYMORE - will do that in at the zone level again:] 
+	//                Also notify knot an nsd4 because they slave certain zones, such as types.wb.sidnlabs.nl
+	//also-notify { 
+        //              // 2a00:d78:0:712:94:198:159:26;
+        //              // 94.198.159.26;
+	//	      2a00:d78:0:712:94:198:159:27;
+        //              94.198.159.27;
+	//	      2a00:d78:0:712:94:198:159:33;
+        //              94.198.159.33;
+	//             };
 	notify-source-v6 2a00:d78:0:712:94:198:159:39;
 	notify-source 94.198.159.39;
 };

@@ -317,10 +317,8 @@ class Bind9ConfigGenerator(ConfigGenerator):
         if self.is_primary_for(zd):
             lines.append("        type master;")
             secondary_addrs = [env.SERVERS[n] for n in zd.get("secondary_names")]
-            # We don't really need this, do we? Let BIND do it's thing.
-            # UPDATE: we might need it again, due to the powerdns.delegations issue
-            #if len(secondary_addrs) > 0:
-            #    lines.append("        also-notify { %s; };" % "; ".join(secondary_addrs))
+            if len(secondary_addrs) > 0:
+                lines.append("        also-notify { %s; };" % "; ".join(secondary_addrs))
         elif self.is_secondary_for(zd):
             lines.append("        type slave;")
             lines.append("        masters { %s; };" % get_primary_addr(zd))
@@ -542,35 +540,9 @@ class PowerDNSConfigGenerator(ConfigGenerator):
         return "powerdns"
     
     def get_start(self):
-    # TODO: inclue the stuff that is currently in /etc/powerdns/pdns.conf here
         return [
-            "# PowerDNS Config file",
+            "# PowerDNS Config file for BIND backend",
             "# as created by the Workbench Generator tool",
-            "",
-            "setgid=pdns",
-            "setuid=pdns",
-            "",
-            "# sqlite3 /var/lib/powerdns/pdns.sqlite3",
-            "# INSERT INTO supermasters values ('2a00:d78:0:712:94:198:159:39', 'bind9.sidnlabs.nl', 'workbench');",
-            "launch=gsqlite3",
-            "gsqlite3-database=/var/lib/powerdns/pdns.sqlite3",
-            "gsqlite3-dnssec=on",
-            "master=no",
-            "slave=yes",
-            "",
-            "local-address=94.198.159.26",
-            "local-ipv6=2a00:d78:0:712:94:198:159:26",
-            "local-ipv6-nonexist-fail=yes",
-            "local-port=53",
-            "server-id=powerdns.sidnlabs.nl",
-            "",
-            "allow-axfr-ips=0.0.0.0/0,::/0",
-            "axfr-lower-serial=yes",
-            "disable-axfr=no",
-            "",
-            "",
-            "security-poll-suffix=",
-            "webserver=yes",
             ""
         ]
 
@@ -579,25 +551,48 @@ class PowerDNSConfigGenerator(ConfigGenerator):
         ]
     
     def get_tsig_key_chunk(self, key):
-        # TODO: TSIG done by hand for now
+        # TODO: TSIG done by hand for now (well actually... not even that, but might do - see Knot as example)
         lines = [
         ]
         return lines
     
     def get_zone_chunk(self, zd):
-        # All done through other script?
-        return []
+        # We load most files with the bind backend, except for apexcname.wb.sidnlabs.nl, which we zone2sql into sqlite3 backend
+        # because of https://github.com/PowerDNS/pdns/issues/7437
+        # Copied thie part mostly from Bind9ConfigGenerator
+        zname = zd.get("name")
+        zname_u = dnsutil.ufqdn(zname)
 
-    # 2019 version
+        lines = [
+            "zone \"%s\" {" % zname,
+            "        file \"/var/dns-workbench/zones/%s\";" % zname_u
+        ]
+        
+        if self.is_primary_for(zd):
+            lines.append("        type native;")
+            # Secondory stuff left out here - won't use it anyway
+
+        lines.extend([
+            "};"
+        ])
+        return lines
+
+    # PowerDNS 2019 version
     # Maybe too strong?
     def get_update_lines(self):
         return [
             "systemctl stop pdns",
+            "echo 'empty the entire database'",
             "sqlite3 /var/lib/powerdns/pdns.sqlite3 < /etc/powerdns/powerdns_clean.sql",
-            "sqlite3 /var/lib/powerdns/pdns.sqlite3 < /etc/powerdns/powerdns_supermaster.sql",
-            "systemctl restart bind9"
+            "# That nasty types[-signed].wb.sidn.nl zone has to be slaved by sqlite3, so yet another exception:",
+            "# This also includes nsec3-opt-out and wildcards-nsec3 zones btw",
+            "echo 'slaving types[-signed] and nsec3-opt-out and wildcards-nsec3 from bind9'",
+            "sqlite3 /var/lib/powerdns/pdns.sqlite3 < /etc/powerdns/powerdns_slaves.sql",
+            "echo 'now loading apexcname.wb.sidnlabs.nl into sqlite3'",
+            "sqlite3 /var/lib/powerdns/pdns.sqlite3 < /etc/powerdns/powerdns_apexcname.sql",
+            "# TODO: ANALYZE; ?",
+            "systemctl start pdns",
         ]
-
     # Former version    
     #def get_update_lines(self):
     #    lines = []
@@ -679,9 +674,10 @@ class YadifaConfigGenerator(ConfigGenerator):
         if self.is_primary_for(zd):
             lines.append("        file masters/workbench/%s" % zname_u)
             lines.append("        type master")
-            # TODO for some reasons this causes probelems - figure out why, fix them
+            # TODO for some reasons this exception is triggered and causes problems - figure out why, fix them
+            # For now, just skip it, because is seems to work if we do.
             #for secondary in zd.get("secondary_names"):
-            #    raise Exception("NotImplYet")
+            #    raise Exception("NotImplYet")            
             lines.append("        maintain-dnssec false")
             lines.append("        dnssec-mode	  off")
             lines.append("        notify-auto     false")
@@ -700,10 +696,10 @@ class YadifaConfigGenerator(ConfigGenerator):
             # Note: this calls a custom script which was created manually
             # "sudo /var/workbench/restart_yadifa.sh"
             # 2019 version:
-            "systemctl restart yadifa"
+            "systemctl stop yadifa",
+            "rm -rf /var/lib/yadifa/xfr/*",
+            "systemctl start yadifa",
         ]
-
-
 
 def create_config_files_and_scripts():
     zds = dnsutil.read_all_db_files()

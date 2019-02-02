@@ -10,7 +10,7 @@
  DELETE FROM domains;
  DELETE FROM supermasters;
  VACUUM;
- /* INSERT INTO supermasters values ('2a00:d78:0:712:94:198:159:39', 'bind9.sidnlabs.nl', 'workbench'); */
+ /* [OBSOLETE] INSERT INTO supermasters values ('2a00:d78:0:712:94:198:159:39', 'bind9.sidnlabs.nl', 'workbench'); */
  /* Note: creating the tables was part of installing the package. Look there if you need to */
  /* Or see: https://github.com/PowerDNS/pdns/blob/rel/auth-4.1.x/modules/gsqlite3backend/schema.sqlite3.sql */
    

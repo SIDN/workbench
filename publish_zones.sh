@@ -1,4 +1,4 @@
-#!/bin/bash
+u#!/bin/bash
 
 if [[ $EUID -ne 0 ]]; then
   echo "ERROR: You must be a root user. Quitting." 2>&1
@@ -52,7 +52,7 @@ backup_file() {
 #backup_file knot /etc/knot/workbench/knot.conf /etc/knot/workbench/knot.conf.${DATE}
 #backup_file bind9 /etc/bind/workbench/bind9.conf /etc/bind/workbench/bind9.conf.${DATE}
 #backup_file yadifa /etc/yadifa/workbench/yadifad.conf /etc/yadifa/workbench/yadifad.conf.${DATE}
-#backup_file powerdns /etc/powerdns/pdns.conf /etc/powerdns/pdns.conf.${DATE}
+#backup_file powerdns /etc/powerdns/workbench/powerdns.conf /etc/powerdns/workbench/powerdns.conf.${DATE}
 
 #
 #
@@ -77,11 +77,11 @@ update_file knot output/servers/knot/knot.conf /etc/knot/workbench
 update_file knot output/servers/knot/update.sh /etc/knot/workbench
 update_file bind9 output/servers/bind9/bind9.conf /etc/bind/workbench
 update_file bind9 output/servers/bind9/update.sh /etc/bind/workbench
-# No include-config for powerdns, but straight in /etc/powerdns (not /etc/powerdns/workbench)
-update_file powerdns output/servers/powerdns/powerdns.conf /etc/powerdns/pdns.conf
-update_file powerdns output/servers/powerdns/update.sh /etc/powerdns/workbench
 cp -a ./powerdns_clean.sql /etc/powerdns
-cp -a ./powerdns_supermaster.sql /etc/powerdns
+cp -a ./powerdns_slaves.sql /etc/powerdns
+update_file powerdns output/servers/powerdns/powerdns.conf /etc/powerdns/workbench/named-backend.conf
+update_file powerdns output/servers/powerdns/update.sh /etc/powerdns/workbench
+
 update_file yadifa output/servers/yadifa/yadifa.conf /etc/yadifa/workbench
 update_file yadifa output/servers/yadifa/update.sh /etc/yadifa/workbench
 #update_file bind10 configs/bind10_transfers.txt /home/jelte/bind10_transfers.txt
@@ -116,7 +116,6 @@ apply_update() {
 apply_update /etc/bind/workbench
 apply_update /etc/nsd/workbench
 apply_update /etc/knot/workbench
-apply_update /etc/powerdns/workbench
 
 # Now comes a dirty trick...
 # Modify the yadifa config
@@ -130,6 +129,18 @@ dig +onesoa +unknownformat axfr types-signed.wb.sidnlabs.nl @2a00:d78:0:712:94:1
 # Then reload Yadifa (and hope for the best, but please check the serial):
 sleep 1
 apply_update /etc/yadifa/workbench
+
+# TODO: more check_rcode here and there...?
+
+# Another trick: import apexcname.wb.sidnlabs.nl into PowerDNS
+# They are activated in /etc/powerdns/workbench/update.sh
+zone2sql --gsqlite=yes --zone-name=apexcname.wb.sidnlabs.nl --zone=/var/dns-workbench/zones/apexcname.wb.sidnlabs.nl > /etc/powerdns.powerdns_apexcname.sql
+# Attention, since our zones cintain an '$ORIGIN .' the zone2sql step can only used once without running into a database unique constraint problem
+# Se slave nsec3-opt-out.wb.sidnlabs.nl and wildcards-nsec3.wb.sidnlabs.nl together with types[-].wb.sidnlabs.nl
+# Mind you: types[-].wb.sidnlabs.nl *has* to be slaved (and it cannot be via bind backend)
+# https://github.com/PowerDNS/pdns/issues/7437
+
+apply_update /etc/powerdns/workbench
 
 echo "- All done! - consider to run ANALYZE; on sqlite3"
 # https://doc.powerdns.com/authoritative/backends/generic-sqlite3.html

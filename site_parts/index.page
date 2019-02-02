@@ -145,7 +145,7 @@ known, working on a solution.</td>
 	</tr>
 	<tr>
 		<td><a href="zones/apexcname.wb.sidnlabs.nl.txt">apexcname.wb.sidnlabs.nl</a> is not present anymore</a></td>
-		<td>PowerDNS had it, we'll see if we can trick it again to accept it.</td>
+		<td>PowerDNS had this. UPDATE: we have a preliminary experimtal solution, have to check if this is acceptable</td>
 	</tr>
 	<tr>
 		<td>nsec3-opt-out.wb.sidnlabs.nl missing an NS</a></td>

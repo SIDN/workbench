@@ -39,10 +39,8 @@ KEYS_DIR = "%s/output/keys" % BASE_PATH
 
 
 # Address list
+# TODO: What about IPv6 ? 
 SERVERS = {
-    # TODO: nsd is master - hier goed naar kijken, voordat je hem uitcommentarieerd
-    # (als het goed is nu bind9 van gemaakt)
-    # "nsd": "94.198.159.25",
     "nsd4": "94.198.159.33",
     "bind9": "94.198.159.39",
     "knot": "94.198.159.27",

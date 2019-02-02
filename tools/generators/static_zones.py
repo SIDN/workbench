@@ -37,7 +37,7 @@ print(env.ZONE_DB_PATH)
 OUTPUT_FILE = "static_zones.db"
 INPUT_DIR = env.INPUT_BASE_PATH + "/static_zones"
 
-# TODO: is this still the intention? Why was it done in the first place?
+# TODO: is change still the intention? Why was it done in the first place?
 #T3597 = "A6 CDS GPOS NINFO NSAP-PTR TLSA TALINK NID L32 L64 LP RKEY"
 T3597 = "A6 CDS GPOS NSAP-PTR TLSA TALINK NID L32 L64 LP"
 SIGNER = env.EXT_TOOLS_PATH + "/ldns-sign-special/ldns-sign-special"
@@ -88,22 +88,23 @@ def add_3597(zd):
 def set_servers(zd):
     # Most servers don't like to read/parse/load a number of rrtypes,
     # but they will accept it when they are secondary
-    # So we'll make BIND9 (was NSD) the master, and all the others the secondary
+    # So we'll make BIND9 the master, and all the others the secondary
     # For the types zones
-    #zd.add("primary_names", "nsd")
     zd.add("primary_names", "bind9")
-    # TODO what about making nsd4 and knot masters as well?
-    # Can the load types, types-signed, wildcards-nsec3 and nsec3-opt-out?
-    # DONE: nsd4 can't be primary here - neither can knot
+    # WONTDO:  what about making nsd4 and knot masters as well?
+    # Can they load types, types-signed, wildcards-nsec3 and nsec3-opt-out?
+    # REASON: Checked it, nsd4 can't be primary here - neither can knot
     zd.add("secondary_names", "nsd4")
     zd.add("secondary_names", "knot")
-    # yadifa works better as master, because we use the rfc3587 trick now
-    # in order to let it accept types.wb.sidnlabs.nl and types-signes.wb.sidnlabs.nl
-    # it doesn't want to load the non-rfc3587 versions, neither as master nor as slave
+    # But yadifa works better as master, because we use the rfc3587 trick in publish_zones.sh,
+    # in order to let it accept types.wb.sidnlabs.nl and types-signes.wb.sidnlabs.nl.
+    # It doesn't want to load the non-rfc3587 versions, neither as master nor as slave
     #zd.add("secondary_names", "yadifa")
     zd.add("primary_names", "yadifa")
-    # powerdns is a different case, it is a superslave
-    # see below
+    # powerdns is a different case - we'll use zone2sql and the sqlite3 backend for the special zones
+    # and bind backend for the template zones. 
+    # It is a master for both cases
+    # See below, for apexcname.wb.sidnlabs.nl, where it is defined as primary
 
 def generate_static_zone_entries():
     zds = []
@@ -124,7 +125,7 @@ def generate_static_zone_entries():
     set_servers(zd)
     zds.append(zd)
 
-    # Apex cname works with powerdns only
+    # Apex cname works with powerdns only (we load it with zone2sql in an sqlite3 backend to make it work)
     # TODO: is this still the case?
     zd = zonedata.ZoneData()
     dname = "apexcname." + env.DOMAIN
