@@ -7,8 +7,13 @@
 ./create_zones.sh
 ./create_configs.sh
 # Not the other way around!
-./create_site.py
-sudo ./sitepublish.sh
+
 sudo ./publish_zones.sh
 
+./create_site.py
+sudo ./sitepublish.sh
+
 ./make_base_config.sh
+
+# If, after this, https://workbench.sidnlabs.nl/zones/ is empty...
+# Run sudo ./sitepublish.sh one more time.
