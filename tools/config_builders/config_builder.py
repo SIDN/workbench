@@ -523,7 +523,9 @@ class KnotConfigGenerator(ConfigGenerator):
         return [
             # "sudo /etc/knot/knotc_update"
             "#/usr/sbin/knotc -s /var/run/knot/knot.sock reload",
-            "systemctl restart knot"
+            "systemctl stop knot",
+            "rm -rf /var/lib/knot/*",
+            "systemctl start knot"
         ]
 
 class PowerDNSConfigGenerator(ConfigGenerator):
