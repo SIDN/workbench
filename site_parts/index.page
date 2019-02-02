@@ -13,8 +13,9 @@ Main |
 <div class="alert">
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
   <strong>Attention:</strong><br>We switched to the new (2019 release) of
-the DNS workbench. It should work like before, probably even better, although we see
-stille some issues. If you spot irregularities, please do not hesitate to let us know. Thank you and
+the DNS workbench. It should work like before, probably even better, although we
+still see a number issues. So don't trust the
+results just yet, while we are working to fix them. If you spot irregularities, please do not hesitate to let us know. Thank you and
 enjoy!
 </div>
 <br>
