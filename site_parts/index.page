@@ -144,7 +144,7 @@ href="https://dnssec-analyzer.verisignlabs.com/bind9.knot.powerdns.delegations.w
 known, working on a solution.</td>
 	</tr>
 	<tr>
-		<td>apecname.wb.sidnlabs.nl is not present anymore</a></td>
+		<td><a href="zones/apexcname.wb.sidnlabs.nl.txt">apexcname.wb.sidnlabs.nl</a> is not present anymore</a></td>
 		<td>PowerDNS had it, we'll see if we can trick it again to accept it.</td>
 	</tr>
 	<tr>
