@@ -16,4 +16,8 @@
 #		(Or try to scan the logging for stuff, maybe)
 #	- What else?
 
+# This, maybe?
+#
+# for a in $(ls /var/dns-workbench/zones/); do dig +short SOA @resolv1.sidn.nl  $a; done
+#
 

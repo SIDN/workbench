@@ -106,6 +106,10 @@ At this time, there are three 'classes' of setups:
 		<td>Transfering and using/testing TSIG support.</td>
 	</tr>
 </table>
+There are also a few other zones: <a href="/zones/apexcname.wb.sidnlabs.nl.txt">apexcname.wb.sidnlabs.nl</a>, 
+<a href="/zones/nsec3-opt-out.wb.sidnlabs.nl.txt">nsec3-opt-out.wb.sidnlabs.nl</a>
+and <a href="/zones/wildcards-nsec3.wb.sidnlabs.nl.txt">wildcards-nsec3.wb.sidnlabs.nl</a> 
+that don't fit in any of the categories and where added as per request. 
 
 <h3>Roadmap</h3>
 We intend to continually expand the workbench with different scenarios
