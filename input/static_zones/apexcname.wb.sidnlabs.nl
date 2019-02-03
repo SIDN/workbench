@@ -5,3 +5,5 @@ apexcname.wb.sidnlabs.nl.	60	IN	TXT	"v=spf1 -all"
 apexcname.wb.sidnlabs.nl.	60	IN	CNAME	sidn.nl.
 apexcname.wb.sidnlabs.nl.       60      IN      MX	0 .
 _dmarc.apexcname.wb.sidnlabs.nl.	60	IN	TXT "v=DMARC1; p=reject;"
+apexcname.wb.sidnlabs.nl.       60      IN      A	94.198.159.39
+apexcname.wb.sidnlabs.nl.       60      IN      AAAA	2a00:d78:0:712:94:198:159:39
