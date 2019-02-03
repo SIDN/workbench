@@ -168,7 +168,7 @@ known, working on a solution.</td>
 -->
 	<tr>
 		<td>No TSIG's on PowerDNS and Yadifa</td>
-		<td>Not a bug, but a know issue and a 'todo'. Have to find some time for it.</td>
+		<td>Not a bug, but a known issue and a 'todo'. Have to find some time for it.</td>
 	</tr>
 	<tr>
 		<td>types[-signed].wb.sidnlabs.nl might have to be updated</td>
