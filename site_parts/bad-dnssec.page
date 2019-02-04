@@ -66,20 +66,21 @@ $ dig +short +cd AAAA bogussig.bad-dnssec.wb.sidnlabs.nl
 
 $ dig +short A bogussig.bad-dnssec.wb.sidnlabs.nl
 
-$ drill -k ~/root.key -S ok.ok.ok.bad-dnssec.wb.sidnlabs.nl
+$  drill -k ~/root.key -S ok.ok.ok.bad-dnssec.wb.sidnlabs.nl
 ;; Number of trusted keys: 1
 ;; Chasing: ok.ok.ok.bad-dnssec.wb.sidnlabs.nl. A
 
+
 DNSSEC Trust tree:
 ok.ok.ok.bad-dnssec.wb.sidnlabs.nl. (A)
-|---ok.ok.ok.bad-dnssec.wb.sidnlabs.nl. (DNSKEY keytag: 39124 alg: 8 flags: 257)
-    |---ok.ok.ok.bad-dnssec.wb.sidnlabs.nl. (DS keytag: 39124 digest type: 2)
-        |---ok.ok.bad-dnssec.wb.sidnlabs.nl. (DNSKEY keytag: 21697 alg: 8 flags: 257)
-            |---ok.ok.bad-dnssec.wb.sidnlabs.nl. (DS keytag: 21697 digest type: 2)
-                |---ok.bad-dnssec.wb.sidnlabs.nl. (DNSKEY keytag: 30286 alg: 8 flags: 257)
-                    |---ok.bad-dnssec.wb.sidnlabs.nl. (DS keytag: 30286 digest type: 2)
-                        |---bad-dnssec.wb.sidnlabs.nl. (DNSKEY keytag: 59041 alg: 8 flags: 257)
-                            |---bad-dnssec.wb.sidnlabs.nl. (DS keytag: 59041 digest type: 2)
+|---ok.ok.ok.bad-dnssec.wb.sidnlabs.nl. (DNSKEY keytag: 17095 alg: 8 flags: 257)
+    |---ok.ok.ok.bad-dnssec.wb.sidnlabs.nl. (DS keytag: 17095 digest type: 2)
+        |---ok.ok.bad-dnssec.wb.sidnlabs.nl. (DNSKEY keytag: 57532 alg: 8 flags: 257)
+            |---ok.ok.bad-dnssec.wb.sidnlabs.nl. (DS keytag: 57532 digest type: 2)
+                |---ok.bad-dnssec.wb.sidnlabs.nl. (DNSKEY keytag: 60670 alg: 8 flags: 257)
+                    |---ok.bad-dnssec.wb.sidnlabs.nl. (DS keytag: 60670 digest type: 2)
+                        |---bad-dnssec.wb.sidnlabs.nl. (DNSKEY keytag: 27124 alg: 8 flags: 257)
+                            |---bad-dnssec.wb.sidnlabs.nl. (DS keytag: 27124 digest type: 2)
                                 |---wb.sidnlabs.nl. (DNSKEY keytag: 48378 alg: 8 flags: 256)
                                     |---wb.sidnlabs.nl. (DNSKEY keytag: 44704 alg: 8 flags: 257)
                                     |---wb.sidnlabs.nl. (DS keytag: 44704 digest type: 2)
@@ -87,13 +88,11 @@ ok.ok.ok.bad-dnssec.wb.sidnlabs.nl. (A)
                                             |---sidnlabs.nl. (DNSKEY keytag: 52720 alg: 8 flags: 257)
                                             |---sidnlabs.nl. (DS keytag: 52720 digest type: 2)
                                                 |---nl. (DNSKEY keytag: 62589 alg: 8 flags: 256)
-                                                    |---nl. (DNSKEY keytag: 34112 alg: 8 flags: 257)
                                                     |---nl. (DS keytag: 34112 digest type: 2)
                                                         |---. (DNSKEY keytag: 16749 alg: 8 flags: 256)
                                                             |---. (DNSKEY keytag: 19164 alg: 8 flags: 385)
                                                             |---. (DNSKEY keytag: 20326 alg: 8 flags: 257)
 ;; Chase successful
-
 
 $ drill -k ~/root.key -S ok.bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl
 ;; Number of trusted keys: 1
@@ -102,28 +101,27 @@ $ drill -k ~/root.key -S ok.bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl
 
 DNSSEC Trust tree:
 ok.bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl. (A)
-|---ok.bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl. (DNSKEY keytag: 53179 alg: 8 flags: 257)
-    |---ok.bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl. (DS keytag: 53179 digest type: 2)
-        |---bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl. (DNSKEY keytag: 34012 alg: 8 flags: 257)
-            |---bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl. (DS keytag: 34012 digest type: 2)
+|---ok.bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl. (DNSKEY keytag: 20530 alg: 8 flags: 257)
+    |---ok.bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl. (DS keytag: 20530 digest type: 2)
+        |---bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl. (DNSKEY keytag: 52354 alg: 8 flags: 257)
+            |---bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl. (DS keytag: 52354 digest type: 2)
                 |---Bogus DNSSEC signature:
-bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl.	3600	IN	RRSIG	DS 8 6 3600 20300101000000 20190201184300 60211 sigexpired.bad-dnssec.wb.sidnlabs.nl. Zc6RjwMcmAqt8kRn1bF4/5l2MWLvfdUZJhYBClnYP4m5DM7HOYbHxHdoepfFVfiB3nHV3gNnOZxKx/ZD8cebeUAZcXQg/Heb47vrVBJauvzVI5lCSrEgYP9tcoRU4qV6kY+9KJxaHZ43Kea188B2g0oKzRp6zGO09uEOeLUiN8k=
+bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl.	3599	IN	RRSIG	DS 8 6 3600 20300101000000 20190203115651 47452 sigexpired.bad-dnssec.wb.sidnlabs.nl. W/CqxDzuEnGFXNvniGbsOf/fKUYs1v6Y5imJJMnz6VU54OlAs6oPLN06tO+sms88UfJKrWjxP39yQdaELRe5FhlT23iTjpN4i76WrhsYh0t+c5eo0kz3WlEjNdABEd5hw+/AV8scZVY4Rw4oQSA4HVBT5EJ57/tOSwvcrUP8Kww=
 For RRset:
-bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl.	3600	IN	DS	34012 8 2 7334c4f9031af42624ea0eb1c1d3fdd29cc8dfac3db503b8e279b4ae5ec7e84c
+bogussig.sigexpired.bad-dnssec.wb.sidnlabs.nl.	3599	IN	DS	52354 8 2 1d3611ab5379f854f0c25698d87cfc56649650c8ed75f28fe3ed2bd8698704a1
 With key:
-sigexpired.bad-dnssec.wb.sidnlabs.nl.	3600	IN	DNSKEY	257 3 8 AwEAAbltReAoE5eVkRV+sSz8563Othp5zqKuTbjg2rudt6RFgzAU7Crgjtn3Dk9EWCHBtDUTGM9/EgMlBkDxuefWmrSkZfqbPWim7SOK0WOTCmk1FaWLQYD082fayq35AAO1kTIFxno2q2+TXuhtXMdqOtnax9Nqu1VAOAapvfRREtON ;{id = 60211 (ksk), size = 1024b}
-                |---sigexpired.bad-dnssec.wb.sidnlabs.nl. (DNSKEY keytag: 60211 alg: 8 flags: 257)
-                    |---sigexpired.bad-dnssec.wb.sidnlabs.nl. (DS keytag: 60211 digest type: 2)
+sigexpired.bad-dnssec.wb.sidnlabs.nl.	3581	IN	DNSKEY	257 3 8 AwEAAeI4JVRP/UjIUurNip/yvy2kju2xHQDePQ1DtTxEyZRw7XVzsGr9sWYju/vi7XWSyupIOqiZhiwiPAcG5KnfTMRSAZkylbjC4k5Kq9yBQF3XLCKg7wZMvnsCu5KC/nVS8Fma0F+5PFsfoqdExVVDG/0RFHZILTvIPRXcvG5BrmpB ;{id = 47452 (ksk), size = 1024b}
+                |---sigexpired.bad-dnssec.wb.sidnlabs.nl. (DNSKEY keytag: 47452 alg: 8 flags: 257)
+                    |---sigexpired.bad-dnssec.wb.sidnlabs.nl. (DS keytag: 47452 digest type: 2)
                         |---DNSSEC signature has expired:
-sigexpired.bad-dnssec.wb.sidnlabs.nl.	60	IN	RRSIG	DS 8 5 3600 20180201184259 20170201184259 59041 bad-dnssec.wb.sidnlabs.nl. hFHz2RVWC8xD8UC/oq3N7z2qeRfnmnBBLiSAWvkBOTsl8Vl3K7gUeSOGKa4L+VteJ7bPCNnQzR9R9YbOWfwMWla0xn/z7Kkl0XfkYp9W2LSNDl1yER2Mmh5DFF7kKdgHlrn5Hdvva557XEXCOglada5QMvgfpzcMoPA98sTAhLs=
+sigexpired.bad-dnssec.wb.sidnlabs.nl.	41	IN	RRSIG	DS 8 5 3600 20180203115650 20170203115650 27124 bad-dnssec.wb.sidnlabs.nl. E+meqwes3ifXS6wwYjtdXUOfuYIxIJ/Zk1cM/Q3+H5oeaK84WRLNdw4DVV9zIOGD+fejqkN7XRCnHCGOZOPimOmzoVbZFcczXbGgVNQI6KnFniUUw1BAfO2b/2cjveDG/0pm5T5r7DDWCtmLq88PpbPPkIOB8XpV//xY+klcHBA=
 For RRset:
-sigexpired.bad-dnssec.wb.sidnlabs.nl.	60	IN	DS	60211 8 2 e5d12c94184a8b27177e3228823badbda593c5feb6b94adc79c8b645ab8966b4
+sigexpired.bad-dnssec.wb.sidnlabs.nl.	41	IN	DS	47452 8 2 f4002b88b8c7e5464cb2075bc22b759bb22370892c5ecad050e4b7a3c6bdc75c
 With key:
-bad-dnssec.wb.sidnlabs.nl.	3535	IN	DNSKEY	257 3 8 AwEAAZyJW0m4cq799cikFtp66W4ILI+De/0y9+be4xyCVt3mgujaWGiRpJq/Xb/2JQfxHve1qFxRPVqOlANqzyK45XiSY9UqJ+1ibL5XWCgTpqpP4yuuNiqLwAJfWyZGyWtaUvt6+rrH2ZU03wxZ7i578YJsboNIEvMa1pBrCEVnxqj/ ;{id = 59041 (ksk), size = 1024b}
-                        |---bad-dnssec.wb.sidnlabs.nl. (DNSKEY keytag: 59041 alg: 8 flags: 257)
-                            |---bad-dnssec.wb.sidnlabs.nl. (DS keytag: 59041 digest type: 2)
+bad-dnssec.wb.sidnlabs.nl.	3586	IN	DNSKEY	257 3 8 AwEAAbeHydOpL2CMb2wYTQNE3akUXD05oeXDDpwjz9iH/O/VCFhxaWqtlDsWfjMFMShM+dCQYbCpaFvF+XjiKqyZfrt8b9WVEyimtUFAFHrJuHdBoZpkVfv4zfcGOAPlw0CUdU8dXJPEtw4ewXGs95kA0j2v1J6oEjfFuBAK1tysBnBF ;{id = 27124 (ksk), size = 1024b}
+                        |---bad-dnssec.wb.sidnlabs.nl. (DNSKEY keytag: 27124 alg: 8 flags: 257)
+                            |---bad-dnssec.wb.sidnlabs.nl. (DS keytag: 27124 digest type: 2)
                                 |---wb.sidnlabs.nl. (DNSKEY keytag: 48378 alg: 8 flags: 256)
-                                    |---wb.sidnlabs.nl. (DNSKEY keytag: 44704 alg: 8 flags: 257)
                                     |---wb.sidnlabs.nl. (DS keytag: 44704 digest type: 2)
                                         |---sidnlabs.nl. (DNSKEY keytag: 20853 alg: 8 flags: 256)
                                             |---sidnlabs.nl. (DNSKEY keytag: 52720 alg: 8 flags: 257)
