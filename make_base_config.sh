@@ -1,9 +1,12 @@
 #!/bin/bash
-
-# Fetch the latest configs from the production environment
-# And put them in Git.
 #
-# Together with stuff fromt he config_builder these make a working whole.
+# Internally used script - you probably don't need it
+#
+
+# Fetch the latest configs from our production environment at https://workbench.sidnlabs.nl/
+# And put them in Git as config-samples.
+#
+# Together with stuff fromt he config_builder these would make a working whole.
 #
 
 # Lighttpd
