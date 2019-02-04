@@ -136,7 +136,7 @@ just let us know.
 <table>
 	<tr>
 		<td>types[-signed].wb.sidnlabs.nl won't AXFR from PowerDNS</td>
-		<td>Could be a bug in PowerDNS - will investigate further.</td>
+		<td>Could be a <a href="https://github.com/PowerDNS/pdns/issues/7446">bug in PowerDNS</a> - will investigate further.</td>
 	</tr>
 <!--
 	<tr>
