@@ -12,12 +12,10 @@ Main |
 
 <div class="alert">
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-  <strong>Attention:</strong><br>We switched to the new (2019 release) of
+  <strong>Hi!</strong><br>We switched to the new (2019 release) of
 the DNS workbench. It should work like before, probably even better, although we
-still see a number of <a href="/index.html#issues" style="color:white;">issues</a>. So don't trust the
-results just yet, while we are working on fixing these issues. If you spot
-additional irregularities, please do not hesitate to let us know. Thank you and
-enjoy!
+still see a number of <a href="/index.html#issues" style="color:white;">issues</a>. If you spot
+additional irregularities, please do not hesitate to let us know. Thank you and enjoy!
 </div>
 <br>
 

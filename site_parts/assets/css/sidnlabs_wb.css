@@ -187,9 +187,11 @@ thead th,thead td {
   /* red */
   /* background-color: #f44336; */
   /* orange */
-     background-color: #ff9800;
+  /* background-color: #ff9800; */
   /* green */
   /* background-color: #4caf50; */
+  /* SIDN-style */
+  background-color: #002154;
   color: white;
   font-family: Verdana,sans-serif;
 }
