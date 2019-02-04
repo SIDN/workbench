@@ -21,3 +21,10 @@
 # for a in $(ls /var/dns-workbench/zones/); do dig +short SOA @resolv1.sidn.nl  $a; done
 #
 
+# This, maybe too?
+#nsd-control stats | egrep '(zone.master|zone.slave)'
+#	zone.master=292
+#	zone.slave=4
+#knotc stats
+#	server.zone-count = 296
+
