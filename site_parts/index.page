@@ -167,6 +167,10 @@ known, working on a solution.</td>
 	</tr>
 -->
 	<tr>
+		<td>Yadifa tends to crash occasionally</td>
+		<td>Not sure why - maybe build a script that simply automatically restarts it.</td>
+	</tr>
+	<tr>
 		<td>No TSIG's on PowerDNS and Yadifa</td>
 		<td>Not a bug, but a known issue and a 'todo'. Have to find some time for it.</td>
 	</tr>
