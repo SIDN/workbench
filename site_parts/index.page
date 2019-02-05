@@ -166,7 +166,7 @@ known, working on a solution.</td>
 -->
 	<tr>
 		<td>Yadifa tends to crash occasionally</td>
-		<td>Not sure why - maybe build a script that simply automatically restarts it.</td>
+		<td>Not sure why - a systemd drop-in should now automatically restarts it (testing at the moment if it does)</td>
 	</tr>
 	<tr>
 		<td>No TSIG's on PowerDNS and Yadifa</td>
