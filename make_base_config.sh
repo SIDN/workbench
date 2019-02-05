@@ -33,3 +33,5 @@ cp -a /etc/powerdns/pdns.conf base_configs/powerdns/
 
 # YADIFA
 cp -a /etc/yadifa/yadifad.conf base_configs/yadifa/
+# the beast crashes just a little too often...
+cp -a /etc/systemd/system/yadifa.service.d/restart.conf base_configs/yadifa/
