@@ -1,3 +1,4 @@
+![SIDN Labs Logo](https://workbench.sidnlabs.nl/assets/img/sidnlabs_logo.png)
 
 This is the workbench generator code v3 (2019 - new DNS Workbench VM).
 
