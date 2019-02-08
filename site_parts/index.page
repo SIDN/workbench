@@ -155,20 +155,13 @@ known, working on a solution.</td>
 		<td>Pretty hard to verify, because of the CNAME. UPDATE: solved, <code>validns -v -s ./apexcname.wb.sidnlabs.nl.txt</code> was our friend!</td>
 	</tr>
 -->
-	<tr>
-		<td><a href="zones/nsec3-opt-out.wb.sidnlabs.nl.txt">nsec3-opt-out.wb.sidnlabs.nl</a> has some DNSviz errors</td>
- 		<td><a href="https://dnssec-analyzer.verisignlabs.com/nsec3-opt-out.wb.sidnlabs.nl">Looking into this</a></td>
-	</tr>
+
 <!--
 	<tr>
 		<td>Proper working of <a href="zones/wildcards-nsec3.wb.sidnlabs.nl.txt">wildcards-nsec3.wb.sidnlabs.nl</a> Needs inspection</td>
  		<td>Is <a href="http://dnsviz.net/d/wildcards-nsec3.wb.sidnlabs.nl/dnssec/">this</a> right?</td>
 	</tr>
 -->
-	<tr>
-		<td>Yadifa tends to crash occasionally</td>
-		<td>A systemd drop-in now automatically restarts it, but this doesn't solve the underlying problem, which we are still investigating.</td>
-	</tr>
 	<tr>
 		<td>Yadifa parses <a href="zones/wildcards-nsec3.wb.sidnlabs.nl.txt">zonefile</a> incorrectly; the TTL is 60 (as in the RRSIG), not 3600</td>
 		<td>TTL is 60, not 3600 (look carefully at <code>dig +dnssec SOA txt.ent.wildcards-nsec3.wb.sidnlabs.nl @yadifa.sidnlabs.nl</code> to reproduce</td>
@@ -181,14 +174,17 @@ known, working on a solution.</td>
 		<td>Yadifa tends to crash occasionally</td>
 		<td>A systemd drop-in now automatically restarts it, but this doesn't solve the underlying problem, which we are still investigating. If you don't mind, we wont share info on how to reproduce this, although it shouldn't be too hard to figure out yourself.</td>
 	</tr>
-
+	<tr>
+		<td><a href="zones/nsec3-opt-out.wb.sidnlabs.nl.txt">nsec3-opt-out.wb.sidnlabs.nl</a> has some DNSviz errors</td>
+ 		<td><a href="https://dnssec-analyzer.verisignlabs.com/nsec3-opt-out.wb.sidnlabs.nl">Related to Yadifa crashes.</a></td>
+	</tr>
 	<tr>
 		<td>No TSIG's on PowerDNS and Yadifa</td>
 		<td>Not a bug, but a known issue and a 'todo'. Have to find some time for it.</td>
 	</tr>
 	<tr>
 		<td>types[-signed].wb.sidnlabs.nl might have to be updated</td>
-		<td>Some <a
+		<td>Not a bug either. Some <a
 href="https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml">newer RRtypes</a> might have been defined, since we created
 that zone. Have to incorporate some of these new types maybe. Will look into
 that soon.</td>
