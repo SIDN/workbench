@@ -29,8 +29,7 @@ see the difference in their responses, if any.
 The idea behind the workbench is that, without having to set up an
 entire infrastructure yourself, you can quickly find answers to
 questions such as 'How does NSD4 respond to an ANY query for a wildcard
-name in an NSEC3 opt-out zone?' (although this particular scenario is on the
-roadmap and not implemented just yet). It can also be used to test different
+name in an NSEC3 opt-out zone?'. It can also be used to test different
 (validating) resolvers on their behaviour in certain circumstances.
 </p>
 <p>
@@ -166,7 +165,7 @@ known, working on a solution.</td>
 -->
 	<tr>
 		<td>Yadifa tends to crash occasionally</td>
-		<td>Not sure why - a systemd drop-in should now automatically restarts it (testing at the moment if it does)</td>
+		<td>A systemd drop-in now automatically restarts it, but this doesn't solve the underlying problem, which we are still investigating.</td>
 	</tr>
 	<tr>
 		<td>No TSIG's on PowerDNS and Yadifa</td>
