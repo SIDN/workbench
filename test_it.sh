@@ -1,7 +1,8 @@
 #!/bin/bash
 #
-# TODO: This wil be a script that checks if all zones work
+# TODO: This will be a script that checks if all zones work
 #       on all name servers where tey are supposed to work
+#	It does *nothing* just yet.
 #
 
 # TODO:
