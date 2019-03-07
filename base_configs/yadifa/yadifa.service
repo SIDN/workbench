@@ -1,9 +1,7 @@
 #
 # Yadifa came with a nice, hardended version,
 # but we could not get that to work on the SIDNLabs DNS Workbench
-# We had to add CAP_DAC_OVERRIDE
-# If you have the solution, please let us know.
-# For now, let's go with a simplet version.
+# We had to add CAP_DAC_OVERRIDE and some other minor changes
 #
 [Unit]
 Description=YADIFA Domain Name Server

@@ -5,7 +5,8 @@
 
 if [[ $EUID -ne 0 ]]; then
   echo "ERROR: You must be a root user. Quitting." 2>&1
-exit 1
+  exit 1
+fi
 
 # Fetch the latest configs from our production environment at https://workbench.sidnlabs.nl/
 # And put them in Git as config-samples.
