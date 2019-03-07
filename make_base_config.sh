@@ -3,6 +3,10 @@
 # Internally used script - you probably don't need it
 #
 
+if [[ $EUID -ne 0 ]]; then
+  echo "ERROR: You must be a root user. Quitting." 2>&1
+exit 1
+
 # Fetch the latest configs from our production environment at https://workbench.sidnlabs.nl/
 # And put them in Git as config-samples.
 #
@@ -35,4 +39,4 @@ cp -a /etc/powerdns/pdns.conf base_configs/powerdns/
 cp -a /etc/yadifa/yadifad.conf base_configs/yadifa/
 # the beast crashes just a little too often...
 cp -a /etc/systemd/system/yadifa.service.d/restart.conf base_configs/yadifa/
-cp -a /lib/systemd/system base_configs/yadifa/
+cp -a /lib/systemd/system/yadifa.service base_configs/yadifa/ 

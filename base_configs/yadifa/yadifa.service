@@ -1,0 +1,38 @@
+#
+# Yadifa came with a nice, hardended version,
+# but we could not get that to work on the SIDNLabs DNS Workbench
+# We had to add CAP_DAC_OVERRIDE
+# If you have the solution, please let us know.
+# For now, let's go with a simplet version.
+#
+[Unit]
+Description=YADIFA Domain Name Server
+Documentation=man:yadifa(8)
+After=network.target
+
+[Service]
+Type=simple
+EnvironmentFile=-/etc/default/yadifa
+#PIDFile=/run/yadifa/yadifad.pid
+ExecStart=/usr/sbin/yadifad -c $YADIFA_CONF
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+#CapabilityBoundingSet=CAP_CHOWN CAP_IPC_LOCK CAP_NET_BIND_SERVICE CAP_SETGID CAP_SETUID CAP_SYS_CHROOT
+# MD: Needed against error: '/var/lib/yadifa/' is not writable: Permission denied
+CapabilityBoundingSet=CAP_DAC_OVERRIDE CAP_CHOWN CAP_IPC_LOCK CAP_NET_BIND_SERVICE CAP_SETGID CAP_SETUID CAP_SYS_CHROOT
+MemoryDenyWriteExecute=true
+NoNewPrivileges=true
+PrivateDevices=true
+PrivateTmp=true
+ProtectHome=true
+ProtectControlGroups=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+ReadWritePaths=/var/lib/yadifa /run /var/log/yadifa
+ProtectSystem=strict
+RestrictRealtime=true
+#RuntimeDirectory=yadifa
+#LogsDirectory=yadifa
+
+[Install]
+WantedBy=multi-user.target
