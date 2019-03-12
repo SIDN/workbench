@@ -84,20 +84,20 @@ Yadifa, because of bugs that made it crash often):
 </ul>
 
 <p>
-At this time, there are three 'classes' of setups:
+At this time, the DNS workbench offers the followings tests:
 </p>
 <table>
 	<tr>
 		<td><a href="types.html">RR types:</a></td>
-		<td>Different RRtypes, including obsolete and exotic ones.</td>
+		<td>Zonefiles with many different RRtypes, including obsolete and exotic ones, in a signed an an unsigned format.</td>
 	</tr>
 	<tr>
 		<td><a href="bad-dnssec.html">Validator testing:</a></td>
-		<td>A tree with deliberate errors in the DNSSEC chain(s), to test validators.</td>
+		<td>A DNS tree with deliberate errors in the DNSSEC chain(s), to test validating rrsolvers.</td>
 	</tr>
 	<tr>
 		<td><a href="delegations.html">Delegations:</a></td>
-		<td>A tree with delegations.</td>
+		<td>A DNS tree with delegations.</td>
 	</tr>
 	<tr>
 		<td><a href="transfers.html">Transfers and TSIG:</a></td>
