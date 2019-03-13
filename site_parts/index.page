@@ -169,7 +169,7 @@ known, working on a solution.</td>
 	</tr>
 	<tr>
 		<td><a href="https://workbench.sidnlabs.nl/badzones/nods.bad-dnssec.wb.sidnlabs.nl.txt">nods badzone</a> is not really '<a href="https://workbench.sidnlabs.nl/bad-dnssec.html">without a DS</a>', because we introduced a bug.</td>
-		<td>We are in the process of fixing this</td>
+		<td>We are <a href="https://github.com/SIDN/workbench/commit/648c93047b57fd5d823266ff68d930d05219a457">in the process</a> of fixing this</td>
 	</tr>
 	<tr>
 		<td>Yadifa leaves out NSEC in reply</td>
