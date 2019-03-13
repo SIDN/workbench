@@ -172,7 +172,7 @@ known, working on a solution.</td>
 	</tr>
 	<tr>
 		<td><a href="https://workbench.sidnlabs.nl/badzones/nods.bad-dnssec.wb.sidnlabs.nl.txt">nods badzone</a> is not really without a DS as it should be. This is because of a known, but not yet solved bug.</td>
-		<td>We are <a href="https://github.com/SIDN/workbench/commit/648c93047b57fd5d823266ff68d930d05219a457">in the process</a> of fixing this.</td>
+		<td>We are <a href="https://github.com/SIDN/workbench/commit/648c93047b57fd5d823266ff68d930d05219a457">in the process</a> of fixing this. UPDATE: might be <a href="https://github.com/SIDN/workbench/commit/65a5b6a3b54968ae690024aa4a9f0f0a53ee478d">fixed</a>, now testing.</td>
 	</tr>
 	<tr>
 		<td>Yadifa leaves out NSEC in reply./td>
