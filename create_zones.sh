@@ -17,7 +17,7 @@ fi
 mkdir -p ./output
 
 # Do or don't? You pick...
-rm -rf output/final*
+rm -rf output/final/*
 rm -rf output/keys/*
 rm -rf output/signed/*
 rm -rf output/uncompleted/*
