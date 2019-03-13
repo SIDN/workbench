@@ -118,6 +118,7 @@ as we come up with them. A few short-term goals:
   <li>Add more scenarios to the deliberately broken DNSSEC zones</li>
   <li>Add zones with different signing parameters (like <a href="https://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers.xhtml">newer algorithms</a> such as <a href="https://tools.ietf.org/html/rfc8080">Ed25519</a></li>
   <li>Add even more RRtypes</li>
+  <li>Something with <a href="https://en.wikipedia.org/wiki/Internationalized_domain_name">IDN's</a></li>
   <li>Add zones signed with different signers</li>
   <li>[Your proposal here!]</li>
 </ul>
