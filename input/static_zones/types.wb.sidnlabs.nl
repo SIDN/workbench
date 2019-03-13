@@ -24,14 +24,15 @@ type1			A	198.51.100.53 ; Address of web host
 www			A	198.51.100.53 ; Address of web host
 
 ; type 2
-; see NS records at top of file
+ns			NS	example.nl.
+			NS	example.com.
+			NS	example.org.
 
 ; type 3
 ;md			MD	maildestination
 ;type3			MD	maildestination
 md			TXT	"Removed because BIND9 refuses to load it"
-type3		TXT	"Removed because BIND9 refuses to load it"
-
+type3			TXT	"Removed because BIND9 refuses to load it"
 
 ; type 4
 ;mf			MF	mailforwarder
@@ -282,12 +283,13 @@ type49			DHCID	AAIBY2/AuCccgoJbsaxcQc9TUapptP69lOjxfNuVAA2kjEA=
 ; nsec3param will be handles by a different zone
 
 ; type 52
-; note that owner name is not according to spec.
-tlsa			TYPE52 \# 67 01 01 02 92 00 3b a3 49 42 dc 74 15 2e 2f 2c 40 8d 29 ec a5 a5 20 e7 f2 e0 6b b9 44 f4 dc a3 46 ba f6 3c 1b 17 76 15 d4 66 f6 c4 b7 1c 21 6a 50 29 2b d5 8c 9e bd d2 f7 4e 38 fe 51 ff d4 8c 43 32 6c bc
-type52			TYPE52 \# 67 01 01 02 92 00 3b a3 49 42 dc 74 15 2e 2f 2c 40 8d 29 ec a5 a5 20 e7 f2 e0 6b b9 44 f4 dc a3 46 ba f6 3c 1b 17 76 15 d4 66 f6 c4 b7 1c 21 6a 50 29 2b d5 8c 9e bd d2 f7 4e 38 fe 51 ff d4 8c 43 32 6c bc
+; note that owner name is not according to spec, should be something like _443._tcp
+tlsa			TLSA	1 0 1 c3a7017bbaac49b1636face832fcb54ce1088a6523201f5680021fe55a7e3fe9
+tlsa2			TLSA	3 1 1 046b0d8a7928595ac5a378b3ad64e30cee7852f332a5b9d8ccb0b3e9ee58f24b
+type52			TYPE52	\# 35 010001c3a7017bbaac49b1636face832fcb54ce1088a6523201f5680021fe55a7e3fe9
 
 ; type 53
-; no type 53
+; no type 53 - demo in adf5389c48f669f26102270b44a07733405bbe9db4e8622c7de31e61._smimecert.forfun.net.
 
 ; type 54
 ; no type 54
@@ -318,7 +320,10 @@ type58			TYPE58	\# 32 026830076578616d706c6503636f6d00026831076578616d706c650363
 cds				TYPE59	\# 36 fcb2080286632f83494b1d7037e72949fd6cd8689c5daaf4df1e5d7e6ef3ba28ece1e3c8
 type59			TYPE59	\# 36 fcb2080286632f83494b1d7037e72949fd6cd8689c5daaf4df1e5d7e6ef3ba28ece1e3c8
 
-; nothing from 60 to 98
+; (almost) nothing from 60 to 98
+
+; type 62
+csync			CSYNC	100 3 A NS AAAA
 
 ; type 99
 spf			SPF	"v=spf1 +mx a:colo.example.com/28 -all"
@@ -349,3 +354,9 @@ type108			TYPE108 \# 6 00 00 5e 00 53 2a
 ; type 109, see http://tools.ietf.org/html/draft-jabley-dnsext-eui48-eui64-rrtypes-07
 eui64			TYPE109 \# 8 00 00 5e ef 10 00 00 2a
 type109			TYPE109 \# 8 00 00 5e ef 10 00 00 2a
+
+; type 257
+caa			CAA	0 iodef "mailto:abuse@example.nl"
+			CAA	0 issue "example.com"
+			CAA	0 issuewild "example.org; ; account=test"
+type257			CAA	0 issue ";"
