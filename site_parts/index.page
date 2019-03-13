@@ -175,11 +175,11 @@ known, working on a solution.</td>
 		<td>We are <a href="https://github.com/SIDN/workbench/commit/648c93047b57fd5d823266ff68d930d05219a457">in the process</a> of fixing this. UPDATE: might be <a href="https://github.com/SIDN/workbench/commit/65a5b6a3b54968ae690024aa4a9f0f0a53ee478d">fixed</a>, now testing.</td>
 	</tr>
 	<tr>
-		<td>Yadifa leaves out NSEC in reply./td>
+		<td>Yadifa leaves out NSEC in reply.</td>
 		<td>Reproduce with: <code>dig +dnssec A txt.ent.wildcards-nsec3.wb.sidnlabs.nl @yadifa.sidnlabs.nl</code>.</td>
 	</tr>
 	<tr>
-		<td>Yadifa tends to crashed occasionally./td>
+		<td>Yadifa tends to crashed occasionally.</td>
 		<td><del>A systemd drop-in now automatically restarts it, but this doesn't solve the underlying problem.</del> UPDATE: reported to developers and appearantly fixed in 2.3.9-8497, which we are now testing./td>
 	</tr>
 	<tr>
