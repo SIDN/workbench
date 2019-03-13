@@ -72,7 +72,7 @@ def copy_or_sign_zone(zd):
             out, err = p.communicate()
             # TODO: check rcode
             if p.returncode != 0:
-                sys.stderr.write(err)
+                sys.stderr.write(str(err))
                 raise Exception("Error calling subprocess: " + " ".join(cmd))
         
 
