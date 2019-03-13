@@ -14,7 +14,12 @@ if [[ ! -f ./ext/ldns-3597/ldns-3597 ]] ; then
 fi
 
 # Create output dir if it does not exist:
-mkdir -p ./output
+mkdir -p output/final
+mkdir -p output/keys
+mkdir -p output/signed
+mkdir -p output/uncompleted
+mkdir -p output/unsigned
+mkdir -p output/zone_db
 
 # Do or don't? You pick...
 rm -rf output/final/*
@@ -28,7 +33,7 @@ rm -rf output/zone_db/*
 
 echo "Running static zones generator" &&\
 ./tools/generators/static_zones.py &&\
-echo "Running bad-dnssec zones generator" &&\
+echo "Running bad-dnssec zones and types zones generator" &&\
 ./tools/generators/bad_dnssec.py &&\
 echo "Running delegations zones generator" &&\
 ./tools/generators/delegations.py &&\

@@ -109,6 +109,7 @@ def create_bad_dnssec_tree_zonelist(name, depth):
 
 def create_zone(zone, zonefile):
     zone = dnsutil.fqdn(zone)
+    #print("  [create_zone] zone: %s - zonefile: %s" %(zone,zonefile))
     # create tempfile and write zone data to is
     with open(zonefile, "w") as out:
         # TODO: serial... (and other values)
@@ -119,9 +120,11 @@ def create_zone(zone, zonefile):
         for delegation in bad_dnssec_tree_delegations:
             delname = delegation + "." + zone
             dsfile = env.KEYS_DIR + "/" + delname + "ds"
-            print("check for " + dsfile)
-            if os.path.exists(dsfile) or delname.startswith("nods."):
+            # print("  check for nods-delegation or " + dsfile)
+            if os.path.exists(dsfile):
                 dnsutil.add_template(out, "all_ns", delname, 3600)
+                if delname.startswith("nods."):
+                    os.unlink(dsfile)
                 # TODO: second check necessary?
                 #if os.path.exists(dsfile):
                 #    with open(dsfile, "r") as infile:

@@ -95,7 +95,7 @@ def add_standard_sign_options(zd):
     zd.add("signer_keys", dname_u + ".ksk")
 
 def execute(cmd, cwd=None):
-    print("[DEBUG] run command: %s" % cmd)
+    # print("[DEBUG] run command: %s" % cmd)
     cmdp = shlex.split(cmd)
     p = subprocess.Popen(cmdp, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=cwd)
     (stdout, stderr) = p.communicate()
@@ -110,18 +110,19 @@ def get_keyfile(zone):
 
 def check_create_key(zone, keyfile):
     base_keyfile = keyfile[:-8]
-    if not base_keyfile.startswith("nods.") and not os.path.exists(keyfile):
+    if not os.path.exists(keyfile):
+        #print("  [dnsutil] zone found that might need key-material: " + zone)
         os.makedirs(os.path.dirname(keyfile), exist_ok=True)
         cmd = "ldns-keygen -k -r /dev/urandom -a RSASHA256 -b 1024 %s" % zone
         stdout = execute(cmd)
         basename = stdout.decode("utf-8").rstrip()
-        
-        #if (base_keyfile.startswith("nods.")):
-        #    os.unlink(basename + ".ds")
-        #else:
         os.rename(basename + ".ds", base_keyfile + ".ds")
         os.rename(basename + ".key", base_keyfile + ".key")
         os.rename(basename + ".private", base_keyfile + ".private")
+        # we fix this in bad_dnssec.py
+        #if os.path.basename(base_keyfile).startswith("nods."): 
+        #    print("[DEBUG] removing " + base_keyfile + ".ds" )
+        #    os.unlink(base_keyfile + ".ds")
 
 def get_all_db_files():
     # TODO: this needs improving
