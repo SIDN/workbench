@@ -133,18 +133,18 @@ We are aware of a number of issues and hope to work on them soon. If you find mo
 just let us know.
 <table>
 	<tr>
-		<td>types[-signed].wb.sidnlabs.nl won't AXFR from PowerDNS</td>
+		<td>types[-signed].wb.sidnlabs.nl won't AXFR from PowerDNS./td>
 		<td>Could be a <a href="https://github.com/PowerDNS/pdns/issues/7446">bug in PowerDNS</a> - will investigate further.</td>
 	</tr>
 <!--
 	<tr>
-		<td>types-signed.wb.sidnlabs.nl has issues</a></td>
-		<td>Check <a href="https://dnssec-analyzer.verisignlabs.com/types-signed.wb.sidnlabs.nl">here</a></td>
+		<td>types-signed.wb.sidnlabs.nl has issues./a></td>
+		<td>Check <a href="https://dnssec-analyzer.verisignlabs.com/types-signed.wb.sidnlabs.nl">here</a>./td>
 	</tr>
 -->
 <!--
 	<tr>
-		<td>powerdns.delegations.wb.sidnlabs.nl not right</a></td>
+		<td>powerdns.delegations.wb.sidnlabs.nl not right</a>./td>
 		<td>See: <a href="http://dnsviz.net/d/bind9.knot.powerdns.delegations.wb.sidnlabs.nl/dnssec/">DNSviz</a>
 or <a href="https://dnssec-analyzer.verisignlabs.com/bind9.knot.powerdns.delegations.wb.sidnlabs.nl">DNSSEC-debugger</a>. Rootcause
 known, working on a solution.</td>
@@ -152,43 +152,43 @@ known, working on a solution.</td>
 -->
 <!--
 	<tr>
-		<td><a href="zones/apexcname.wb.sidnlabs.nl.txt">apexcname.wb.sidnlabs.nl</a> may have wrong DNSSEC</td>
+		<td><a href="zones/apexcname.wb.sidnlabs.nl.txt">apexcname.wb.sidnlabs.nl</a> may have wrong DNSSEC./td>
 		<td>Pretty hard to verify, because of the CNAME. UPDATE: solved, <code>validns -v -s ./apexcname.wb.sidnlabs.nl.txt</code> was our friend!</td>
 	</tr>
 -->
 
 <!--
 	<tr>
-		<td>Proper working of <a href="zones/wildcards-nsec3.wb.sidnlabs.nl.txt">wildcards-nsec3.wb.sidnlabs.nl</a> Needs inspection</td>
+		<td>Proper working of <a href="zones/wildcards-nsec3.wb.sidnlabs.nl.txt">wildcards-nsec3.wb.sidnlabs.nl</a> Needs inspection./td>
  		<td>Is <a href="http://dnsviz.net/d/wildcards-nsec3.wb.sidnlabs.nl/dnssec/">this</a> right?</td>
 	</tr>
 -->
 	<tr>
-		<td>Yadifa parses <a href="zones/wildcards-nsec3.wb.sidnlabs.nl.txt">zonefile</a> incorrectly; the TTL is 60 (as in the RRSIG), not 3600</td>
-		<td>TTL is 60, not 3600 (look carefully at <code>dig +dnssec SOA txt.ent.wildcards-nsec3.wb.sidnlabs.nl @yadifa.sidnlabs.nl</code> to reproduce</td>
+		<td>Yadifa parses <a href="zones/wildcards-nsec3.wb.sidnlabs.nl.txt">zonefile</a> incorrectly; the TTL is 60 (as in the RRSIG), not 3600./td>
+		<td>TTL is 60, not 3600 (look carefully at <code>dig +dnssec SOA txt.ent.wildcards-nsec3.wb.sidnlabs.nl @yadifa.sidnlabs.nl</code> to reproduce./td>
 	</tr>
 	<tr>
-		<td><a href="https://workbench.sidnlabs.nl/badzones/nods.bad-dnssec.wb.sidnlabs.nl.txt">nods badzone</a> is not really '<a href="https://workbench.sidnlabs.nl/bad-dnssec.html">without a DS</a>', because we introduced a bug.</td>
-		<td>We are <a href="https://github.com/SIDN/workbench/commit/648c93047b57fd5d823266ff68d930d05219a457">in the process</a> of fixing this</td>
+		<td><a href="https://workbench.sidnlabs.nl/badzones/nods.bad-dnssec.wb.sidnlabs.nl.txt">nods badzone</a> is not really without a DS as it should be. This is because of a known, but not yet solved bug.</td>
+		<td>We are <a href="https://github.com/SIDN/workbench/commit/648c93047b57fd5d823266ff68d930d05219a457">in the process</a> of fixing this.</td>
 	</tr>
 	<tr>
-		<td>Yadifa leaves out NSEC in reply</td>
+		<td>Yadifa leaves out NSEC in reply./td>
 		<td>Reproduce with: <code>dig +dnssec A txt.ent.wildcards-nsec3.wb.sidnlabs.nl @yadifa.sidnlabs.nl</code>.</td>
 	</tr>
 	<tr>
-		<td>Yadifa tends to crashed occasionally</td>
-		<td><del>A systemd drop-in now automatically restarts it, but this doesn't solve the underlying problem.</del> UPDATE: reported to developers and appearantly fixed in 2.3.9-8497, which we are now testing</td>
+		<td>Yadifa tends to crashed occasionally./td>
+		<td><del>A systemd drop-in now automatically restarts it, but this doesn't solve the underlying problem.</del> UPDATE: reported to developers and appearantly fixed in 2.3.9-8497, which we are now testing./td>
 	</tr>
 	<tr>
-		<td><a href="zones/nsec3-opt-out.wb.sidnlabs.nl.txt">nsec3-opt-out.wb.sidnlabs.nl</a> has some DNSviz errors</td>
+		<td><a href="zones/nsec3-opt-out.wb.sidnlabs.nl.txt">nsec3-opt-out.wb.sidnlabs.nl</a> has some DNSviz errors./td>
  		<td><a href="https://dnssec-analyzer.verisignlabs.com/nsec3-opt-out.wb.sidnlabs.nl">Related to Yadifa crashes.</a></td>
 	</tr>
 	<tr>
-		<td>No TSIG's on PowerDNS and Yadifa</td>
+		<td>No TSIG's on PowerDNS and Yadifa./td>
 		<td>Not a bug, but a known issue and a 'todo'. Have to find some time for it.</td>
 	</tr>
 	<tr>
-		<td>types[-signed].wb.sidnlabs.nl might have to be updated</td>
+		<td>types[-signed].wb.sidnlabs.nl might have to be updated./td>
 		<td>Not a bug either. Some <a
 href="https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml">newer RRtypes</a> might have been defined, since we created
 that zone. Have to incorporate some of these new types maybe. Will look into
