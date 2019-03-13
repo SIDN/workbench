@@ -168,6 +168,10 @@ known, working on a solution.</td>
 		<td>TTL is 60, not 3600 (look carefully at <code>dig +dnssec SOA txt.ent.wildcards-nsec3.wb.sidnlabs.nl @yadifa.sidnlabs.nl</code> to reproduce</td>
 	</tr>
 	<tr>
+		<td><a href="https://workbench.sidnlabs.nl/badzones/nods.bad-dnssec.wb.sidnlabs.nl.txt">nods badzone</a> is not really '<a href="https://workbench.sidnlabs.nl/bad-dnssec.html">without a DS</a>', because we introduced a bug.</td>
+		<td>We are in the process of fixing this</td>
+	</tr>
+	<tr>
 		<td>Yadifa leaves out NSEC in reply</td>
 		<td>Reproduce with: <code>dig +dnssec A txt.ent.wildcards-nsec3.wb.sidnlabs.nl @yadifa.sidnlabs.nl</code>.</td>
 	</tr>
