@@ -179,7 +179,7 @@ known, working on a solution.</td>
 		<td>Reproduce with: <code>dig +dnssec A txt.ent.wildcards-nsec3.wb.sidnlabs.nl @yadifa.sidnlabs.nl</code>.</td>
 	</tr>
 	<tr>
-		<td>Yadifa tends to crashed occasionally.</td>
+		<td>Yadifa tends to crash occasionally.</td>
 		<td><del>A systemd drop-in now automatically restarts it, but this doesn't solve the underlying problem.</del> UPDATE: reported to developers and appearantly fixed in 2.3.9-8497, which we are now testing./td>
 	</tr>
 	<tr>
