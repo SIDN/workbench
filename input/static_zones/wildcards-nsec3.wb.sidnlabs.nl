@@ -16,6 +16,6 @@ _dmarc.nsec3-opt-out.wb.sidnlabs.nl.	60	IN	TXT	"v=DMARC1; p=reject;"
 www.wildcards-nsec3.wb.sidnlabs.nl.	60	IN	A	94.198.159.39
 www.wildcards-nsec3.wb.sidnlabs.nl.	60	IN	AAAA	2a00:d78::712:94:198:159:39
 txt.wildcards-nsec3.wb.sidnlabs.nl. 60 IN TXT "Non-wildcard value"
-*.ent.wildcards-nsec3.wb.sidnlabs.nl 60	IN	A 94.198.159.39
-*.ent.wildcards-nsec3.wb.sidnlabs.nl 60	IN	AAAA	2a00:d78::712:94:198:159:39
+*.ent.wildcards-nsec3.wb.sidnlabs.nl. 60	IN	A 94.198.159.39
+*.ent.wildcards-nsec3.wb.sidnlabs.nl. 60	IN	AAAA	2a00:d78::712:94:198:159:39
 txt.ent.wildcards-nsec3.wb.sidnlabs.nl. 60 IN TXT "Non-wildcard value"
