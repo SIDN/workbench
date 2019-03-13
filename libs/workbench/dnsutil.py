@@ -110,7 +110,7 @@ def get_keyfile(zone):
 
 def check_create_key(zone, keyfile):
     base_keyfile = keyfile[:-8]
-    if not base_keyfile.startswith("nods.") and not os.path.exists(keyfile):
+    if not os.path.basename(base_keyfile).startswith("nods.") and not os.path.exists(keyfile):
         os.makedirs(os.path.dirname(keyfile), exist_ok=True)
         cmd = "ldns-keygen -k -r /dev/urandom -a RSASHA256 -b 1024 %s" % zone
         stdout = execute(cmd)
