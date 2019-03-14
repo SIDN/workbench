@@ -6,6 +6,6 @@
 www.nsec3-opt-out.wb.sidnlabs.nl.	60	IN	A	94.198.159.39
 www.nsec3-opt-out.wb.sidnlabs.nl.	60	IN	AAAA	2a00:d78:0:712:94:198:159:39
 txt.nsec3-opt-out.wb.sidnlabs.nl.	60	IN	TXT	"Non-wildcard value"
-*.ent.nsec3-opt-out.wb.sidnlabs.nl	60	IN	A	94.198.159.39
-*.ent.nsec3-opt-out.wb.sidnlabs.nl	60	IN	AAAA	2a00:d78:0:712:94:198:159:39
+*.ent.nsec3-opt-out.wb.sidnlabs.nl.	60	IN	A	94.198.159.39
+*.ent.nsec3-opt-out.wb.sidnlabs.nl.	60	IN	AAAA	2a00:d78:0:712:94:198:159:39
 txt.ent.nsec3-opt-out.wb.sidnlabs.nl.	60	IN	TXT	"Non-wildcard value"
