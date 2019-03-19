@@ -180,7 +180,7 @@ known, working on a solution.</td>
 	</tr>
 	<tr>
 		<td>Yadifa tends to crash occasionally.</td>
-		<td><del>A systemd drop-in now automatically restarts it, but this doesn't solve the underlying problem.</del> UPDATE: reported to developers and appearantly fixed in 2.3.9-8497, which we are now testing./td>
+		<td><del>A systemd drop-in now automatically restarts it, but this doesn't solve the underlying problem.</del> UPDATE: reported to developers and appearantly fixed in 2.3.9-8497, which we are now testing.</td>
 	</tr>
 	<tr>
 		<td><a href="zones/nsec3-opt-out.wb.sidnlabs.nl.txt">nsec3-opt-out.wb.sidnlabs.nl</a> has some DNSviz errors.</td>
