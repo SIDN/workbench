@@ -168,7 +168,7 @@ known, working on a solution.</td>
 -->
 	<tr>
 		<td>Yadifa parses <a href="zones/wildcards-nsec3.wb.sidnlabs.nl.txt">zonefile</a> incorrectly; the TTL is 60 (as in the RRSIG), not 3600.</td>
-		<td>TTL is 60, not 3600 (look carefully at <code>dig +dnssec SOA txt.ent.wildcards-nsec3.wb.sidnlabs.nl @yadifa.sidnlabs.nl</code> to reproduce./td>
+		<td>TTL is 60, not 3600 (look carefully at <code>dig +dnssec SOA txt.ent.wildcards-nsec3.wb.sidnlabs.nl @yadifa.sidnlabs.nl</code> to reproduce.</td>
 	</tr>
 	<tr>
 		<td><a href="https://workbench.sidnlabs.nl/badzones/nods.bad-dnssec.wb.sidnlabs.nl.txt">nods badzone</a> is not really without a DS as it should be. This is because of a known, but not yet solved bug.</td>
