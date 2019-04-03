@@ -204,13 +204,13 @@ that soon.</td>
 
 <hr>
 <h4>Disclaimer</h4>
-This is a beta service. This service is <em>explicitely</em> not
-supported by SIDN, but by SIDN Labs. Its setup can change at any
-moment, without any warning, so it is not advisable to depend on this
-service for any other (automated) service or system.
+This is a beta service, provided to you by SIDN Labs on a best effort basis.
+Its setup can change at any moment, without any prior warning, 
+so it is not advisable to depend on this service for any other
+(automated) service or system without consulting us.
 If there are any problems with the software or service, please
-contact <a href="mailto:sidnlabs@sidn.nl">SIDN Labs</a>.
-We would also be very much interested if you have used the workbench, 
+contact <a href="mailto:sidnlabs@sidn.nl">SIDN Labs</a>, the R&D team of
+SIDN. We would also be very much interested if you have used the workbench, 
 or if you are still missing something that would make it useful for you. So please let us know!
 
 <div class="menu">
