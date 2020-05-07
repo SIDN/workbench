@@ -1,0 +1,14 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+# SIDN Labs DNS Workbench
+include "/etc/bind/workbench/bind9.conf";
+
+# SuperDNS experiment Gio
+# Zie https://gitlab.sidnlabs.nl/giovane/superdns
+include "/etc/bind/superdns-experiment/bind9.conf";
