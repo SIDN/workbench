@@ -34,7 +34,7 @@ int verbosity = 1;
  * This is added to the original ldns-signzone.c
  */
 ldns_rr_list *
-my_ldns_sign_public(ldns_rr_list *rrset, ldns_key_list *keys)
+my_ldns_sign_public(ldns_rr_list *rrset, ldns_key_list *keys, const char* apex)
 {
 	ldns_rr_list *signatures;
 	ldns_rr_list *rrset_clone;
@@ -47,7 +47,6 @@ my_ldns_sign_public(ldns_rr_list *rrset, ldns_key_list *keys)
 	ldns_rdf *new_owner;
 
 	/* added to ldns_sign_public */
-	char *cur_owner_str = ldns_rdf2str(ldns_rr_owner(ldns_rr_list_rr(rrset, 0)));;
 	/* strings to look for the names of errors */
 	static const char *bogussig = "bogussig.";
 	static const char *unknownalgorithm = "unknownalgorithm.";
@@ -104,21 +103,21 @@ my_ldns_sign_public(ldns_rr_list *rrset, ldns_key_list *keys)
 
 			/* Added to ldns_sign_public for the special signer */
 			now = time(NULL);
-			if (strncmp(signotincepted, cur_owner_str, 15) == 0) {
+			if (strncmp(signotincepted, apex, 15) == 0) {
 				(void)ldns_rr_rrsig_set_inception(current_sig,
 					ldns_native2rdf_int32(LDNS_RDF_TYPE_TIME,
 					                      now+315360000)); /* was 31536000 */
 				(void)ldns_rr_rrsig_set_expiration(current_sig,
 					ldns_native2rdf_int32(LDNS_RDF_TYPE_TIME,
 					                      now+346896000)); /* was 63072000 */
-			} else if (strncmp(sigexpired, cur_owner_str, 11) == 0) {
+			} else if (strncmp(sigexpired, apex, 11) == 0) {
 				(void)ldns_rr_rrsig_set_inception(current_sig,
 					ldns_native2rdf_int32(LDNS_RDF_TYPE_TIME,
 					                      now-63072000));
 				(void)ldns_rr_rrsig_set_expiration(current_sig,
 					ldns_native2rdf_int32(LDNS_RDF_TYPE_TIME,
 					                      now-31536000));
-			} else if (strncmp(unknownalgorithm, cur_owner_str, 17) == 0) {
+			} else if (strncmp(unknownalgorithm, apex, 17) == 0) {
 				(void)ldns_rr_rrsig_set_algorithm(current_sig,
 					ldns_native2rdf_int8(LDNS_RDF_TYPE_ALG, 200));
 			}
@@ -139,7 +138,8 @@ my_ldns_sign_public(ldns_rr_list *rrset, ldns_key_list *keys)
 			}
 			
 			/* Added to ldns_sign_public for the special signer */
-			if (strncmp(bogussig, cur_owner_str, 9) == 0) {
+			//if (strncmp(bogussig, cur_owner_str, 9) == 0) {
+			if (strncmp(bogussig, apex, 9) == 0) {
 				sign_buf->_data[2] = 0xFF - sign_buf->_data[2];
 			}
 			/* end addition to ldns_sign_public */
@@ -174,6 +174,7 @@ my_ldns_sign_public(ldns_rr_list *rrset, ldns_key_list *keys)
 	ldns_rr_list_deep_free(rrset_clone);
 
 	return signatures;
+}
 ldns_rr_list *
 ldns_sign_public(ldns_rr_list *rrset, ldns_key_list *keys)
 {
@@ -278,7 +279,6 @@ ldns_sign_public(ldns_rr_list *rrset, ldns_key_list *keys)
 
 	return signatures;
 }
-}
 
 
 
@@ -342,6 +342,8 @@ my_ldns_dnssec_zone_create_rrsigs_flg( ldns_dnssec_zone *zone
 
 	size_t i;
 
+	char* apex = ldns_rdf2str(zone->soa->name);
+
 	int on_delegation_point = 0; /* handle partially occluded names */
 
 	ldns_rr_list *pubkey_list = ldns_rr_list_new();
@@ -388,6 +390,12 @@ my_ldns_dnssec_zone_create_rrsigs_flg( ldns_dnssec_zone *zone
 
 				cur_rr = cur_rrset->rrs;
 				while (cur_rr) {
+					// Change the algorithm of the DS before signing
+					char* cur_rr_name = ldns_rdf2str(ldns_rr_owner(cur_rr->rr));
+					if (strncmp("unknownalgorithm.", cur_rr_name, 17) == 0 && ldns_rr_get_type(cur_rr->rr) == LDNS_RR_TYPE_DS) {
+						ldns_rr_set_rdf(cur_rr->rr, ldns_native2rdf_int8(LDNS_RDF_TYPE_ALG, 200), 1);
+					}
+
 					ldns_rr_list_push_rr(rr_list, cur_rr->rr);
 					cur_rr = cur_rr->next;
 				}
@@ -402,7 +410,7 @@ my_ldns_dnssec_zone_create_rrsigs_flg( ldns_dnssec_zone *zone
 							== LDNS_RR_TYPE_NSEC ||
 						ldns_rr_list_type(rr_list) 
 							== LDNS_RR_TYPE_NSEC3) {
-					siglist = my_ldns_sign_public(rr_list, key_list);
+					siglist = my_ldns_sign_public(rr_list, key_list, apex);
 					for (i = 0; i < ldns_rr_list_rr_count(siglist); i++) {
 						if (cur_rrset->signatures) {
 							result = ldns_dnssec_rrs_add_rr(cur_rrset->signatures,
@@ -438,7 +446,7 @@ my_ldns_dnssec_zone_create_rrsigs_flg( ldns_dnssec_zone *zone
 
 			rr_list = ldns_rr_list_new();
 			ldns_rr_list_push_rr(rr_list, cur_name->nsec);
-			siglist = my_ldns_sign_public(rr_list, key_list);
+			siglist = my_ldns_sign_public(rr_list, key_list, apex);
 
 			for (i = 0; i < ldns_rr_list_rr_count(siglist); i++) {
 				if (cur_name->nsec_signatures) {
@@ -461,6 +469,7 @@ my_ldns_dnssec_zone_create_rrsigs_flg( ldns_dnssec_zone *zone
 		cur_node = ldns_rbtree_next(cur_node);
 	}
 
+	free(apex);
 	ldns_rr_list_deep_free(pubkey_list);
 	return result;
 }
