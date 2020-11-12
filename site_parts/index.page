@@ -10,16 +10,13 @@ Main |
 
 <!-- Temporary maintenance message: -->
 
-<!--
 <div class="alert">
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-  <strong>Hi!</strong><br> We switched to the new (2019 release) of
-the DNS workbench. It should work like before, probably even better, although we
-still see a number of <a href="/index.html#issues" style="color:white;">issues</a>. If you spot
-additional irregularities, please do not hesitate to let us know. Thank you and enjoy!
+  Please note: after an upgrade from Yafida 2.3.9
+  to 2.4.0 the signed zones are no longer loaded on yadifa.sidnlabs.nl and currently produce a
+  SERVFAIL on that server. Please stand by while we are working to fix this.
 </div>
 <br>
--->
 
 <p>
 The SIDN Labs DNS workbench is a set of different nameservers that
