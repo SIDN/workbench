@@ -63,6 +63,7 @@ def copy_or_sign_zone(zd):
         cmd = [ signer ]
         cmd.extend(zd.get("signer_params"))
         cmd.extend([KEYS_DIR + "/" + k for k in zd.get("signer_keys")])
+        print(" ".join(cmd))
         with CWD(env.OUTPUT_BASE_PATH):   
             try:
                 p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -71,6 +72,7 @@ def copy_or_sign_zone(zd):
                 raise
             out, err = p.communicate()
             if p.returncode != 0:
+                sys.stdout.write(out.decode('utf-8'))
                 sys.stderr.write(err.decode('utf-8'))
                 raise Exception("Error calling subprocess: " + " ".join(cmd))
         

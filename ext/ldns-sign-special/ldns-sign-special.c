@@ -49,7 +49,6 @@ my_ldns_sign_public(ldns_rr_list *rrset, ldns_key_list *keys, const char* apex)
 	/* added to ldns_sign_public */
 	/* strings to look for the names of errors */
 	static const char *bogussig = "bogussig.";
-	static const char *unknownalgorithm = "unknownalgorithm.";
 	static const char *sigexpired = "sigexpired.";
 	static const char *signotincepted = "signotincepted.";
 	time_t now;
@@ -117,9 +116,6 @@ my_ldns_sign_public(ldns_rr_list *rrset, ldns_key_list *keys, const char* apex)
 				(void)ldns_rr_rrsig_set_expiration(current_sig,
 					ldns_native2rdf_int32(LDNS_RDF_TYPE_TIME,
 					                      now-31536000));
-			} else if (strncmp(unknownalgorithm, apex, 17) == 0) {
-				(void)ldns_rr_rrsig_set_algorithm(current_sig,
-					ldns_native2rdf_int8(LDNS_RDF_TYPE_ALG, 200));
 			}
 			/* end addition to ldns_sign_public */
 
@@ -390,12 +386,6 @@ my_ldns_dnssec_zone_create_rrsigs_flg( ldns_dnssec_zone *zone
 
 				cur_rr = cur_rrset->rrs;
 				while (cur_rr) {
-					// Change the algorithm of the DS before signing
-					char* cur_rr_name = ldns_rdf2str(ldns_rr_owner(cur_rr->rr));
-					if (strncmp("unknownalgorithm.", cur_rr_name, 17) == 0 && ldns_rr_get_type(cur_rr->rr) == LDNS_RR_TYPE_DS) {
-						ldns_rr_set_rdf(cur_rr->rr, ldns_native2rdf_int8(LDNS_RDF_TYPE_ALG, 200), 1);
-					}
-
 					ldns_rr_list_push_rr(rr_list, cur_rr->rr);
 					cur_rr = cur_rr->next;
 				}
@@ -981,7 +971,6 @@ main(int argc, char *argv[])
 					exit(EXIT_FAILURE);
 				}
 				ENGINE_set_default_RSA(engine);
-				ENGINE_set_default_DSA(engine);
 				ENGINE_set_default(engine, 0);
 			}
 			break;
@@ -1010,9 +999,8 @@ main(int argc, char *argv[])
 					case LDNS_SIGN_RSASHA1:
 					case LDNS_SIGN_RSASHA1_NSEC3:
 					case LDNS_SIGN_RSASHA256:
+					case LDNS_SIGN_TWOCENTS:
 					case LDNS_SIGN_RSASHA512:
-					case LDNS_SIGN_DSA:
-					case LDNS_SIGN_DSA_NSEC3:
 					case LDNS_SIGN_ECC_GOST:
 #ifdef USE_ECDSA
 					case LDNS_SIGN_ECDSAP256SHA256:
