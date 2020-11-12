@@ -395,6 +395,9 @@ my_ldns_dnssec_zone_create_rrsigs_flg( ldns_dnssec_zone *zone
 					if (strncmp("unknownalgorithm.", cur_rr_name, 17) == 0 && ldns_rr_get_type(cur_rr->rr) == LDNS_RR_TYPE_DS) {
 						ldns_rr_set_rdf(cur_rr->rr, ldns_native2rdf_int8(LDNS_RDF_TYPE_ALG, 200), 1);
 					}
+					if (strncmp("unknownalgorithm.", cur_rr_name, 17) == 0 && ldns_rr_get_type(cur_rr->rr) == LDNS_RR_TYPE_DNSKEY) {
+						ldns_rr_set_rdf(cur_rr->rr, ldns_native2rdf_int8(LDNS_RDF_TYPE_ALG, 200), 2);
+					}
 
 					ldns_rr_list_push_rr(rr_list, cur_rr->rr);
 					cur_rr = cur_rr->next;
