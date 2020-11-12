@@ -13,7 +13,7 @@ The DNSSEC Bad Tree is a recursively generated tree
 various invalid RRSIGs and unknown algorithm.
 </p>
 <p>
-Based on the first label, a specific error condition is created by the signer (i.e. you'll usually run into the error upon encountering the DS record for the zone that starts with the error label):
+Based on the first label of the zone apex, a specific error condition is created by the signer for all DNSSEC records in that zone:
 </p>
 <table>
 	<tr>
@@ -22,27 +22,27 @@ Based on the first label, a specific error condition is created by the signer (i
 	</tr>
 	<tr>
 		<td>ok</td>
-		<td>No error</td>
+		<td>No error, zone is valid</td>
 	</tr>
 	<tr>
 		<td>bogussig</td>
-		<td>The RRSIG record contains bogus signature data</td>
+		<td>The RRSIG records in this zone contain bogus signature data</td>
 	</tr>
 	<tr>
 		<td>nods</td>
-		<td>The DS record is missing</td>
+		<td>The DS record is missing in the parent zone.</td>
 	</tr>
 	<tr>
 		<td>sigexpired</td>
-		<td>The RRSIG record has an expiration date in the past</td>
+		<td>The RRSIG records have an expiration date in the past</td>
 	</tr>
 	<tr>
 		<td>signotincepted</td>
-		<td>The RRSIG record has an inception date in the future</td>
+		<td>The RRSIG records have an inception date in the future</td>
 	</tr>
 	<tr>
 		<td>unknownalgorithm</td>
-		<td>the RRSIG is signed correctly (with a known algorithm), but has the algorithm field set to another value.</td>
+		<td>the zone is signed correctly (with a known algorithm), but has the algorithm field set to another value (200), which should cause validators to treat this zone as unsigned.</td>
 	</tr>
 </table>
 <p>

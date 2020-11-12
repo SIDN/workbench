@@ -3,7 +3,7 @@
 Sections: 
 Main |
 <a href="types.html">RRtypes</a> |
-<a href="bad-dnssec.html">Validator testing</a> |
+<a href="bad-dnssec.html">DNSSEC validator testing</a> |
 <a href="delegations.html">Delegations</a> |
 <a href="transfers.html">Transfers and TSIG</a>
 </div>
@@ -14,9 +14,21 @@ Main |
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
   Please note: after an upgrade from Yafida 2.3.9
   to 2.4.0 the signed zones are no longer loaded on yadifa.sidnlabs.nl and currently produce a
-  SERVFAIL on that server. Please stand by while we are working to fix this.
+  SERVFAIL on that server. Please stand by while we are working to fix this. The yadifa 
+  nameserver is still running, but we have temporarily removed it from the zone delegations in the bad-dnssec tree.
 </div>
 <br>
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  Update: 2020-11-12: We have changed the way the bad-dnssec tree works. It is now the zones themselves that have
+  the conditions applied (bogus signature, signature expired, etc.). The delegation to such zones used to have the
+  condition applied as well, but this is no longer the case. See the DNSSEC validator testing page for more
+  information.
+  This update also solves the issue of 'unknownalgorithm' zones, which used to result in bogus when validating, 
+  and should now correctly get the status 'insecure' instead of 'bogus'.
+</div>
+<br>
+
 
 <p>
 The SIDN Labs DNS workbench is a set of different nameservers that
@@ -91,7 +103,7 @@ At this time, the DNS workbench offers the followings tests:
 		<td>Zonefiles with many different RRtypes, including obsolete and exotic ones, in a signed an an unsigned format.</td>
 	</tr>
 	<tr>
-		<td><a href="bad-dnssec.html">Validator testing:</a></td>
+		<td><a href="bad-dnssec.html">DNSSEC validator testing:</a></td>
 		<td>A DNS tree with deliberate errors in the DNSSEC chain(s), to test validating rrsolvers.</td>
 	</tr>
 	<tr>
@@ -218,7 +230,7 @@ or if you are still missing something that would make it useful for you. So plea
 Sections: 
 Main |
 <a href="types.html">RRtypes</a> |
-<a href="bad-dnssec.html">Validator testing</a> |
+<a href="bad-dnssec.html">DNSSEC validator testing</a> |
 <a href="delegations.html">Delegations</a> |
 <a href="transfers.html">Transfers and TSIG</a>
 </div>
