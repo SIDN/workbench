@@ -3,7 +3,7 @@ bad-dnssec.wb.sidnlabs.nl.	60	IN	NS	bind9.sidnlabs.nl.
 bad-dnssec.wb.sidnlabs.nl.	60	IN	NS	knot.sidnlabs.nl.
 bad-dnssec.wb.sidnlabs.nl.	60	IN	NS	nsd4.sidnlabs.nl.
 bad-dnssec.wb.sidnlabs.nl.	60	IN	NS	powerdns.sidnlabs.nl.
-#bad-dnssec.wb.sidnlabs.nl.	60	IN	NS	yadifa.sidnlabs.nl.
+;bad-dnssec.wb.sidnlabs.nl.	60	IN	NS	yadifa.sidnlabs.nl.
 delegations.wb.sidnlabs.nl.   60      IN      NS      bind9.sidnlabs.nl.
 delegations.wb.sidnlabs.nl.   60      IN      NS      knot.sidnlabs.nl.
 delegations.wb.sidnlabs.nl.   60      IN      NS      nsd4.sidnlabs.nl.
@@ -27,7 +27,7 @@ wb.sidnlabs.nl.	60	IN	NS	bind9.sidnlabs.nl.
 wb.sidnlabs.nl.	60	IN	NS	knot.sidnlabs.nl.
 wb.sidnlabs.nl.	60	IN	NS	nsd4.sidnlabs.nl.
 wb.sidnlabs.nl.	60	IN	NS	powerdns.sidnlabs.nl.
-#wb.sidnlabs.nl.	60	IN	NS	yadifa.sidnlabs.nl.
+;wb.sidnlabs.nl.	60	IN	NS	yadifa.sidnlabs.nl.
 wb.sidnlabs.nl.	60	IN	SOA	bind9.sidnlabs.nl. hostmaster.sidnlabs.nl. 0 3600 600 3600 3600
 wildcards-nsec3.wb.sidnlabs.nl.	60	IN	NS	bind9.sidnlabs.nl.
 wildcards-nsec3.wb.sidnlabs.nl.	60	IN	NS	knot.sidnlabs.nl.
