@@ -113,7 +113,10 @@ def check_create_key(zone, keyfile):
     if not os.path.exists(keyfile):
         #print("  [dnsutil] zone found that might need key-material: " + zone)
         os.makedirs(os.path.dirname(keyfile), exist_ok=True)
-        cmd = "ldns-keygen -k -r /dev/urandom -a RSASHA256 -b 1024 %s" % zone
+        if zone.startswith("unknownalgorithm"):
+            cmd = "ldns-keygen -k -r /dev/urandom -a TWOCENTS -b 1024 %s" % zone
+        else:
+            cmd = "ldns-keygen -k -r /dev/urandom -a RSASHA256 -b 1024 %s" % zone
         stdout = execute(cmd)
         basename = stdout.decode("utf-8").rstrip()
         os.rename(basename + ".ds", base_keyfile + ".ds")
