@@ -40,7 +40,7 @@ INPUT_DIR = env.INPUT_BASE_PATH + "/static_zones"
 # TODO: is change still the intention? Why was it done in the first place?
 #T3597 = "A6 CDS GPOS NINFO NSAP-PTR TLSA TALINK NID L32 L64 LP RKEY"
 T3597 = "A6 CDS GPOS NSAP-PTR TLSA TALINK NID L32 L64 LP"
-SIGNER = env.EXT_TOOLS_PATH + "/ldns-sign-special/ldns-sign-special"
+SIGNER = "ldns-sign-special"
 
 def list_files(recursive=False, filter=None):
     result = []
@@ -77,7 +77,7 @@ def add_nsec3_opt_out_sign_options(zd):
     return add_nsec3_sign_options(zd)
 
 def add_3597(zd):
-    zd.set("finalizer_script", "../ext/ldns-3597/ldns-3597")
+    zd.set("finalizer_script", "ldns-3597")
     zd.add("finalizer_params", "-i")
     zd.add("finalizer_params", "signed/" + dnsutil.ufqdn(zd.get("name")))
     zd.add("finalizer_params", "-o")
@@ -102,7 +102,7 @@ def set_servers(zd):
     #zd.add("secondary_names", "yadifa")
     zd.add("primary_names", "yadifa")
     # powerdns is a different case - we'll use zone2sql and the sqlite3 backend for the special zones
-    # and bind backend for the template zones. 
+    # and bind backend for the template zones.
     # It is a master for both cases
     # See below, for apexcname.wb.sidnlabs.nl, where it is defined as primary
 
@@ -151,7 +151,7 @@ def generate_static_zone_entries():
     zd.add("finalizer_params", "../input/static_zones/" + dnsutil.ufqdn(zd.get("name")) + ".opt-out")
     set_servers(zd)
     zds.append(zd)
- 
+
     # Create an entry for each file in auto
     for af in list_files():
         autofiles = list_files()
@@ -162,8 +162,8 @@ def generate_static_zone_entries():
 
     zonedata.write_zone_data(env.ZONE_DB_PATH + "/static_zones.db", zds)
     #print([str(zd) for zd in zds])
-    
-    
+
+
 def create_zone_files(regen = False):
     os.makedirs(env.OUTPUT_BASE_PATH + "/uncompleted", exist_ok=True)
     # in essence, simply copy them to uncompleted

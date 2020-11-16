@@ -24,13 +24,24 @@ The directory layout is as follows:
 
 Prerequisites:
 
-- ldns and ldns-dev
+- [ldns-dns-workbench](https://github.com/SIDN/ldns-dns-workbench): a fork
+  of ldns that contains the special zone signer, as well as some other
+  modifications that are used by the DNS workbench generator tools)
+- named-compilezone: Optional, to make the output zones prettier. On most
+  systems, this tool is provided by the bind9utils package.
 
-Steps to get it running:
+The tools (ldns-sign-special, ldns-3597, ldns-keygen with TwoCents
+support, and the optional named-compilezone) need to be in your PATH; you
+do not need to install them to your system; so building ldns-dns-workbench
+(with examples!) and adding <build_dir>/example to your PATH should
+suffice.
 
-    (cd ext/ldns-3597; make)
-    (cd ext/ldns-sign-special; make)
+We have a convenience script that recreates everything:
+
     ./from_scratch.sh
+
+This rebuilds all zones, all configuration, and front-end website; if you
+only need to do part of this, please check the commands it calls.
 
 Als look in /base_configs to find out what prerequisites exist for the
 system (we use Ubuntu 18.04).
@@ -94,11 +105,11 @@ See the static_zone generator for a simple example.
 INPUT
 -----
 
-Most raw zone data in found in the input/ directory; this directory 
-contains full zones that can be used for input in some generators, 
-but it also contains a template/ directory with zone chunks (such as 
-a list with all the NS records). By convention, neither contains a 
-hostname part, this will have to be filled in by the generator (@ is 
+Most raw zone data in found in the input/ directory; this directory
+contains full zones that can be used for input in some generators,
+but it also contains a template/ directory with zone chunks (such as
+a list with all the NS records). By convention, neither contains a
+hostname part, this will have to be filled in by the generator (@ is
 used, so origin or previous name will be used).
 
 OUTPUT

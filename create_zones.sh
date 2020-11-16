@@ -3,15 +3,16 @@
 PYTHONPATH=./libs
 export PYTHONPATH
 
-if [[ ! -f ./ext/ldns-sign-special/ldns-sign-special ]] ; then
-    echo 'File "ext/ldns-sign-special/ldns-sign-special" is not there, aborting.'
+if [ ! command -v ldns-sign-special &> /dev/null ]; then
+    echo "ldns-sign-special could not be found, aborting"
     exit
 fi
 
-if [[ ! -f ./ext/ldns-3597/ldns-3597 ]] ; then
-    echo 'File "ext/ldns-3597/ldns-3597" is not there, aborting.'
+if [ ! command -v ldns-3597 &> /dev/null ]; then
+    echo "ldns-3597 could not be found, aborting"
     exit
 fi
+
 
 # Create output dir if it does not exist:
 mkdir -p output/final
@@ -44,5 +45,10 @@ echo "Running zone signer" &&\
 echo "Running finalizer" &&\
 ./tools/finalizer/finalizer.py
 
-echo "Prettify..."
-./prettify_zones.sh
+
+if [ ! command -v named-compilezone &> /dev/null ]; then
+    echo "named-compilezone could not be found, not prettifying zone files"
+else
+    echo "Prettify..."
+    ./prettify_zones.sh
+fi

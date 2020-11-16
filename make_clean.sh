@@ -4,10 +4,6 @@
 # (quick-n-dirty, might need some extra checks and improvements)
 #
 
-# Remove, or not? It's up to you ;-)
-#rm ./ext/ldns-sign-special/ldns-sign-special
-#rm ./ext/ldns-3597/ldns-3597
-
 rm -rf ./output
 rm -rf ./site
 

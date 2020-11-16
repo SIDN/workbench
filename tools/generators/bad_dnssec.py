@@ -40,7 +40,7 @@ OUTPUT_FILE = "bad_dnssec.db"
 INPUT_DIR = env.INPUT_BASE_PATH + "/bad_dnssec"
 BASE_ZONE = "bad-dnssec.wb.sidnlabs.nl."
 ZONES_DIR = "output/uncompleted"
-SIGNER = env.EXT_TOOLS_PATH + "/ldns-sign-special/ldns-sign-special"
+SIGNER = "ldns-sign-special"
 
 def add_standard_sign_options(zd):
     dname = zd.get("name")
@@ -63,7 +63,7 @@ def generate_bad_dnssec_zone_entry(zds, zone_name):
     zd.set("name", dname)
     add_standard_sign_options(zd)
     zds.append(zd)
-    
+
 def create_zone_files(regen = False):
     # in essence, simply copy them to uncompleted
     # unless regen is specified, only copy if original is updated
@@ -116,7 +116,7 @@ def create_zone(zone, zonefile):
         # hmz must add all secondaries here as well
         dnsutil.add_template(out, "basic_zone", zone, 3600)
         dnsutil.add_template(out, "all_ns", zone, 3600)
-        
+
         for delegation in bad_dnssec_tree_delegations:
             delname = delegation + "." + zone
             dsfile = env.KEYS_DIR + "/" + delname + "ds"
