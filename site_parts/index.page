@@ -8,16 +8,7 @@ Main |
 <a href="transfers.html">Transfers and TSIG</a>
 </div>
 
-<!-- Temporary maintenance message: -->
-
-<div class="alert">
-  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-  Please note: after an upgrade from Yafida 2.3.9
-  to 2.4.0 the signed zones are no longer loaded on yadifa.sidnlabs.nl and currently produce a
-  SERVFAIL on that server. Please stand by while we are working to fix this. The yadifa 
-  nameserver is still running, but we have temporarily removed it from the zone delegations in the bad-dnssec tree.
-</div>
-<br>
+<!-- Notifications and (temporary) messages: -->
 <div class="alert">
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
   Update: 2020-11-12: We have changed the way the bad-dnssec tree works. It is now the zones themselves that have
