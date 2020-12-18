@@ -71,7 +71,7 @@ def finalize_or_sign_zone(zd):
             # TODO: check rcode
             if p.returncode != 0:
                 sys.stderr.write("Error from subprocess stderr:\n")
-                sys.stderr.write(err)
+                sys.stderr.write(err.decode("utf-8"))
                 raise Exception("Error calling subprocess: " + " ".join(cmd))
         
 

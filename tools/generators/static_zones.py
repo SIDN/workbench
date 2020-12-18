@@ -40,7 +40,7 @@ INPUT_DIR = env.INPUT_BASE_PATH + "/static_zones"
 # TODO: is change still the intention? Why was it done in the first place?
 #T3597 = "A6 CDS GPOS NINFO NSAP-PTR TLSA TALINK NID L32 L64 LP RKEY"
 T3597 = "A6 CDS GPOS NSAP-PTR TLSA TALINK NID L32 L64 LP"
-SIGNER = env.EXT_TOOLS_PATH + "/ldns-sign-special/ldns-sign-special"
+SIGNER = "ldns-sign-special"
 
 def list_files(recursive=False, filter=None):
     result = []
@@ -77,7 +77,7 @@ def add_nsec3_opt_out_sign_options(zd):
     return add_nsec3_sign_options(zd)
 
 def add_3597(zd):
-    zd.set("finalizer_script", "../ext/ldns-3597/ldns-3597")
+    zd.set("finalizer_script", "ldns-3597")
     zd.add("finalizer_params", "-i")
     zd.add("finalizer_params", "signed/" + dnsutil.ufqdn(zd.get("name")))
     zd.add("finalizer_params", "-o")

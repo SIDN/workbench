@@ -3,13 +3,16 @@
 PYTHONPATH=./libs
 export PYTHONPATH
 
-if [[ ! -f ./ext/ldns-sign-special/ldns-sign-special ]] ; then
-    echo 'File "ext/ldns-sign-special/ldns-sign-special" is not there, aborting.'
+ldns_sign_special_path=$(which ldns-sign-special)
+if [[ ! -x "${ldns_sign_special_path}" ]] ; then
+    echo 'File "ldns-sign-special" not found in PATH, aborting.'
     exit
 fi
 
-if [[ ! -f ./ext/ldns-3597/ldns-3597 ]] ; then
-    echo 'File "ext/ldns-3597/ldns-3597" is not there, aborting.'
+
+ldns_3597_path=$(which ldns-3597)
+if [[ ! -x "${ldns_3597_path}" ]] ; then
+    echo 'File "ldns-3597" not found in PATH, aborting.'
     exit
 fi
 
