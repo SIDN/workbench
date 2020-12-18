@@ -1,3 +1,5 @@
+4.1
+- Fix a few checks for old location of executables
 
 4.0
 
