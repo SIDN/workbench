@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" sizes="64x64" href="./favicon.png" />
 
     <meta property="og:title"        content="SIDN Labs DNS Workbench" />
-    <meta property="og:description"  content="SIDN Labs DNS workbench" />
+    <meta property="og:description"  content="A DNS implementation testing platform by SIDN Labs" />
     <meta property="og:site_name"    content="SIDN Labs DNS workbench" />
     <meta property="og:url"          content="https://workbench.sidnlabs.nl/"/>
     <meta property="og:image"        content="https://www.sidnlabs.nl/application/themes/sidn/assets/img/og-image.jpg"/>
@@ -19,7 +19,7 @@
     <meta property="og:locale"       content="en_GB" />
 
     <meta name="twitter:card"        content="summary" />
-    <meta name="twitter:description" content="SIDN Labs DNS workbench" />
+    <meta name="twitter:description" content="A DNS implementation testing platform by SIDN Labs" />
     <meta name="twitter:image"       content="https://www.sidnlabs.nl/application/themes/sidn/assets/img/og-image.jpg"/>  
     <meta name="twitter:site"        content="@sidnlabs" />
     <meta name="twitter:title"       content="SIDN Labs DNS Workbench" />
