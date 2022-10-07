@@ -50,34 +50,34 @@ please contact us (<a href="mailto:sidnlabs@sidn.nl">sidnlabs@sidn.nl</a>). The 
 <a href="https://github.com/SIDN/workbench">GitHub</a>.
 
 <h3>Servers</h3>
-The following servers, all open source,  are currently running (for now all as Ubuntu 20.04 packages, except for
+The following servers, all open source,  are currently running (for now all as Ubuntu 22.04 packages, except for
 Yadifa, because of bugs that made it crash often):
 <ul>
- <li>bind9.sidnlabs.nl (<a href="https://www.isc.org/downloads/bind/">BIND</a> 9.16.1)
+ <li>bind9.sidnlabs.nl (<a href="https://www.isc.org/downloads/bind/">BIND</a> 9.18.1)
     <ul>
       <li>IPv4: 94.198.159.39</li>
       <li>IPv6: 2a00:d78::712:94:198:159:39</li>
     </ul>
  </li>
- <li>knot.sidnlabs.nl (<a href="https://www.knot-dns.cz/">Knot</a> 2.7.8)
+ <li>knot.sidnlabs.nl (<a href="https://www.knot-dns.cz/">Knot</a> 3.1.6)
     <ul>
       <li>IPv4: 94.198.159.27</li>
       <li>IPv6: 2a00:d78::712:94:198:159:27</li>
     </ul>
  </li>
- <li>nsd4.sidnlabs.nl (<a href="https://www.nlnetlabs.nl/projects/nsd/about/">NSD</a> 4.1.26)
+ <li>nsd4.sidnlabs.nl (<a href="https://www.nlnetlabs.nl/projects/nsd/about/">NSD</a> 4.3.9)
     <ul>
       <li>IPv4: 94.198.159.33</li>
       <li>IPv6: 2a00:d78::712:94:198:159:33</li>
     </ul>
  </li>
- <li>powerdns.sidnlabs.nl (<a href="https://www.powerdns.com/">PowerDNS</a> 4.2.1 with SQLite3 backend)
+ <li>powerdns.sidnlabs.nl (<a href="https://www.powerdns.com/">PowerDNS</a> 4.5.3 with SQLite3 backend)
     <ul>
       <li>IPv4: 94.198.159.26</li>
       <li>IPv6: 2a00:d78::712:94:198:159:26</li>
     </ul>
  </li>
- <li>yadifa.sidnlabs.nl (<a href="https://www.yadifa.eu/">Yadifa</a> 2.5.4-10432)
+ <li>yadifa.sidnlabs.nl (<a href="https://www.yadifa.eu/">Yadifa</a> 2.5.4-10442)
     <ul>
       <li>IPv4: 94.198.159.28</li>
       <li>IPv6: 2a00:d78::712:94:198:159:28</li>
