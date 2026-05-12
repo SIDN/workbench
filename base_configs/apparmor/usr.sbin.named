@@ -2,7 +2,7 @@
 # Last Modified: Fri Jun  1 16:43:22 2007
 #include <tunables/global>
 
-/usr/sbin/named flags=(attach_disconnected) {
+profile named /usr/sbin/named flags=(attach_disconnected) {
   #include <abstractions/base>
   #include <abstractions/nameservice>
 
@@ -30,7 +30,8 @@
   /etc/bind/krb5.keytab kr,
 
   # ssl
-  /etc/ssl/openssl.cnf r,
+  /etc/ssl/*.cnf r,
+  /etc/ssl/*.conf r,
 
   # root hints from dns-data-root
   /usr/share/dns/root.* r,
@@ -44,6 +45,9 @@
   # Allow changing worker thread names
   owner @{PROC}/@{pid}/task/@{tid}/comm rw,
 
+  # named need to check if hugepages is available
+  /sys/kernel/mm/transparent_hugepage/enabled r,
+
   @{PROC}/net/if_inet6 r,
   @{PROC}/*/net/if_inet6 r,
   @{PROC}/sys/net/ipv4/ip_local_port_range r,
@@ -52,6 +56,9 @@
   /{,var/}run/named/session.key w,
   # support for resolvconf
   /{,var/}run/named/named.options r,
+
+  # libuv1 checks for kernel version within named process.
+  @{PROC}/version_signature r,
 
   # some people like to put logs in /var/log/named/ instead of having
   # syslog do the heavy lifting.
@@ -88,6 +95,9 @@
   /etc/samba/smb.conf r,
   /dev/urandom rwmk,
   owner /var/tmp/krb5_* rwk,
+
+  # systemd sd_notify
+  /run/systemd/notify w,
 
   # Site-specific additions and overrides. See local/README for details.
   #include <local/usr.sbin.named>
