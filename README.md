@@ -38,7 +38,7 @@ This rebuilds all zones, all configuration, and front-end website; if you
 only need to do part of this, please check the commands it calls.
 
 Als look in /base_configs to find out what prerequisites exist for the
-system (we use Ubuntu 18.04).
+system (we use Ubuntu 26.04).
 
 Steps to create additional content:
 
